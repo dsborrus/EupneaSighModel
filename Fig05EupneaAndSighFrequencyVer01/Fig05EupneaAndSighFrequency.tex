@@ -1,0 +1,95 @@
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+                   
+\begin{document}
+
+
+
+
+\def\figthetam{0.25}
+\def\figkm{0.04}
+\def\figthetah{0.3}
+\def\figkh{-0.06}
+\def\figlambda{0.15}
+%\def\figctot{1}
+\def\figvone{20}
+\def\figvtwo{0.25}
+\def\figvthree{60}
+\def\figkthree{0.3}
+
+\def\micromolar{\mu\mathrm{M}}
+\def\uM{\micromolar}
+\def\UM{$\uM$}
+\def\persecond{\mathrm{s}^{-1}}
+\def\permillisecond{\mathrm{ms}^{-1}}
+\def\micromolarpersecond{\mu\mathrm{M}\,\mathrm{s}^{-1}}
+\def\uMps{\micromolarpersecond}
+\def\permicromolarpersecond{\mu\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+\def\permolarpersecond{\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+\def\puMps{\permolarpersecond}
+\def\permicromolarpermillisecond{\mu\mathrm{M}^{-1}\,\mathrm{ms}^{-1}}
+\def\puMpms{\permicromolarpermillisecond}
+
+
+\begin{tikzpicture}
+
+\begin{axis}[xshift=0cm,yshift=0cm,
+        clip=true,        
+        axis y line=left,
+        axis x line*=bottom,
+        legend pos=north east,
+        legend cell align={left},
+        legend style={yshift=-10pt},
+        width=9cm,
+        height=6cm,
+        xlabel={},
+        y label style={align=center,text=red,yshift=15pt},
+        ylabel={eupnea freq \\ (${\rm s}^{-1}$)},
+        ylabel style={rotate=-90},
+        xmin=-0.4,
+	xmax=0.1,
+        ymin=0,
+	ymax=0.35,
+	y axis line style={red} ]
+
+\addplot+[red,mark options={fill=red}] table[x index=0,y index=1] {freq_a_iei.dat};
+
+\end{axis}
+
+\begin{axis}[xshift=0cm,yshift=0cm,
+        clip=true,        
+        axis y line=right,
+        axis x line*=bottom,
+        legend pos=north east,
+        legend cell align={left},
+        legend style={yshift=-10pt},
+        width=9cm,
+        height=6cm,
+        x label style={align=center},
+         xlabel={$\theta_a$ \\ more $\leftarrow$ excitability $\rightarrow$ less},
+         y label style={align=center,text=green,yshift=-10pt},
+        ylabel={sigh freq \\ (${\rm min}^{-1}$)},
+        ylabel style={rotate=-90},
+        xmin=-0.4,
+	xmax=0.1,
+        ymin=0,
+	ymax=0.95,
+	y axis line style={green} ]
+
+\addplot+[green,,mark options={fill=green},
+y filter/.code={\pgfmathparse{#1*60}\pgfmathresult}] table[x index=0,y index=1] {freq_ct_iei.dat};
+
+\end{axis}
+
+ 
+\end{tikzpicture}
+
+
+
+
+\end{document}
+
+

@@ -1,0 +1,94 @@
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+                   
+\begin{document}
+
+
+%\def\figw{1}
+%\def\figtaua{10}
+%\def\figthetaa{0.18}
+%\def\figka{0.2}
+%\def\figthetas{0.14}
+%\def\figks{-0.08}
+%\def\figthetassnic{0.3}
+%\def\figkssnic{-1.0}
+
+\begin{tikzpicture}
+
+
+\begin{axis}[xshift=0cm,yshift=0cm,
+        clip=false, hide axis,
+        legend pos=north east,
+        legend cell align={left},
+        width=14cm,
+        height=5cm,
+        xmin=0,
+	xmax=25,
+        ymin=0,
+	ymax=1]
+\addplot[blue] table[x index=0,y index=1] {figdata1.dat};
+\addlegendentry{$a$}
+\addplot[cyan,dashed] table[x index=0,y index=2] {figdata1.dat};
+\addlegendentry{$s$}
+\addplot[black,dashdotted] table[x index=0,y index=3] {figdata1.dat};
+\addlegendentry{$\theta$}
+\draw[ultra thick] (axis cs: 21,-0.1) -- node[below] {4 s} (axis cs: 25,-0.1);
+\draw[ultra thick] (axis cs: -1,0.2) -- node[left] {0.2} (axis cs: -1,0.4);
+\end{axis}
+
+\begin{axis}[xshift=0cm,yshift=-6cm,
+view={60}{30},
+      width=7cm,
+        height=7cm,
+        xmin=0.35,
+	xmax=1,
+        ymin=0.35,
+	ymax=1,
+	zmin=0,
+	zmax=0.8,
+	ztick={0,0.2,0.4,0.6,0.8},
+xlabel={$\theta$},
+ylabel={$s$},
+zlabel={$a$},
+x dir=reverse,
+zlabel style={rotate=-90}]
+
+% t a s \theta 
+% 0 1 2 3 
+\addplot3[blue]  table[x index=3,y index=2,z index=1] {figdata1.dat};
+
+\addplot3[black,yshift=-5pt]  table[x index=3,y index=2,z index=4] {figdata1.dat};
+
+\end{axis}
+	
+
+\begin{axis}[xshift=8cm,yshift=-6cm,
+      width=6cm,
+        height=6cm,
+        xmin=0.35,
+	xmax=1,
+        ymin=0.35,
+	ymax=1,
+        axis x line=bottom,
+        axis y line=left,
+	ylabel near ticks,
+        xlabel near ticks,
+        ylabel style={rotate=-90},
+        ylabel={$\theta$},
+        xlabel={$s$}]
+
+\addplot[black]  table[x index=2,y index=3] {figdata1.dat};
+
+%\addplot+[scatter,samples=50,scatter src=y] table[x index=2,y index=3] {figdata1.dat};
+		
+ 
+\end{axis}	
+	
+
+\end{tikzpicture}
+
+
+\end{document}  
