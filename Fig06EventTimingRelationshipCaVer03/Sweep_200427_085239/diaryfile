@@ -1,0 +1,101 @@
+param sweep range is:
+
+jin0_min =
+
+    0.0150
+
+
+jin0_max =
+
+    0.0220
+
+
+jin0_stp =
+
+   1.0000e-03
+
+
+jin1_min =
+
+    0.0200
+
+
+jin1_max =
+
+    0.1000
+
+
+jin1_stp =
+
+    0.0100
+
+Beginning sweep. name=Sweep_200427_085239
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 5000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0075
+   jin1 = 0.0008
+   compactout = 0
+Warning: no events found by classifier (j0 = 0.0075, j1 = 0.0008)
+> In tabakrinzelcalcium (line 533)
+  In parallel_function>make_general_channel/channel_general (line 832)
+  In remoteParallelFunction (line 67)
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 5000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0075
+   jin1 = 0.0012
+   compactout = 0
+Warning: no events found by classifier (j0 = 0.0075, j1 = 0.0012)
+> In tabakrinzelcalcium (line 533)
+  In parallel_function>make_general_channel/channel_general (line 832)
+  In remoteParallelFunction (line 67)
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 5000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0075
+   jin1 = 0.0024
+   compactout = 0
+Warning: no events found by classifier (j0 = 0.0075, j1 = 0.0024)
+> In tabakrinzelcalcium (line 533)
+  In parallel_function>make_general_channel/channel_general (line 832)
+  In remoteParallelFunction (line 67)
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 5000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0075
+   jin1 = 0.0028
+   compactout = 0
+Warning: no events found by classifier (j0 = 0.0075, j1 = 0.0028)
+> In tabakrinzelcalcium (line 533)
+  In parallel_function>make_general_channel/channel_general (line 832)
+  In remoteParallelFunction (line 67)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabakrinzelcalcium', 'C:\Users\dsbor\Desktop\SighModelingPaper\2020TabakRinzelCalciumManuscript\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m', 553)" style="font-weight:bold">tabakrinzelcalcium</a> (<a href="matlab: opentoline('C:\Users\dsbor\Desktop\SighModelingPaper\2020TabakRinzelCalciumManuscript\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m',553,0)">line 553</a>)
+Nonfinite endpoints or increment for colon operator in index.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('do_make_data', 'C:\Users\dsbor\Desktop\SighModelingPaper\2020TabakRinzelCalciumManuscript\Fig06EventTimingRelationshipCaVer03\do_make_data.m', 57)" style="font-weight:bold">do_make_data</a> (<a href="matlab: opentoline('C:\Users\dsbor\Desktop\SighModelingPaper\2020TabakRinzelCalciumManuscript\Fig06EventTimingRelationshipCaVer03\do_make_data.m',57,0)">line 57</a>)
+parfor k = 1:Ncases
+} 
+IdleTimeout has been reached.
+Parallel pool using the 'local' profile is shutting down.
+uiopen('C:\Users\dsbor\Dropbox\JudahEngleExchange\Basic_Denoising_Code.m',1)
+if system_dependent('IsDebugMode')==1, dbquit; end
