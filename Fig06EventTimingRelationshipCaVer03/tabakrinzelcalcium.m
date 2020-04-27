@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 1 0 0 0 0 0 0];
+param.fig=[1 1 1 1 1 0 0 0 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=1;
@@ -345,14 +345,16 @@ end
 if includetheta
     if fig(3)
         figure(3)
-        aa = 0:0.001:1;
+        aa = 0:0.001:amax;
         for fixeds = [ min(s) max(s) ];
-            plot((w*aa*fixeds+ka/4*log((1-aa)./aa)),aa,'r'); hold on;
+            plot((w*aa*fixeds+ka/4*log((amax-aa)./aa)),aa,'r'); hold on;
         end
-        plot(xinf(aa,thetatheta,ktheta),aa,'g'); hold on;
+        thetainf = lambdaa*xinf(aa,thetatheta,ktheta); % same as above
+        plot(thetainf,aa,'g'); hold on;
         plot(theta,a,'b');
         plot(theta+thetaa,a,'c');
-        
+        xlabel('\theta, \theta+thetaa')
+        ylabel('a')
         %axis([min(theta)*0.9 max(theta)*1.1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
         print([ run '-3.png'],'-dpng')
@@ -362,13 +364,13 @@ end
 if includetheta && includes
     if fig(4)
         figure(4)
-        aa = 0:0.0001:1;
+        aa = 0:0.0001:amax;
         ss = 0:0.0001:1;
         for fixedtheta = [min(theta)*0.9:0.01:max(theta)*1.1]
-            plot3((4*(fixedtheta+thetaa)-ka*log((1-aa)./aa))./(4*w*aa),fixedtheta*ones(size(aa)),aa,'r'); hold on;
+            plot3((4*(fixedtheta+thetaa)-ka*log((amax-aa)./aa))./(4*w*aa),fixedtheta*ones(size(aa)),aa,'r'); hold on;
         end
         for fixeds = [min(s)*0.9:0.01:max(s)*1.1];
-            plot3(fixeds*ones(size(aa)),-thetaa+(w*aa*fixeds+ka/4*log((1-aa)./aa)),aa,'r'); hold on;
+            plot3(fixeds*ones(size(aa)),-thetaa+(w*aa*fixeds+ka/4*log((amax-aa)./aa)),aa,'r'); hold on;
         end
         plot3(s,theta,a,'b')
         xlabel('s'); ylabel('\theta');  zlabel('a')
@@ -378,18 +380,24 @@ if includetheta && includes
         ylabel(['\theta, \Delta \theta = ' num2str(delta_theta)]);
         
         zlabel(['a, \Delta a = ' num2str(delta_a)]);
+        
+         axis([ 0 1 0 lambdaa 0 amax ])
+         
+        if 0
         sinf = xinf(aa,thetas,ks);
-        thetainf = xinf(aa,thetatheta,ktheta);
+        thetainf = lambdaa*xinf(aa,thetatheta,ktheta); % note lambdaa as above 
         plot3(sinf,thetainf,aa,'k');
         %for fixeds = [min(s)*0.9:0.01:max(s)*1.1];
+      
         for fixeds = 0:0.02:1
             plot3(fixeds*ones(size(aa)),thetainf,aa,'g'); hold on;
         end
         %for fixedtheta = [min(theta)*0.9:0.01:max(theta)*1.1]
-        for fixedtheta = 0:0.02:1
+        for fixedtheta = 0:0.02:1 % max thetainf is lambdaa???
             plot3(sinf,fixedtheta*ones(size(aa)),aa,'c'); hold on;
         end
-        axis([ 0 1 0 1 0 1])
+        end
+        %axis([ 0 1 0 1 0 1])
         %axis([min(s)*0.9 max(s)*1.1 min(theta)*0.9 max(theta)*1.1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
         print([ run '-4.png'],'-dpng')
@@ -507,7 +515,7 @@ if param.NoiseTuning_rhythmfreqfig
     locs2 = trans+locs*dt;                     
     gaps = diff(locs2);
     
-    figure
+    figure(9)
     subplot(2,1,1); hold on;
     plot(t,a,'r'); plot(locs2,pks,'ko');
     title(['N = ' mat2str(N) '. lambdaa = ' mat2str(lambdaa)])
