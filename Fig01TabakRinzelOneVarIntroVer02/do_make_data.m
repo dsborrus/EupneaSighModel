@@ -1,6 +1,9 @@
 %% Tabak-Rinzel-like model  
 %% do_make_data.m example
  
+
+% greg test change for github
+
 clc; clear; close all;
 system('rm -r fig*')
 
