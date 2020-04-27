@@ -2,10 +2,7 @@ function [ param, out ] = tabakrinzelcalcium(varargin)
 
 % scale_eupnea and scale_calcium change default parameters - handle first
 
-% greg editing this
-
-
-param.includec=0; % calcium handling
+param.includec=1; % calcium handling
 param.includes=1; % synaptic depression
 param.includetheta=1; % cellular adaptation
 param.scale_eupnea=1.5;
@@ -32,61 +29,44 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 0 0 0 0 0 0 0 0];
-param.ESCOUPLINGvsCa=0;
-param.ESCouplingFig=0;
-param.NoiseTuning_rhythmfreqfig=1;
+param.fig=[1 1 1 1 0 1 0 1 1 ];
 param.seed=-1;
-param.writetraj=0;
-param.writehist=0;
+param.writetraj=1;
+param.writehist=1;
 param.filenametraj='default'; % default will be "run" traj (see below)
 param.filenamehist='default'; % default will be "run" hist (see below)
 param.thintraj=1; % 1=no thinning, 10=every 10th point, etc.
 param.a_iei_binwidth=0.5;
-param.ct_iei_binwidth=5;
+param.ct_iei_binwidth=0.5;
 
 % now the remainder of the default model parameters
 % period should be about 4 seconds.  Active phase about 0.5 seconds.
-%param.N = 100; % 100
-param.N = 50;
-param.w = 1;
-
-
-% Fraction of "activity" to be synaptic activity and fraction to be calcium
-param.lambdaa=5;
-param.lambdac=param.lambdaa*1.5;
-% total amax
-if param.includec
-    param.amax = param.lambdaa+param.lambdac;
-else
-    param.amax = param.lambdaa;
-end
-
+param.N = 100; % 100
+param.w=1;
+param.taua=scale_eupnea*0.1; % 0.05 or 0.1
+param.ka=0.2;
 if param.includetheta
-    param.thetaa=-0.3*param.lambdaa; % -0.3 thetaa=theta (dynamic) -0.4 to +0.1 are reasonable
+    param.thetaa=-0.3; % -0.3 thetaa=theta (dynamic) -0.4 to +0.1 are reasonable
     param.tausmax=scale_eupnea*0.5; % 0.5 was 0.2
     param.tausmin=scale_eupnea*0.5; % 0.5 was 0.2
 else
-    param.thetaa=0.18*param.lambdaa; % 0.18
+    param.thetaa=0.18; % 0.18
     param.tausmax=scale_eupnea*5;
     param.tausmin=scale_eupnea*0.1;
 end
-param.taua=scale_eupnea*0.1; % 0.05 or 0.1
-param.ka=0.2*param.lambdaa;
+param.thetas=0.14;
+param.ks=-0.08;
 
-param.thetas=0.14*param.lambdaa;
-param.ks=-0.08*param.lambdaa;
+param.thetataus=0.3; % 0.3
+param.ktaus=-0.5; % -0.5
 
-param.thetataus=0.3*param.lambdaa; % 0.3
-param.ktaus=-0.5*param.lambdaa; % -0.5
-
-param.thetatheta=0.15*param.lambdaa; %  0.15+param.thetaa
-param.ktheta=0.2*param.lambdaa; % 0.2
+param.thetatheta=0.15; %  0.15+param.thetaa
+param.ktheta=0.2; % 0.2
 
 param.tauthetamax=scale_eupnea*4; % 4 is default for s&theta
 param.tauthetamin=scale_eupnea*0.1; % 0.1 is default for s&theta
-param.thetatautheta=0.3*param.lambdaa; % 0.3 + param.thetaa
-param.ktautheta=-0.5*param.lambdaa; % -0.5
+param.thetatautheta=0.3; % 0.3 + param.thetaa
+param.ktautheta=-0.5; % -0.5
 
 param.a_thresh=0.4; % threshold crossing for activity
 param.a_ieimin=0.2; %  
@@ -105,13 +85,15 @@ param.thetah=0.3;
 param.kh=-0.06;
 
 param.jin0=scale_calcium*0.018; % 0.02 0.018 0
-param.jin1=scale_calcium/param.amax * 0.04; % 0.02 0.04 0.2
+param.jin1=scale_calcium*0.04; % 0.02 0.04 0.2
 param.v4=scale_calcium*0.8;
 param.k4=0.3;
 param.n4=4;
 
 param.thetac=0.35; % 0.35
 param.kc=0.05; % 0.05
+param.lambdaa=1;
+param.lambdac=1.5;
 
 param.init_a=0.5;
 param.init_s=0;
@@ -121,12 +103,6 @@ param.init_ct=2;
 
 param.jump_a=0;
 param.jump_t=Inf;
-
-param.trjwnd = 200;
-
-param.compactout = 0; % in order to not return actual simulation results
-                      % i.e. (t,a,s,theta,c,ct) so save on space during
-                      % pstudy
  
 if nargin>0
     disp('Non-default parameters: ')
@@ -148,7 +124,7 @@ filenametraj=param.filenametraj;
 filenamehist=param.filenamehist;
 thintraj=param.thintraj;
 a_iei_binwidth=param.a_iei_binwidth;
-ct_iei_binwidth=param.ct_iei_binwidth;
+a_iei_binwidth=param.ct_iei_binwidth;
 
 includec=param.includec;
 includes=param.includes;
@@ -199,15 +175,12 @@ thetac=param.thetac;
 kc=param.kc;
 lambdaa=param.lambdaa;
 lambdac=param.lambdac;
-amax=param.amax;
 
 init_a=param.init_a;
 init_s=param.init_s;
 init_theta=param.init_theta;
 init_c=param.init_c;
 init_ct=param.init_ct;
-
-trjwnd = param.trjwnd;
 
 % for two-pulse protocol 
 jump_a=param.jump_a;
@@ -230,25 +203,11 @@ for i=2:length(t)
     if includec
         ainf = lambdaa*xinf(presynpresyn,thetaa,ka)+lambdac*xinf(c(i-1),thetac,kc);
     else
-        ainf = lambdaa*xinf(presynpresyn,thetaa,ka);
+        ainf = xinf(presynpresyn,thetaa,ka);
     end
     
-    r = randn;
-    
     a(i)=a(i-1)+dt*( ainf - a(i-1))/taua + ...
-    	 r*dt*sqrt(1/dt/N/taua/amax*  (ainf*(amax-a(i-1))+(amax-ainf)*a(i-1)));
-       
-        % if a is negative, redo the noise
-        witer=0;
-        while a(i) < 0 || a(i) > amax
-            witer = witer+1;
-            %disp(['negative a(i), beginning loop. take ' mat2str(witer)])
-            r = randn;
-            a(i)=a(i-1)+dt*( ainf - a(i-1))/taua + ...
-                 r*dt*sqrt(1/dt/N/taua/amax*  (ainf*(amax-a(i-1))+(amax-ainf)*a(i-1)));
-        end
-        if a(i)<0; error('a below zero'); end
-        if ~isreal(a(i)); error('a not real'); end
+        randn*sqrt(dt)/N/taua*( ainf*(1-a(i-1))+(1-ainf)*a(i-1) );
     
     if includes
         sinf = xinf(a(i-1),thetas,ks);
@@ -257,7 +216,7 @@ for i=2:length(t)
     end
     
     if includetheta
-        thetainf = lambdaa*xinf(a(i-1),thetatheta,ktheta);
+        thetainf = xinf(a(i-1),thetatheta,ktheta);
         tautheta = (tauthetamax-tauthetamin)*xinf(a(i-1),thetatautheta,ktautheta)+tauthetamin;
         theta(i)=theta(i-1)+dt*( (thetainf - theta(i-1))/tautheta );
     end
@@ -299,27 +258,26 @@ delta_theta = max(theta)-min(theta); out.delta_theta=delta_theta;
 delta_a = max(a)-min(a); out.delta_a=delta_a;
 
 % make and print figures
-run = [ 'fig' datestr(now,1) '-' datestr(now,'HHMMSS') ];
+run = [ 'fig' datestr(now,1) '-' datestr(now,13) ];
 theparamstr = param_str(thetaa);
-titlestr = { run ; ['jin0 = ' mat2str(jin0/scale_calcium) '. jin1 = ' mat2str(jin1/scale_calcium)] };
+titlestr = { run ; theparamstr };
 
 if fig(1)
     figure(1);
     %cscale=c-min(c); cscale=cscale/max(cscale);
     if includec
-        ax1 = subplot(2,1,1);
+        subplot(2,1,1);
         plot(t,s,'g',t,theta,'c',t,c,'r',t,a,'b');
         legend({'s','\theta','c','a'});
         title(titlestr)
-        ax2 = subplot(2,1,2); plot(t,c,'r',t,ct,'k'); legend({'c','ct'});
-        linkaxes([ax1 ax2],'x')
+        subplot(2,1,2); plot(t,c,'r',t,ct,'k'); legend({'c','ct'});
     else
         subplot(2,1,1);
         plot(t,s,'g',t,theta,'c',t,a,'b');
         legend({'s','\theta','a'});
         title(titlestr)
     end
-    savefig
+    print([ run '-1.png'],'-dpng')
 end
 
 if includes
@@ -422,21 +380,16 @@ if includec
         css0=fzero(@(x) jin0-v4*x^n4/(k4^n4+x^n4),0.5);
         plot(css0*ones(size(ctct)),ctct,'k'); hold on;
         css1=fzero(@(x) jin0+jin1-v4*x^n4/(k4^n4+x^n4),0.5);
-        plot(css1*ones(size(ctct)),ctct,'y-.'); hold on;
-        out.cnull_ct=ctct;
-        out.cnull_c=css0*ones(size(ctct));
+        plot(css1*ones(size(ctct)),ctct,'k'); hold on;
         
         for i=1:length(cc)
             ctnull(i)=fzero(@(x) (v2+v1*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3),0.3);
         end
         plot(cc,ctnull,'r'); hold on;
         plot(c(:),ct(:),'b-o'); hold on; xlabel('c'); ylabel('ct'); title(titlestr)
-        plot(cc,max(ctct)*cc.^n4./(k4^n4+cc.^n4),'c');
+        plot(cc,max(ctct)*cc.^n4./(k4^n4+cc.^n4),'r');
+        plot(cc,max(ctct)*cc.^n5./(k5^n5+cc.^n5),'c');
         print([ run '-5.png'],'-dpng')
-        out.ctnull_c=cc;
-        out.ctnull_ct=ctnull;
-        
-
     end
     
     if fig(9)
@@ -499,134 +452,23 @@ if fig(7)
     print([ run '-7.png'],'-dpng')
 end
 
-if param.NoiseTuning_rhythmfreqfig
 
-    % Find bursts
-    [pks,locs] = findpeaks(a,'minpeakheight',mean(a)+std(a),...
-                             'minpeakprominence',0.4,...
-                             'minpeakdistance',0.4/dt);
-    
-    locs2 = trans+locs*dt;                     
-    gaps = diff(locs2);
-    
-    figure
-    subplot(2,1,1); hold on;
-    plot(t,a,'r'); plot(locs2,pks,'ko');
-    title(['N = ' mat2str(N) '. lambdaa = ' mat2str(lambdaa)])
-    
-    subplot(2,1,2); hold on;
-    histogram(gaps);
-    xlim([0 6])
-    title(['mean interval = ' mat2str(round(mean(gaps),1)) '. std of interval = ' mat2str(round(std(gaps),1)) '. cv = ' mat2str(round(std(gaps)/mean(gaps),2))])
-    
-    
-end
-
-if param.ESCOUPLINGvsCa
-    
-    % Find bursts
-    [pks,locs] = findpeaks(a,'minpeakheight',mean(a)+std(a),...
-                             'minpeakprominence',0.4,...
-                             'minpeakdistance',0.4/dt);
-    % Classify bursts
-    [eupnea_i,sigh_i] = ClassifyEvents(pks,locs,ct);
-    
-    if isempty(eupnea_i) || isempty(sigh_i)
-        % then no sigh/eupnea were found. big problem
-        warning(['no events found by classifier (j0 = ' mat2str(jin0/scalecalcium) ', j1 = ' mat2str(jin1*amax/scalecalcium) ')'])
-        sigh_i = NaN; eupnea_i = NaN;
-    end
-    
-    % remove sigh from first spot if it is there
-    if sigh_i(1) == 1; sigh_i(1) = []; end
-    
-    gaps = diff(locs);
-    
-    EupPeriod  = zeros(length(sigh_i),1);
-    EupSighInt = zeros(length(sigh_i),1);
-    PosSighApn = zeros(length(sigh_i),1);
-    
-    iter = 0;
-    for k = sigh_i
-        iter = iter+1;
-        
-        if k<8 % then not enough previous eupneas
-            EupPeriod(iter) = mean(gaps(1:k-2));
-        else
-            EupPeriod(iter) = mean(gaps(k-7:k-2));
-        end
-        
-        % make sure the sigh is not first or last
-        if k~=1 && k~=length(locs)
-            EupSighInt(iter) = gaps(k-1);
-        	PosSighApn(iter) = gaps(k); 
-        end
-          
-    end
-    
-    NormEuSiIn = EupSighInt./EupPeriod;
-    
-    % analyses for output
-    Coupling.EuSiIn = NormEuSiIn;
-    Coupling.pks = pks;
-    Coupling.locs = locs;
-    Coupling.eupnea_i = eupnea_i;
-    Coupling.sigh_i = sigh_i;
-    out.Coupling = Coupling;        
-    
-    % do the figure
-    if param.ESCouplingFig
-        figure(10)
-        plot(t,a,'b')
-        hold on;
-        plot(t(locs),pks,'yo')
-        plot(t(locs(sigh_i)),pks(sigh_i),'ro')
-        plot(t(locs(sigh_i-1)),pks(sigh_i-1),'go')
-        title(titlestr)
-        
-        figure(11)
-        histogram(NormEuSiIn,'binedges',[0:0.05:1.5]);
-        title(titlestr)
-        xlabel('Inspiratry-Sigh interval')
-        ylabel('Count')
-
-        figure(12);
-        ax1 = subplot(2,1,1);
-        plot(t(1:trjwnd*1000),s(1:trjwnd*1000),'g',...
-        t(1:trjwnd*1000),theta(1:trjwnd*1000),'c',...
-        t(1:trjwnd*1000),c(1:trjwnd*1000),'r',...
-        t(1:trjwnd*1000),a(1:trjwnd*1000),'b');
-        legend({'s','\theta','c','a'});
-        title(titlestr)
-        ax2 = subplot(2,1,2); plot(t(1:trjwnd*1000),c(1:trjwnd*1000),'r',...
-                                   t(1:trjwnd*1000),ct(1:trjwnd*1000),'k'); 
-        legend({'c','ct'});
-        linkaxes([ax1 ax2],'x')
-    end
-    
-    %print([ run '-8.png'],'-dpng')
-end
 
 dirname = [ run theparamstr ];
-%system([ 'mkdir ' dirname ]);
-
-% check for compact output
-if param.compactout
-    out.t=NaN; out.a=NaN; out.s=NaN; out.theta=NaN; out.c=NaN; out.ct=NaN;
-end
+system([ 'mkdir ' dirname ]);
 
 if writetraj
     % write trajectory .dat files
     atrans=find(t>=trans,1,'first');
     fid = fopen('traj.dat','w');
     for k=atrans:thintraj:length(t)
-        fprintf(fid,'%6.4f  ',[t(k)-trans a(k) s(k) theta(k) c(k) ct(k) ]);
+        fprintf(fid,'%6.4f  ',[t(k)-trans a(k) s(k) c(k) ct(k) ]);
         fprintf(fid,'\n');
     end
     if ~strcmp(filenametraj,'default')
         system(['cp traj.dat ' filenametraj '.dat '  ]);
     end
-    %system(['move traj.dat ' dirname ]);
+    system(['mv traj.dat ' dirname ]);
     fclose(fid);
 end
 if writehist
@@ -639,14 +481,14 @@ if writehist
     if ~strcmp(filenamehist,'default')
         system(['cp hist.dat ' filenamehist '.dat '  ]);
     end
-    %system(['move hist.dat ' dirname ]);
+    system(['mv hist.dat ' dirname ]);
 end
 
 % wrap tings up and collect files
-%save([run '.mat'])
-%system(['move *mat ' dirname ]);
-%system(['move *png ' dirname ]);
-%system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
+save([run '.mat'])
+system(['mv *mat ' dirname ]);
+system(['mv *png ' dirname ]);
+system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
 
 return
 
@@ -669,68 +511,6 @@ for i=1:nargin
 end
 
 return
-
-function [eupnea_i,sigh_i] = ClassifyEvents(pks,locs,ct)
-
-    % Assume all bursts are inspiratory. Unless the ct has a negative
-    % slope.
-    
-    Nvents = length(pks);
-    
-    eupnea_i = [];
-    sigh_i   = [];
-    
-    for k = 1:Nvents
-        
-        event_i = locs(k);
-        
-        if ct(event_i-1) > ct(event_i+1) % then ct is going down
-            sigh_i(end+1) = k; %#ok<*AGROW>
-        else
-            eupnea_i(end+1) = k;
-        end
-        
-    end
-    
-    
-    
-    
-return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
