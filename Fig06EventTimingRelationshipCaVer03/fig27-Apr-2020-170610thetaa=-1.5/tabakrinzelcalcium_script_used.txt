@@ -645,8 +645,8 @@ end
 % wrap things up and collect files 
 if ismac
 save([run '.mat'])
-system(['mv *mat ' dirname ]);
-system(['mv *png ' dirname ]);
+system(['move *mat ' dirname ]);
+system(['move *png ' dirname ]);
 system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
 end
 
