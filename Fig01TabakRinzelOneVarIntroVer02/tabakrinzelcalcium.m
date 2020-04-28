@@ -257,7 +257,7 @@ delta_s = max(s)-min(s); out.delta_s=delta_s;
 delta_theta = max(theta)-min(theta); out.delta_theta=delta_theta;
 delta_a = max(a)-min(a); out.delta_a=delta_a;
 
-% make and print figures
+% make and print figures %updated save string for windows
 run = [ 'fig' datestr(now,1) '-' datestr(now,'HHMMSS') ];
 theparamstr = param_str(thetaa);
 titlestr = { run ; theparamstr };
