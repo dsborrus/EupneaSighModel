@@ -486,7 +486,7 @@ if includes || includetheta
     if includes, presynpresyn=presynpresyn.*s; end
     if includetheta, presynpresyn=presynpresyn-theta; end
         plot(presynpresyn,a,'b')
-        legend({'a_\infty','})
+        legend({'a_\infty','traj'})
         
         subplot(2,2,3)
         aa = 0:0.0001:amax;

@@ -478,15 +478,14 @@ if includes || includetheta
         
         subplot(2,2,2)
         apresyn = -5:0.0001:1;
-        ainf = amax*xinf(apresyn,thetaa,ka);
+        ainf = xinf(apresyn,thetaa,ka);
         plot(apresyn,ainf,'r');hold on; xlabel('presyn'); ylabel('x_\infty');  title(titlestr)
-        
+        legend({'a_\infty'})
         
         presynpresyn=w*a;
     if includes, presynpresyn=presynpresyn.*s; end
     if includetheta, presynpresyn=presynpresyn-theta; end
         plot(presynpresyn,a,'b')
-        legend({'a_\infty','})
         
         subplot(2,2,3)
         aa = 0:0.0001:amax;

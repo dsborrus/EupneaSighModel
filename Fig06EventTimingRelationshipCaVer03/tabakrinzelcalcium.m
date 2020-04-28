@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 1 1 1 1 0 0 0];
+param.fig=[1 1 1 1 1 1 0 1 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=1;
@@ -470,20 +470,26 @@ if includes || includetheta
     if fig(6)
         figure(6);
         subplot(2,2,1)
-        aa = 0:0.0001:1;
+        aa = 0:0.0001:amax;
         tausaa = (tausmax-tausmin)*xinf(aa,thetataus,ktaus)+tausmin;
         tauthetaaa = (tauthetamax-tauthetamin)*xinf(aa,thetatautheta,ktautheta)+tauthetamin;
         plot(tausaa,aa,'r',tauthetaaa,aa,'g'); xlabel('\tau_x(a)'); ylabel('a');  title(titlestr)
         legend({'\tau_s','\tau_\theta'})
         
         subplot(2,2,2)
-        apresyn = -1:0.0001:1;
-        ainf = xinf(apresyn,thetaa,ka);
-        plot(apresyn,ainf,'r'); xlabel('presyn'); ylabel('x_\infty');  title(titlestr)
-        legend({'a_\infty'})
+        apresyn = -5:0.0001:1;
+        ainf = amax*xinf(apresyn,thetaa,ka);
+        plot(apresyn,ainf,'r');hold on; xlabel('presyn'); ylabel('a_\infty');  title(titlestr)
+        
+        
+        presynpresyn=w*a;
+        if includes, presynpresyn=presynpresyn.*s; end
+        if includetheta, presynpresyn=presynpresyn-theta; end
+        plot(presynpresyn,a,'b')
+        legend({'a_\infty','traj'})
         
         subplot(2,2,3)
-        aa = 0:0.0001:1;
+        aa = 0:0.0001:amax;
         sinf = xinf(aa,thetas,ks);
         thetainf = xinf(aa,thetatheta,ktheta);
         plot(sinf,aa,'g',thetainf,aa,'b'); ylabel('a'); xlabel('x_\infty');  title(titlestr)

@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 1 1 1 1 0 1 0];
+param.fig=[1 1 1 1 1 1 0 0 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=1;
@@ -477,16 +477,10 @@ if includes || includetheta
         legend({'\tau_s','\tau_\theta'})
         
         subplot(2,2,2)
-        apresyn = -5:0.0001:1;
-        ainf = amax*xinf(apresyn,thetaa,ka);
-        plot(apresyn,ainf,'r');hold on; xlabel('presyn'); ylabel('x_\infty');  title(titlestr)
-        
-        
-        presynpresyn=w*a;
-    if includes, presynpresyn=presynpresyn.*s; end
-    if includetheta, presynpresyn=presynpresyn-theta; end
-        plot(presynpresyn,a,'b')
-        legend({'a_\infty','})
+        apresyn = -1:0.0001:1;
+        ainf = xinf(apresyn,thetaa,ka);
+        plot(apresyn,ainf,'r'); xlabel('presyn'); ylabel('x_\infty');  title(titlestr)
+        legend({'a_\infty'})
         
         subplot(2,2,3)
         aa = 0:0.0001:amax;
