@@ -355,6 +355,7 @@ if includetheta
         plot(theta+thetaa,a,'c');
         xlabel('\theta, \theta+thetaa')
         ylabel('a')
+        %axis([min(theta)*0.9 max(theta)*1.1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
         print([ run '-3.png'],'-dpng')
     end
@@ -370,32 +371,29 @@ if includetheta && includes
         
         aa = 0:0.0001:amax;
         ss = 0:0.0001:1;
-        for fixedtheta = [thetamin:0.05:thetamax]
-            %plot3((4*(fixedtheta+thetaa)-ka*log((amax-aa)./aa))./(4*w*aa),fixedtheta*ones(size(aa)),aa,'r'); hold on;
-        ssurf = (4*(fixedtheta+thetaa)-ka*log((amax-aa)./aa))./(4*w*aa);
-        ssurf = ssurf(find(ssurf>0 &))
-            plot3(ssurf,fixedtheta*ones(size(aa)),aa,'r'); hold on;
+        for fixedtheta = [thetamin:0.05:thetamax*1.1]
+            plot3((4*(fixedtheta+thetaa)-ka*log((amax-aa)./aa))./(4*w*aa),fixedtheta*ones(size(aa)),aa,'r'); hold on;
         end
-        for fixeds = [smin:0.05:smax];
+        for fixeds = [smin:0.05:smax*1.1];
             plot3(fixeds*ones(size(aa)),-thetaa+(w*aa*fixeds+ka/4*log((amax-aa)./aa)),aa,'r'); hold on;
         end
         plot3(s,theta,a,'b')
         xlabel('s'); ylabel('\theta');  zlabel('a')
+        
         xlabel(['s, \Delta s = ' num2str(delta_s)]);
+        
         ylabel(['\theta, \Delta \theta = ' num2str(delta_theta)]);
+        
         zlabel(['a, \Delta a = ' num2str(delta_a)]);
+        
         axis([ smin smax thetamin thetamax 0 amax ])
          
-        sinf = xinf(a,thetas,ks);
-        thetainf = lambdaa*xinf(a,thetatheta,ktheta); % note lambdaa as above 
-        plot3(sinf,thetainf,a,'k');
-        
-        axis([ -Inf Inf -Inf Inf -Inf Inf ])
-        
-        keyboard
+        if 0
+        sinf = xinf(aa,thetas,ks);
+        thetainf = lambdaa*xinf(aa,thetatheta,ktheta); % note lambdaa as above 
+        plot3(sinf,thetainf,aa,'k');
         %for fixeds = [min(s)*0.9:0.01:max(s)*1.1];
       
-        if 0
         for fixeds = 0:0.02:1
             plot3(fixeds*ones(size(aa)),thetainf,aa,'g'); hold on;
         end
