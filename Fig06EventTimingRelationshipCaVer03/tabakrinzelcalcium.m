@@ -408,17 +408,20 @@ if includetheta && includes
     
     if fig(8)
         figure(8)
+        smin = min(s)*0.9;
+        smax = max(s)*1.1;
+        thetamin = min(theta)*0.9;
+        thetamax = max(theta)*1.1;
         plot(s,theta,'b'); hold on
-        plot(s,theta+thetaa,'c'); hold on
-        delta_theta = max(theta)-min(theta);
+        %plot(s,theta+thetaa,'c'); hold on;
         xlabel('s'); ylabel(['\theta, \Delta\theta = ' num2str(delta_theta)]);
         %plot([0 1]',-thetaa*[1 1]','g--')
         sinf = xinf(aa,thetas,ks);
-        thetainf = xinf(aa,thetatheta,ktheta);
+        thetainf = lambdaa*xinf(aa,thetatheta,ktheta);
         plot(sinf,thetainf,'k');
         legend({'traj','traj-\theta_a'})
         title(titlestr)
-        axis([ 0 1 0 1 ])
+        axis([ smin smax thetamin thetamax ])
         print([ run '-8.png'],'-dpng')
     end
 end
