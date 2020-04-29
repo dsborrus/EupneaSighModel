@@ -1,0 +1,86 @@
+param sweep range is:
+
+jin0_min =
+
+          0.01
+
+
+jin0_max =
+
+          0.02
+
+
+jin0_stp =
+
+          0.00
+
+
+jin1_min =
+
+          0.02
+
+
+jin1_max =
+
+          0.10
+
+
+jin1_stp =
+
+          0.01
+
+Beginning sweep. name=Sweep_200428_021333
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0075
+   jin1 = 0.0008
+   compactout = 1
+Warning: File not found or permission denied
+> In matlab.graphics.internal.name (line 97)
+  In print (line 71)
+  In tabakrinzelcalcium (line 321)
+  In parallel_function>make_general_channel/channel_general (line 832)
+  In remoteParallelFunction (line 67)
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0075
+   jin1 = 0.0016
+   compactout = 1
+Warning: File '.\fig28-Apr-2020-141339-2.png' not found.
+> In matlab.graphics.internal.name (line 97)
+  In print (line 71)
+  In tabakrinzelcalcium (line 341)
+  In parallel_function>make_general_channel/channel_general (line 832)
+  In remoteParallelFunction (line 67)
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp.remoteparfor/getCompleteIntervals', 'C:\Program Files\MATLAB\R2020a\toolbox\parallel\distcomp\+distcomp\remoteparfor.m', 374)" style="font-weight:bold">distcomp.remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\parallel\distcomp\+distcomp\remoteparfor.m',374,0)">line
+374</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\lang\parallel_function.m', 741)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\lang\parallel_function.m',741,0)">line 741</a>)
+        [tags, out] = P.getCompleteIntervals(chunkSize);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\lang\parallel_function.m', 573)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\lang\parallel_function.m',573,0)">line 573</a>)
+    R = distributed_execution(...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('do_make_data', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_data.m', 57)" style="font-weight:bold">do_make_data</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_data.m',57,0)">line 57</a>)
+parfor k = 1:Ncases
+} 
+do_make_data
+{Error: <a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_data.m',71,47)">File: do_make_data.m Line: 71 Column: 47</a>
+Invalid expression. Check for missing multiplication operator, missing or unbalanced
+delimiters, or other syntax error. To construct matrices, use brackets instead of
+parentheses.
+} 
+do_make_data
