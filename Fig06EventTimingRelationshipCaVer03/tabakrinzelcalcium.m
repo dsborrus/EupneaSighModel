@@ -59,6 +59,7 @@ if param.includec
 else
     param.amax = param.lambdaa;
 end
+param.amin = 0.1;
 
 if param.includetheta
     % threshold can be varied larger (less negative) theta gives more
@@ -200,6 +201,7 @@ kc=param.kc;
 lambdaa=param.lambdaa;
 lambdac=param.lambdac;
 amax=param.amax;
+amin=param.amin;
 
 init_a=param.init_a;
 init_s=param.init_s;
@@ -230,9 +232,7 @@ for i=2:length(t)
     if includec
         ainf = lambdaa*xinf(presynpresyn,thetaa,ka)+lambdac*xinf(c(i-1),thetac,kc);
     else
-        ainf = lambdaa*xinf(presynpresyn,thetaa,ka);
-        
-        amin=0.1;
+        %ainf = lambdaa*xinf(presynpresyn,thetaa,ka);
         ainf = amin+(lambdaa-amin)*xinf(presynpresyn,thetaa,ka);
     end
     

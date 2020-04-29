@@ -1,0 +1,22 @@
+Running one off: OneOff_200429_113020
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 0
+   ESCouplingFig = 0
+   total = 2200
+   includec = 1
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0016
+   fig = 0  0  0  0  0  0  0  0  0
+   dosave = 0
+   NoiseTuning_rhythmfreqfig = 1
+includec
+
+includec =
+
+     1
+
+if system_dependent('IsDebugMode')==1, dbquit all; end
+run_once
