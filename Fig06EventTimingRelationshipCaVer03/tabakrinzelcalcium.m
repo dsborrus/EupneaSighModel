@@ -46,12 +46,12 @@ param.ct_iei_binwidth=5;
 % now the remainder of the default model parameters
 % period should be about 4 seconds.  Active phase about 0.5 seconds.
 %param.N = 100; % 100
-param.N = 50;
+param.N = 80;
 param.w = 1;
 
 
 % Fraction of "activity" to be synaptic activity and fraction to be calcium
-param.lambdaa=5;
+param.lambdaa=10;
 param.lambdac=param.lambdaa*1.5;
 % total amax
 if param.includec
@@ -59,12 +59,12 @@ if param.includec
 else
     param.amax = param.lambdaa;
 end
-param.amin = 0.1;
+param.amin = 1;
 
 if param.includetheta
     % threshold can be varied larger (less negative) theta gives more
     % variability
-    param.thetaa=-0.1*param.lambdaa; % -0.3 thetaa=theta (dynamic) -0.4 to +0.1 are reasonable
+    param.thetaa=-0.0*param.lambdaa; % -0.3 thetaa=theta (dynamic) -0.4 to +0.1 are reasonable
     param.tausmax=scale_eupnea*0.5; % 0.5 was 0.2
     param.tausmin=scale_eupnea*0.5; % 0.5 was 0.2
 else
@@ -75,13 +75,13 @@ end
 param.taua=scale_eupnea*0.1; % 0.05 or 0.1
 param.ka=0.2*param.lambdaa;
 
-param.thetas=0.14*param.lambdaa;
+param.thetas=0.14*param.lambdaa+param.amin;
 param.ks=-0.08*param.lambdaa;
 
 param.thetataus=0.3*param.lambdaa; % 0.3
 param.ktaus=-0.5*param.lambdaa; % -0.5
 
-param.thetatheta=0.15*param.lambdaa; %  0.15+param.thetaa
+param.thetatheta=0.15*param.lambdaa+param.amin; %  0.15+param.thetaa
 param.ktheta=0.2*param.lambdaa; % 0.2
 
 param.tauthetamax=scale_eupnea*4; % 4 is default for s&theta
@@ -230,7 +230,8 @@ for i=2:length(t)
     if includetheta, presynpresyn=presynpresyn-theta(i-1); end
     
     if includec
-        ainf = lambdaa*xinf(presynpresyn,thetaa,ka)+lambdac*xinf(c(i-1),thetac,kc);
+        %ainf = lambdaa*xinf(presynpresyn,thetaa,ka)+lambdac*xinf(c(i-1),thetac,kc);
+        ainf = amin+(lambdaa-amin)*xinf(presynpresyn,thetaa,ka)+lambdac*xinf(c(i-1),thetac,kc);
     else
         %ainf = lambdaa*xinf(presynpresyn,thetaa,ka);
         ainf = amin+(lambdaa-amin)*xinf(presynpresyn,thetaa,ka);
@@ -548,7 +549,7 @@ end
 if param.ESCOUPLINGvsCa
     
     % Find bursts
-    [pks,locs] = findpeaks(a,'minpeakheight',mean(a)+std(a),...
+    [pks,locs] = findpeaks(a,'minpeakheight',mean(a)+3*std(a),...
                              'minpeakprominence',0.4,...
                              'minpeakdistance',0.4/dt);
     % Classify bursts

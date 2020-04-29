@@ -2,14 +2,15 @@
 
 clc; clear; close all;
 
-tmax = 2200;
-includec = 1;
+tmax = 3000;
+includec = 0;
 scale_calcium = 0.5;
 dosave = 0;
 NoiseTuning_rhythmfreqfig = 1;
-N = 50;
+N = 1000;
 
-amax=12.5;
+amax=37.5;
+amin=1;
 
 jin0 = scale_calcium*0.018; % 0.02 0.018 0
 jin1=scale_calcium/amax * 0.04; % 0.02 0.04 0.2
@@ -27,13 +28,14 @@ disp(['Running one off: ' name])
                                    'N',N,...
                                    'jin0',jin0,...
                                    'jin1',jin1,...
-                                   'fig',[0 0 0 0 0 0 0 0 0],...
+                                   'amin',amin,...
+                                   'fig',[1 1 1 1 1 1 0 1 0],...
                                    'dosave',dosave,...
                                    'NoiseTuning_rhythmfreqfig',NoiseTuning_rhythmfreqfig...
                                    );
             
     
-                               
+if ispc; system(['move *.png ' name '/']); end                          
 
 if dosave                               
     FigList = findobj(allchild(0), 'flat', 'Type', 'figure');
