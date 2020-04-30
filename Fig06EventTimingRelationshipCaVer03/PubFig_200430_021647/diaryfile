@@ -1,7 +1,0 @@
-Running publiciation figure: PubFig_200430_021647
-{Unrecognized function or variable 'sweepname'.
-
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('do_make_pubfig', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_pubfig.m', 19)" style="font-weight:bold">do_make_pubfig</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_pubfig.m',19,0)">line 19</a>)
-diary([sweepname '/diaryfile'])
-} 
-do_make_pubfig
