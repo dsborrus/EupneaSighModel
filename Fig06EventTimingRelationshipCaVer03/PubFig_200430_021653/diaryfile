@@ -1,0 +1,19 @@
+Running publiciation figure: PubFig_200430_021653
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 15000
+   includec = 1
+   N = 80
+   jin0 = 0.0095
+   jin1 = 0.002
+   fig = 0  0  0  0  0  0  0  0  0
+   dosave = 0
+{Unrecognized function or variable 't_start'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('do_make_pubfig', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_pubfig.m', 54)" style="font-weight:bold">do_make_pubfig</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\do_make_pubfig.m',54,0)">line 54</a>)
+t_taken = toc(t_start);
+} 
+do_make_pubfig

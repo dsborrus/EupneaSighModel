@@ -1,0 +1,919 @@
+param sweep range is:
+
+jin0_min =
+
+    0.0160
+
+
+jin0_max =
+
+    0.0220
+
+
+jin0_stp =
+
+   1.0000e-03
+
+
+jin1_min =
+
+    0.0300
+
+
+jin1_max =
+
+    0.1100
+
+
+jin1_stp =
+
+    0.0100
+
+Beginning sweep. name=Sweep_200430_091518
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #1 done of 63 total.
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #2 done of 63 total.
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #3 done of 63 total.
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #4 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #11 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #18 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #32 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #25 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #17 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #10 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #24 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #31 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #9 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #16 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #23 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #30 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #15 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #8 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #29 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #22 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #14 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #7 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #21 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #28 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #13 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #6 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #27 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #20 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0085
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #12 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.008
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #5 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #26 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.009
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #19 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #40 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #36 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #48 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #44 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #39 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #35 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #43 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #47 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #38 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #34 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #46 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #42 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #37 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0095
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #33 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #45 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.01
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #41 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #50 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #52 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #54 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0016
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #56 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #49 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #51 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0012
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #55 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.0105
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #53 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.002
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #57 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0028
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #59 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0044
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #63 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0036
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #61 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0024
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #58 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.004
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #62 done of 63 total.
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   includec = 1
+   total = 15000
+   dt = 0.001
+   N = 50
+   jin0 = 0.011
+   jin1 = 0.0032
+   compactout = 1
+   fig = 0  0  0  0  0  0  0  0  0
+Simulation #60 done of 63 total.
+Starting figure creation. Making histogram grid figure
+Elapsed time is 284.839528 seconds.
+Parameter sweep complete. Output saved to Sweep_200430_091518.
+Time taken was ~285 seconds. Or ~5 minute.
+Exiting script. Have a nice day.

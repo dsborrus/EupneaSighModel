@@ -1,0 +1,26 @@
+Running one off: OneOff_200430_015535
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 0
+   ESCouplingFig = 0
+   total = 15000
+   includec = 1
+   N = 80
+   jin0 = 0.0095
+   jin1 = 0.002
+   amin = 1
+   fig = 1  1  1  1  1  1  0  1  0
+   dosave = 0
+   NoiseTuning_rhythmfreqfig = 1
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabakrinzelcalcium>xinf', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m', 682)" style="font-weight:bold">tabakrinzelcalcium>xinf</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m',682,0)">line 682</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabakrinzelcalcium', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m', 234)" style="font-weight:bold">tabakrinzelcalcium</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m',234,0)">line 234</a>)
+        ainf =
+        amin+(lambdaa-amin)*xinf(presynpresyn,thetaa,ka)+lambdac*xinf(c(i-1),thetac,kc);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_once', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m', 24)" style="font-weight:bold">run_once</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m',24,0)">line 24</a>)
+[params, out] = tabakrinzelcalcium('ESCOUPLINGvsCa',0,...
+} 
+run_once
