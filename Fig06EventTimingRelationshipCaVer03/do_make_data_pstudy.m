@@ -23,23 +23,23 @@ tmax = 15000;
 dt = 0.001;
 includec = 1;
 scale_calcium = 0.5;
-compactout = 1;
-N = 50;
+compactout = 0;
+N = 80;
 fig=[0 0 0 0 0 0 0 0 0];
 
 % Fraction of "activity" to be synaptic activity and fraction to be calcium
-amax = 12.5; % note for user. amax here must be same as in TabakRinzelCalc model
+amax = 25; % note for user. amax here must be same as in TabakRinzelCalc model
 % it can't be set on it's own just yet.
 
 disp('param sweep range is:')
 % base intake of Ca (0.18 at first) (Greg's notes 0.02 0.018 0)
-jin0_min = 0.015 %#ok<*NOPTS>
+jin0_min = 0.016 %#ok<*NOPTS>
 jin0_max = 0.022
 jin0_stp = 0.001
 jin0_array = scale_calcium*(jin0_min:jin0_stp:jin0_max);
 % Ca intake from eupnea (0.04 at first) (Greg's notes 0.02 0.04 0.2)
-jin1_min = 0.02
-jin1_max = 0.10
+jin1_min = 0.03
+jin1_max = 0.11
 jin1_stp = 0.01
 jin1_array = scale_calcium/amax*(jin1_min:jin1_stp:jin1_max);
 

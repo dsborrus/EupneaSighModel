@@ -1,0 +1,39 @@
+Running publiciation figure: PubFig_200430_031419
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 30000
+   includec = 1
+   N = 80
+   jin0 = 0.004
+   jin1 = 0.004
+   fig = 0  0  0  0  0  0  0  0  0
+   dosave = 0
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 30000
+   includec = 1
+   N = 80
+   jin0 = 0.004
+   jin1 = 0.006
+   fig = 0  0  0  0  0  0  0  0  0
+   dosave = 0
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 0
+   total = 30000
+   includec = 1
+   N = 80
+   jin0 = 0.004
+   jin1 = 0.002
+   fig = 0  0  0  0  0  0  0  0  0
+   dosave = 0
+Time taken was ~69 seconds. Or ~1 minute.
+Exiting script. Have a nice day.

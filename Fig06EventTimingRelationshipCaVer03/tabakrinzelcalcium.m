@@ -33,7 +33,7 @@ param.dt=0.001;
 param.fig=[1 1 1 1 1 1 0 1 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
-param.NoiseTuning_rhythmfreqfig=1;
+param.NoiseTuning_rhythmfreqfig=0;
 param.seed=-1;
 param.writetraj=0;
 param.writehist=0;
@@ -549,7 +549,7 @@ end
 if param.ESCOUPLINGvsCa
     
     % Find bursts
-    [pks,locs] = findpeaks(a,'minpeakheight',mean(a)+3*std(a),...
+    [pks,locs] = findpeaks(a,'minpeakheight',mean(a)+2*std(a),...
                              'minpeakprominence',0.4,...
                              'minpeakdistance',0.4/dt);
     % Classify bursts
