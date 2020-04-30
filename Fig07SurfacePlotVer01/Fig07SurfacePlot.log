@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  30 APR 2020 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  30 APR 2020 19:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -562,7 +562,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-No file Fig07SurfacePlot.aux.
+(./Fig07SurfacePlot.aux)
 \openout1 = `Fig07SurfacePlot.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -577,7 +577,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count130
@@ -643,17 +643,17 @@ your preamble.
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./Fig07SurfacePlot.aux) ) 
 Here is how much of TeX's memory you used:
- 22982 strings out of 492995
- 600873 string characters out of 6132704
- 1116677 words of memory out of 5000000
- 26172 multiletter control sequences out of 15000+600000
+ 26534 strings out of 492995
+ 678456 string characters out of 6132704
+ 2204124 words of memory out of 5000000
+ 29722 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,10n,96p,732b,1949s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,116p,732b,8181s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr10.pfb>
-Output written on Fig07SurfacePlot.pdf (1 page, 37986 bytes).
+Output written on Fig07SurfacePlot.pdf (1 page, 53535 bytes).
 PDF statistics:
  19 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream

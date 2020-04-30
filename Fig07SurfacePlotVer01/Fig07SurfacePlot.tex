@@ -33,17 +33,64 @@
 \def\permicromolarpermillisecond{\mu\mathrm{M}^{-1}\,\mathrm{ms}^{-1}}
 \def\puMpms{\permicromolarpermillisecond}
 
+\def\figw{1}
+\def\figtaua{10}
+\def\figthetaa{0} % 0.18
+\def\figka{0.2}
+\def\figthetas{0.14}
+\def\figks{-0.08}
+\def\figthetassnic{0.3}
+\def\figkssnic{-1.0}
 
 \begin{tikzpicture}
 
-\begin{axis}[
-	domain=0:1,
-	xmax=1,
+
+
+
+\begin{axis}[xshift=0cm,yshift=-6cm,
+view={60}{30},
+      width=7cm,
+        height=7cm,
+        xmin=0.1,
+	xmax=0.2,
+        ymin=0,
 	ymax=1,
+	zmin=0,
+	zmax=1,
+	ztick={0,0.2,0.4,0.6,0.8},
+	y domain=0.01:0.999,
+	domain=0.1:0.2,
+xlabel={$\theta$},
+ylabel={$s$},
+zlabel={$a$},
+%x dir=reverse,
+zlabel style={rotate=-90},
+z buffer=sort
 ]
-\addplot3[surf] {x*y};
+
+% t a s \theta 
+% 0 1 2 3 
+%\addplot3[blue]  table[x index=3,y index=2,z index=1] {figdata1.dat};
+
+%\addplot3[black,yshift=-5pt]  table[x index=3,y index=2,z index=4] {figdata1.dat};
+
+%\addplot3[surf] {exp(-((x-0.51)^2 + (y-0.51)^2)/0.05)};
+%\addplot3[surf] ({x},{y},{exp(-((x-0.51)^2 + (y-0.51)^2)/0.05)});
+
+%\addplot3[surf,samples=40, samples y=10,clip=true]  ({y},{(4*(\figthetaa+y)-\figka*ln(1/x-1))/(4*\figw*x)},{x});
+\addplot3[mesh,draw=red,samples=40, samples y=40,clip=true]  ({x},{(4*(\figthetaa+x)-\figka*ln(1/y-1))/(4*\figw*y)},{y});
+
+
+\addplot3[thick,green,samples=43, samples y=40,clip=true]  ({0.18},{(4*(\figthetaa+0.18)-\figka*ln(1/y-1))/(4*\figw*y)},{y});
+
+% \addplot3[green,thick] ({1/(1+exp(4*(\figthetas-x)/\figks))}, {x}, {y}); 
+\addlegendentry{$\dot{s}=0$}
+
+
 
 \end{axis}
+
+
 \end{tikzpicture}
 
 
