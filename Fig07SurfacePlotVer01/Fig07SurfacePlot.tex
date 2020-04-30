@@ -1,0 +1,53 @@
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+                   
+\begin{document}
+
+
+
+
+\def\figthetam{0.25}
+\def\figkm{0.04}
+\def\figthetah{0.3}
+\def\figkh{-0.06}
+\def\figlambda{0.15}
+%\def\figctot{1}
+\def\figvone{20}
+\def\figvtwo{0.25}
+\def\figvthree{60}
+\def\figkthree{0.3}
+
+\def\micromolar{\mu\mathrm{M}}
+\def\uM{\micromolar}
+\def\UM{$\uM$}
+\def\persecond{\mathrm{s}^{-1}}
+\def\permillisecond{\mathrm{ms}^{-1}}
+\def\micromolarpersecond{\mu\mathrm{M}\,\mathrm{s}^{-1}}
+\def\uMps{\micromolarpersecond}
+\def\permicromolarpersecond{\mu\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+\def\permolarpersecond{\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+\def\puMps{\permolarpersecond}
+\def\permicromolarpermillisecond{\mu\mathrm{M}^{-1}\,\mathrm{ms}^{-1}}
+\def\puMpms{\permicromolarpermillisecond}
+
+
+\begin{tikzpicture}
+
+\begin{axis}[
+	domain=0:1,
+	xmax=1,
+	ymax=1,
+]
+\addplot3[surf] {x*y};
+
+\end{axis}
+\end{tikzpicture}
+
+
+
+\end{document}
+
+
