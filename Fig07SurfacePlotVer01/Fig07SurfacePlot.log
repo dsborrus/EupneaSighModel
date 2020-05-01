@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  30 APR 2020 19:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 MAY 2020 09:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -374,15 +374,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
 \sa@box=\box37
 )
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
-
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
-code.tex
-File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
-\arrowsize=\dimen151
-)) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
@@ -390,7 +382,7 @@ Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
 \t@pgfplots@toka=\toks28
 \t@pgfplots@tokb=\toks29
 \t@pgfplots@tokc=\toks30
-\pgfplots@tmpa=\dimen152
+\pgfplots@tmpa=\dimen151
 \c@pgfplots@coordindex=\count110
 \c@pgfplots@scanlineindex=\count111
 
@@ -469,14 +461,14 @@ x)
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen153
-\pgfdecoratedremainingdistance=\dimen154
-\pgfdecoratedinputsegmentcompleteddistance=\dimen155
-\pgfdecoratedinputsegmentremainingdistance=\dimen156
-\pgf@decorate@distancetomove=\dimen157
+\pgfdecoratedcompleteddistance=\dimen152
+\pgfdecoratedremainingdistance=\dimen153
+\pgfdecoratedinputsegmentcompleteddistance=\dimen154
+\pgfdecoratedinputsegmentremainingdistance=\dimen155
+\pgf@decorate@distancetomove=\dimen156
 \pgf@decorate@repeatstate=\count116
-\pgfdecorationsegmentamplitude=\dimen158
-\pgfdecorationsegmentlength=\dimen159
+\pgfdecorationsegmentamplitude=\dimen157
+\pgfdecorationsegmentlength=\dimen158
 )
 \tikz@lib@dec@box=\box38
 )
@@ -489,12 +481,12 @@ s/tikzlibrarydecorations.pathreplacing.code.tex
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathreplacing.code.tex))
 \pgfplots@numplots=\count117
-\pgfplots@xmin@reg=\dimen160
-\pgfplots@xmax@reg=\dimen161
-\pgfplots@ymin@reg=\dimen162
-\pgfplots@ymax@reg=\dimen163
-\pgfplots@zmin@reg=\dimen164
-\pgfplots@zmax@reg=\dimen165
+\pgfplots@xmin@reg=\dimen159
+\pgfplots@xmax@reg=\dimen160
+\pgfplots@ymin@reg=\dimen161
+\pgfplots@ymax@reg=\dimen162
+\pgfplots@zmin@reg=\dimen163
+\pgfplots@zmax@reg=\dimen164
 )
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryplotmarks.code.tex
@@ -515,11 +507,11 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks32
-\ex@=\dimen166
+\ex@=\dimen165
 ))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen167
+\pmbraise@=\dimen166
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
@@ -536,7 +528,7 @@ LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box39
 \strutbox@=\box40
-\big@size=\dimen168
+\big@size=\dimen167
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \macc@depth=\count123
@@ -549,12 +541,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \column@=\count128
 \maxfields@=\count129
 \andhelp@=\toks34
-\eqnshift@=\dimen169
-\alignsep@=\dimen170
-\tagshift@=\dimen171
-\tagwidth@=\dimen172
-\totwidth@=\dimen173
-\lineht@=\dimen174
+\eqnshift@=\dimen168
+\alignsep@=\dimen169
+\tagshift@=\dimen170
+\tagwidth@=\dimen171
+\totwidth@=\dimen172
+\lineht@=\dimen173
 \@envbody=\toks35
 \multlinegap=\skip44
 \multlinetaggap=\skip45
@@ -581,13 +573,13 @@ LaTeX Font Info:    ... okay on input line 7.
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count130
-\scratchdimen=\dimen175
+\scratchdimen=\dimen174
 \scratchbox=\box41
 \nofMPsegments=\count131
 \nofMParguments=\count132
 \everyMPshowfont=\toks37
 \MPscratchCnt=\count133
-\MPscratchDim=\dimen176
+\MPscratchDim=\dimen175
 \MPnumerator=\count134
 \makeMPintoPDFobject=\count135
 \everyMPtoPDFconversion=\toks38
@@ -643,17 +635,17 @@ your preamble.
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./Fig07SurfacePlot.aux) ) 
 Here is how much of TeX's memory you used:
- 26534 strings out of 492995
- 678456 string characters out of 6132704
- 2204124 words of memory out of 5000000
- 29722 multiletter control sequences out of 15000+600000
+ 25604 strings out of 492995
+ 654808 string characters out of 6132704
+ 2027451 words of memory out of 5000000
+ 28798 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,116p,732b,8181s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,96p,732b,8179s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr10.pfb>
-Output written on Fig07SurfacePlot.pdf (1 page, 53535 bytes).
+Output written on Fig07SurfacePlot.pdf (1 page, 52711 bytes).
 PDF statistics:
  19 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream
