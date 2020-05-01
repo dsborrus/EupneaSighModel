@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 MAY 2020 09:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 MAY 2020 13:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -635,20 +635,20 @@ your preamble.
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./Fig07SurfacePlot.aux) ) 
 Here is how much of TeX's memory you used:
- 25604 strings out of 492995
- 654808 string characters out of 6132704
- 2027451 words of memory out of 5000000
- 28798 multiletter control sequences out of 15000+600000
+ 29720 strings out of 492995
+ 844311 string characters out of 6132704
+ 2293701 words of memory out of 5000000
+ 32913 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,96p,732b,8179s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,106p,732b,16429s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr10.pfb>
-Output written on Fig07SurfacePlot.pdf (1 page, 52711 bytes).
+Output written on Fig07SurfacePlot.pdf (1 page, 50639 bytes).
 PDF statistics:
- 19 PDF objects out of 1000 (max. 8388607)
- 13 compressed objects within 1 object stream
+ 27 PDF objects out of 1000 (max. 8388607)
+ 17 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
