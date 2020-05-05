@@ -83,6 +83,7 @@ plot(outC.t,outC.a,'k');
 plot(outC.t(outC.Coupling.locs(outC.Coupling.sigh_i)),outC.Coupling.pks(outC.Coupling.sigh_i),'ro')
 plot(outC.t(outC.Coupling.locs(outC.Coupling.sigh_i-1)),outC.Coupling.pks(outC.Coupling.sigh_i-1),'bo')
 xlim([2000 2000+twin])
+title('Default jin1')
 subplot(3,3,5);                        
 histogram(outC.Coupling.EuSiIn)
 
@@ -92,6 +93,7 @@ plot(outD1.t,outD1.a,'k');
 plot(outD1.t(outD1.Coupling.locs(outD1.Coupling.sigh_i)),outD1.Coupling.pks(outD1.Coupling.sigh_i),'ro')
 plot(outD1.t(outD1.Coupling.locs(outD1.Coupling.sigh_i-1)),outD1.Coupling.pks(outD1.Coupling.sigh_i-1),'bo')
 xlim([2000 2000+twin])
+title('Larger jin1')
 subplot(3,3,6);                        
 histogram(outD1.Coupling.EuSiIn)
                                
@@ -101,6 +103,7 @@ plot(outD2.t,outD2.a,'k');
 plot(outD2.t(outD2.Coupling.locs(outD2.Coupling.sigh_i)),outD2.Coupling.pks(outD2.Coupling.sigh_i),'ro')
 plot(outD2.t(outD2.Coupling.locs(outD2.Coupling.sigh_i-1)),outD2.Coupling.pks(outD2.Coupling.sigh_i-1),'bo')
 xlim([2000 2000+twin])
+title('Smaller jin1')
 subplot(3,3,4);                        
 histogram(outD2.Coupling.EuSiIn)
 %% Clean up 

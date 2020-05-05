@@ -3,7 +3,7 @@ function [ param, out ] = tabakrinzelcalcium(varargin)
 % scale_eupnea and scale_calcium change default parameters - handle first
 
 
-param.includec=0; % calcium handling
+param.includec=1; % calcium handling
 param.includes=1; % synaptic depression
 param.includetheta=1; % cellular adaptation
 param.scale_eupnea=1.5;
@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 1 1 1 1 0 1 0];
+param.fig=[1 1 1 1 1 1 0 1 1];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=0;
