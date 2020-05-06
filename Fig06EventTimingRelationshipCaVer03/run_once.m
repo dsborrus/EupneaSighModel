@@ -2,7 +2,7 @@
 
 clc; clear; close all;
 
-tmax = 15000;
+tmax = 5000;
 includec = 1;
 scale_calcium = 0.5;
 dosave = 0;
@@ -12,8 +12,8 @@ N = 80;
 amax=25;
 amin=1;
 
-jin0 = scale_calcium*0.019; % 0.02 0.018 0
-jin1=scale_calcium/amax * 0.1; % 0.02 0.04 0.2
+jin0 = scale_calcium*0.018; % 0.02 0.018 0
+jin1=scale_calcium/amax * 0.02; % 0.02 0.04 0.2
 
 name = ['OneOff_' char(datetime('now','Format','yyMMdd_hhmmss'))];
 system(['mkdir ' name]);

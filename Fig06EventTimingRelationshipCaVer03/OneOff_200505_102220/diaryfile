@@ -1,0 +1,17 @@
+Running one off: OneOff_200505_102220
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 1
+   total = 2200
+   includec = 1
+   N = 80
+   jin0 = 0.009
+   jin1 = 0.0008
+   amin = 1
+   fig = 1  0  0  0  0  0  0  0  0
+   dosave = 0
+   NoiseTuning_rhythmfreqfig = 1
+C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\fig05-May-2020-102221-1.png 
+        1 file(s) moved. 

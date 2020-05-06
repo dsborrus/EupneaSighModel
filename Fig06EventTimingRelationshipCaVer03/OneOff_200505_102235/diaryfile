@@ -1,0 +1,22 @@
+Running one off: OneOff_200505_102235
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 1
+   total = 50000
+   includec = 1
+   N = 80
+   jin0 = 0.009
+   jin1 = 0.0008
+   amin = 1
+   fig = 1  0  0  0  0  0  0  0  0
+   dosave = 0
+   NoiseTuning_rhythmfreqfig = 1
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabakrinzelcalcium', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m', 288)" style="font-weight:bold">tabakrinzelcalcium</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m',288,0)">line 288</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_once', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m', 24)" style="font-weight:bold">run_once</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m',24,0)">line 24</a>)
+[params, out] = tabakrinzelcalcium('ESCOUPLINGvsCa',1,...
+} 
+run_once

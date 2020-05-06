@@ -1,0 +1,27 @@
+Running one off: OneOff_200505_102614
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 1
+   total = 5000
+   includec = 1
+   N = 80
+   jin0 = 0.004
+   jin1 = 0.0004
+   amin = 1
+   fig = 1  0  0  0  0  0  0  0  0
+   dosave = 0
+   NoiseTuning_rhythmfreqfig = 1
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('histogram', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\specgraph\histogram.m', 165)" style="font-weight:bold">histogram</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\specgraph\histogram.m',165,0)">line 165</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabakrinzelcalcium', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m', 542)" style="font-weight:bold">tabakrinzelcalcium</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m',542,0)">line 542</a>)
+    histogram(gaps);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_once', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m', 24)" style="font-weight:bold">run_once</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m',24,0)">line 24</a>)
+[params, out] = tabakrinzelcalcium('ESCOUPLINGvsCa',1,...
+} 
+{Operation terminated by the user.
+} 
+run_once

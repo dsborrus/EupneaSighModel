@@ -1,0 +1,28 @@
+Running one off: OneOff_200505_102652
+Non-default scale and include parameters: 
+   includec = 1
+Non-default parameters: 
+   ESCOUPLINGvsCa = 1
+   ESCouplingFig = 1
+   total = 5000
+   includec = 1
+   N = 80
+   jin0 = 0.009
+   jin1 = 0.0004
+   amin = 1
+   fig = 1  0  0  0  0  0  0  0  0
+   dosave = 0
+   NoiseTuning_rhythmfreqfig = 1
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.graphics.internal.figfile.FigFile/write', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\graphics\+matlab\+graphics\+internal\+figfile\@FigFile\write.m', 32)" style="font-weight:bold">matlab.graphics.internal.figfile.FigFile/write</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\graphics\+matlab\+graphics\+internal\+figfile\@FigFile\write.m',32,0)">line 32</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('savefig', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\graphics\objectsystem\savefig.m', 83)" style="font-weight:bold">savefig</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\graphics\objectsystem\savefig.m',83,0)">line 83</a>)
+FF.write();
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabakrinzelcalcium', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m', 326)" style="font-weight:bold">tabakrinzelcalcium</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\tabakrinzelcalcium.m',326,0)">line 326</a>)
+    savefig
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_once', 'C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m', 24)" style="font-weight:bold">run_once</a> (<a href="matlab: opentoline('C:\Users\dsbor\Documents\GitHub\EupneaSighModel\Fig06EventTimingRelationshipCaVer03\run_once.m',24,0)">line 24</a>)
+[params, out] = tabakrinzelcalcium('ESCOUPLINGvsCa',1,...
+} 
+do_make_pubfig

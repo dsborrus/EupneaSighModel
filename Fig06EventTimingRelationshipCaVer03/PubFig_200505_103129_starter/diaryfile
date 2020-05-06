@@ -1,13 +1,13 @@
-Running publiciation figure: PubFig_200430_031419
+Running publiciation figure: PubFig_200505_103129
 Non-default scale and include parameters: 
    includec = 1
 Non-default parameters: 
    ESCOUPLINGvsCa = 1
    ESCouplingFig = 0
-   total = 30000
+   total = 20000
    includec = 1
-   N = 80
-   jin0 = 0.004
+   N = 120
+   jin0 = 0.007
    jin1 = 0.004
    fig = 0  0  0  0  0  0  0  0  0
    dosave = 0
@@ -16,11 +16,11 @@ Non-default scale and include parameters:
 Non-default parameters: 
    ESCOUPLINGvsCa = 1
    ESCouplingFig = 0
-   total = 30000
+   total = 20000
    includec = 1
-   N = 80
-   jin0 = 0.004
-   jin1 = 0.006
+   N = 120
+   jin0 = 0.007
+   jin1 = 0.008
    fig = 0  0  0  0  0  0  0  0  0
    dosave = 0
 Non-default scale and include parameters: 
@@ -28,12 +28,12 @@ Non-default scale and include parameters:
 Non-default parameters: 
    ESCOUPLINGvsCa = 1
    ESCouplingFig = 0
-   total = 30000
+   total = 20000
    includec = 1
-   N = 80
-   jin0 = 0.004
-   jin1 = 0.002
+   N = 120
+   jin0 = 0.007
+   jin1 = 0.0004
    fig = 0  0  0  0  0  0  0  0  0
    dosave = 0
-Time taken was ~69 seconds. Or ~1 minute.
+Time taken was ~46 seconds. Or ~1 minute.
 Exiting script. Have a nice day.

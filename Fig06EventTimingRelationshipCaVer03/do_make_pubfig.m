@@ -20,17 +20,17 @@ diary([name '/diaryfile'])
 
 % % parameters % %
 
-tmax = 30000;
+tmax = 20000;
 includec = 1;
 scale_calcium = 0.5;
 dosave = 0;
-N = 80;
+N = inf;
 
 amax=25;
 
 %% control conditions
-jin0 = scale_calcium*0.008; % 0.02 0.018 0
-jin1=scale_calcium/amax * 0.2; % 0.02 0.04 0.2
+jin0 = scale_calcium*0.015; % 0.02 0.018 0
+jin1=scale_calcium/amax * 0.04; % 0.02 0.04 0.2
 
 [paramsC, outC] = tabakrinzelcalcium('ESCOUPLINGvsCa',1,...
                                    'ESCouplingFig',0,...
@@ -44,7 +44,7 @@ jin1=scale_calcium/amax * 0.2; % 0.02 0.04 0.2
                                    );
 
 %% larger jin1 conditions (1.5x larger)
-jin1D1=jin1*(1.5); % 0.02 0.04 0.2
+jin1D1=jin1*(2); % 0.02 0.04 0.2
 
 [paramsD1, outD1] = tabakrinzelcalcium('ESCOUPLINGvsCa',1,...
                                        'ESCouplingFig',0,...
@@ -83,8 +83,11 @@ plot(outC.t,outC.a,'k');
 plot(outC.t(outC.Coupling.locs(outC.Coupling.sigh_i)),outC.Coupling.pks(outC.Coupling.sigh_i),'ro')
 plot(outC.t(outC.Coupling.locs(outC.Coupling.sigh_i-1)),outC.Coupling.pks(outC.Coupling.sigh_i-1),'bo')
 xlim([2000 2000+twin])
-title('Default jin1')
-subplot(3,3,5);                        
+title(['Default jin1 = ' mat2str(amax/scale_calcium*jin1)])
+subplot(3,3,5); hold on;
+plot(outC.t,outC.ct)
+xlim([2000 2000+twin])
+subplot(3,3,8);                        
 histogram(outC.Coupling.EuSiIn)
 
 % larger jin1 plot
@@ -93,8 +96,11 @@ plot(outD1.t,outD1.a,'k');
 plot(outD1.t(outD1.Coupling.locs(outD1.Coupling.sigh_i)),outD1.Coupling.pks(outD1.Coupling.sigh_i),'ro')
 plot(outD1.t(outD1.Coupling.locs(outD1.Coupling.sigh_i-1)),outD1.Coupling.pks(outD1.Coupling.sigh_i-1),'bo')
 xlim([2000 2000+twin])
-title('Larger jin1')
-subplot(3,3,6);                        
+title(['Larger jin1 = ' mat2str(amax/scale_calcium *jin1D1)])
+subplot(3,3,6); hold on;
+plot(outD1.t,outD1.ct)
+xlim([2000 2000+twin])
+subplot(3,3,9);                        
 histogram(outD1.Coupling.EuSiIn)
                                
 % smaller jin1 plot
@@ -103,8 +109,11 @@ plot(outD2.t,outD2.a,'k');
 plot(outD2.t(outD2.Coupling.locs(outD2.Coupling.sigh_i)),outD2.Coupling.pks(outD2.Coupling.sigh_i),'ro')
 plot(outD2.t(outD2.Coupling.locs(outD2.Coupling.sigh_i-1)),outD2.Coupling.pks(outD2.Coupling.sigh_i-1),'bo')
 xlim([2000 2000+twin])
-title('Smaller jin1')
-subplot(3,3,4);                        
+title(['Smaller jin1 = ' mat2str(amax/scale_calcium *jin1D2)])
+subplot(3,3,4); hold on;
+plot(outD2.t,outD2.ct)
+xlim([2000 2000+twin])
+subplot(3,3,7);                        
 histogram(outD2.Coupling.EuSiIn)
 %% Clean up 
 %save([sweepname '/matfile.mat'])
