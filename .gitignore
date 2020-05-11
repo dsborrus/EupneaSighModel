@@ -1,6 +1,8 @@
 
 *.dat
-*.mat
+Fig01TabakRinzelOneVarIntroVer02/*.mat
+Fig06EventTimingRelationshipCaVer03/MatCont7p2
+Fig06EventTimingRelationshipCaVer03/MatCont7p2_ver2
 *.fig
 *.m~
 Fig06EventTimingRelationshipCaVer03/~$PStudyNotes.pptx
