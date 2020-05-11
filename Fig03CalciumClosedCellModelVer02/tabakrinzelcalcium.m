@@ -31,8 +31,8 @@ param.total = 2200;
 param.dt=0.001;
 param.fig=[1 1 1 1 0 1 0 1 1 ];
 param.seed=-1;
-param.writetraj=1;
-param.writehist=1;
+param.writetraj=0;
+param.writehist=0;
 param.filenametraj='default'; % default will be "run" traj (see below)
 param.filenamehist='default'; % default will be "run" hist (see below)
 param.thintraj=1; % 1=no thinning, 10=every 10th point, etc.
@@ -459,7 +459,7 @@ end
 
 
 
-dirname = [ run theparamstr ];
+dirname = [ run ];
 system([ 'mkdir ' dirname ]);
 
 if writetraj
@@ -491,9 +491,14 @@ end
 
 % wrap tings up and collect files
 save([run '.mat'])
-system(['mv *mat ' dirname ]);
-system(['mv *png ' dirname ]);
-system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
+if ismac
+    system(['mv *mat ' dirname ]);
+    system(['mv *png ' dirname ]);
+else ispc
+    system(['move *mat ' dirname ]);
+    system(['move *png ' dirname ]); 
+end
+system(['copy tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
 
 return
 
