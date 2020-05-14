@@ -2,7 +2,7 @@
 
 clear; clc;
 
-eq = load('Systems/sigh_bif_control/diagram/Step2_findequill_hopfs.mat');
+eq = load('Systems\sigh_bif_control\diagram\Step2_findequill_hopfs.mat');
 eq_filler = load('Systems\sigh_bif_control\diagram\EP_EP(2).mat');
 lc = load('Systems\sigh_bif_control\diagram\Step3_LimitCycle.mat');
 
