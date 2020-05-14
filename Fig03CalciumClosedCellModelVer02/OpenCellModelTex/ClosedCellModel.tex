@@ -1,0 +1,162 @@
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+\usetikzlibrary{automata,arrows,positioning,calc}
+\pgfplotsset{ every non boxed x axis/.append style={x axis line style=-}, every non boxed y axis/.append style={y axis line style=-}}
+
+
+\begin{document}
+	
+	
+	
+	
+	\def\figthetam{0.25}
+	\def\figkm{0.04}
+	\def\figthetah{0.3}
+	\def\figkh{-0.06}
+	\def\figlambda{0.15}
+	%\def\figctot{1}
+	\def\figvone{20}
+	\def\figvtwo{0.25}
+	\def\figvthree{60}
+	\def\figkthree{0.3}
+	
+	\def\micromolar{\mu\mathrm{M}}
+	\def\uM{\micromolar}
+	\def\UM{$\uM$}
+	\def\persecond{\mathrm{s}^{-1}}
+	\def\permillisecond{\mathrm{ms}^{-1}}
+	\def\micromolarpersecond{\mu\mathrm{M}\,\mathrm{s}^{-1}}
+	\def\uMps{\micromolarpersecond}
+	\def\permicromolarpersecond{\mu\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+	\def\permolarpersecond{\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+	\def\puMps{\permolarpersecond}
+	\def\permicromolarpermillisecond{\mu\mathrm{M}^{-1}\,\mathrm{ms}^{-1}}
+	\def\puMpms{\permicromolarpermillisecond}
+	
+	
+	\begin{tikzpicture}
+	
+	\begin{axis}[xshift=0cm,yshift=6cm,
+	clip=false, 
+	axis y line=left,
+	axis x line=none,
+	legend pos=north west,
+	legend cell align={left},
+	width=16cm,
+	height=4cm,
+	ylabel={($\micromolar$)},
+	ylabel style={rotate=-90},
+	xmin=0,
+	xmax=150,
+	ymin=0,
+	ymax=2]
+	
+	\addplot[black,dashdotted] table[x index=0,y index=5] {../figdata1.dat};
+	\addlegendentry{$c_T$}
+	\addplot[blue] table[x index=0,y index=4] {../figdata1.dat};
+	\addlegendentry{$c$}
+	
+	\draw[ultra thick] (axis cs: 140,-0.1) -- node[below] {10 s} (axis cs: 150,-0.1);
+	%\draw[ultra thick] (axis cs: -1,0.2) -- node[left] {0.2} (axis cs: -1,0.4);
+	\end{axis}
+	
+	\begin{axis}[xshift=0cm,yshift=0cm,
+	clip=true,
+	height=6cm,
+	width=8cm,
+	xmax=0.55,
+	xmin=-0.05,
+	ymin=-0.05,
+	ymax=2.05,
+	axis x line=bottom,
+	legend pos=south east,
+	legend cell align={right},
+	xlabel={$c$},
+	ylabel={$c_T$},
+	axis y line=left,
+	ylabel near ticks,
+	xlabel near ticks,
+	ylabel style={rotate=-90},
+	domain=0:1,
+	samples=200]
+	\addplot[red,ultra thick,dashed] table[x index=0,y index=1] {../fig_cnull.dat};
+	\addlegendentry{$dc/dt=0$}
+	\addplot[red,ultra thick] table[x index=0,y index=1] {../fig_ctnull.dat};
+	\addlegendentry{$dc_T/dt=0$}
+	\addplot[blue,thick] table[x index=4,y index=5] {../figdata1.dat};
+	\addlegendentry{$(c(t),c_T(t))$}
+	\end{axis}
+	
+	\begin{axis}[xshift=8cm,yshift=2cm,
+	clip=true,
+	height=4cm,
+	width=8cm,
+	xmax=0.18,
+	xmin=0,
+	ymin=0,
+	ymax=0.4,
+	axis x line=middle,
+	legend pos=south east,
+	legend cell align={right},
+	xlabel={$j0$},
+	ylabel={$c_{ss}$},
+	axis y line=left,
+	ylabel near ticks,
+	%xlabel near ticks,
+	ylabel style={rotate=-90},
+	xtick = {0.05,0.10,0.15},
+	ticklabel style={ 
+		/pgf/number format/fixed, 
+		/pgf/number format/precision=5 
+	},
+	scaled ticks=false, 
+	%domain=0:1,
+	samples=200]
+	
+	\addplot[black,thick] table[] {../MatCont7p2/tex/ss0.dat};
+	\addplot[black,thick] table[] {../MatCont7p2/tex/ss1.dat};
+	\addplot[black,thick,dashed] table[] {../MatCont7p2/tex/ss2.dat};
+	\addplot[black,thick] table[] {../MatCont7p2/tex/ss3.dat};
+	\addplot[red,only marks,mark=*] table {../MatCont7p2/tex/hopfs.dat};
+	
+	\addplot[red,thick] table {../MatCont7p2/tex/lc_up.dat};
+	\addplot[red,thick] table {../MatCont7p2/tex/lc_dw.dat};
+	
+	%\addlegendentry{$dc_T/dt=0$}
+	%\addplot[blue,thick] table[x index=4,y index=5] {../figdata1.dat};
+	%\addlegendentry{$(c(t),c_T(t))$}
+	\end{axis}
+	
+	
+	\begin{axis}[xshift=8cm,yshift=0cm,
+	clip=true,
+	height=3.5cm,
+	width=8cm,
+	xmax=0.18,
+	xmin=0,
+	ymax=200,
+	ymin=0,
+	axis x line=none,
+	legend pos=south east,
+	legend cell align={right},
+	%xlabel={$c$},
+	ylabel={period},
+	axis y line=left,
+	ylabel near ticks,
+	xlabel near ticks,
+	ylabel style={rotate=0,},
+	ytick = {0,60,120},
+	]
+	
+	\addplot[black,thick] table[] {../MatCont7p2/tex/period.dat};
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	
+\end{document}
+

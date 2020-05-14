@@ -1,0 +1,81 @@
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+                   
+\begin{document}
+
+
+
+
+\def\figthetam{0.25}
+\def\figkm{0.04}
+\def\figthetah{0.3}
+\def\figkh{-0.06}
+\def\figlambda{0.15}
+%\def\figctot{1}
+\def\figvone{20}
+\def\figvtwo{0.25}
+\def\figvthree{60}
+\def\figkthree{0.3}
+
+\def\micromolar{\mu\mathrm{M}}
+\def\uM{\micromolar}
+\def\UM{$\uM$}
+\def\persecond{\mathrm{s}^{-1}}
+\def\permillisecond{\mathrm{ms}^{-1}}
+\def\micromolarpersecond{\mu\mathrm{M}\,\mathrm{s}^{-1}}
+\def\uMps{\micromolarpersecond}
+\def\permicromolarpersecond{\mu\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+\def\permolarpersecond{\mathrm{M}^{-1}\,\mathrm{s}^{-1}}
+\def\puMps{\permolarpersecond}
+\def\permicromolarpermillisecond{\mu\mathrm{M}^{-1}\,\mathrm{ms}^{-1}}
+\def\puMpms{\permicromolarpermillisecond}
+
+
+\begin{tikzpicture}
+
+\begin{axis}[xshift=0cm,yshift=0cm,
+        clip=true,
+        height=6cm,
+        width=8cm,
+        xmax=.65,
+        xmin=-0.05,
+        ymin=-50,
+        ymax=50,
+        axis x line=middle,
+        legend pos=north east,
+        legend style={xshift=1cm},
+        legend cell align={right},
+        xlabel={$c$\\  ($\micromolar$)},
+        ylabel={$\dfrac{dc}{dt}$\\ \\ ($\micromolarpersecond$)},
+        axis y line=center,
+        ylabel near ticks,
+        %xlabel near ticks,
+        ylabel style={align=center,rotate=-90},
+        xlabel style={at={(current axis.right of origin)},anchor=north west,rotate=0,align=center},
+        domain=-0.1:1.1,
+        samples=200
+        ]
+
+\def\myctota{0.5}
+\def\myctotb{1.0}
+\def\myctotc{1.7}
+
+ 
+\addplot[thick,blue,dotted] { (\figvone*1/(1+exp((\figthetam-x)/\figkm))*1/(1+exp((\figthetah-x)/\figkh))+\figvtwo)*((\myctota-x)/\figlambda - x) - \figvthree*x^2/(\figkthree^2+x^2) }; 
+\addlegendentry{$c_{T} = \myctota\,\micromolar$}
+ 
+\addplot[thick,blue] { (\figvone*1/(1+exp((\figthetam-x)/\figkm))*1/(1+exp((\figthetah-x)/\figkh))+\figvtwo)*((\myctotb-x)/\figlambda - x) - \figvthree*x^2/(\figkthree^2+x^2) }; 
+\addlegendentry{$\myctotb\,\micromolar$}
+
+\addplot[thick,blue,dashed] { (\figvone*1/(1+exp((\figthetam-x)/\figkm))*1/(1+exp((\figthetah-x)/\figkh))+\figvtwo)*((\myctotc-x)/\figlambda - x) - \figvthree*x^2/(\figkthree^2+x^2) }; 
+\addlegendentry{$\myctotc\,\micromolar$}
+
+\end{axis}
+
+
+\end{tikzpicture}
+
+\end{document}
