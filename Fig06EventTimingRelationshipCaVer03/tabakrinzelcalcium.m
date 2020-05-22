@@ -46,7 +46,7 @@ param.ct_iei_binwidth=5;
 % now the remainder of the default model parameters
 % period should be about 4 seconds.  Active phase about 0.5 seconds.
 %param.N = 100; % 100
-param.N = 80;
+param.N = inf;
 param.w = 1;
 
 
