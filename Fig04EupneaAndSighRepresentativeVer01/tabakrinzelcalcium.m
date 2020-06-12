@@ -33,11 +33,14 @@ param.fig=[1 1 1 1 0 1 0 1 1 ];
 param.seed=-1;
 param.writetraj=1;
 param.writehist=1;
+param.makedir=1; % whether to do directory stuff at all. (nulls writetraj & writehist)
 param.filenametraj='default'; % default will be "run" traj (see below)
 param.filenamehist='default'; % default will be "run" hist (see below)
 param.thintraj=1; % 1=no thinning, 10=every 10th point, etc.
 param.a_iei_binwidth=0.5;
 param.ct_iei_binwidth=0.5;
+% analysis toggle
+param.j0j1bif=0; % whether to do analysis for the 2 parameter bifurcation stuff
 
 % now the remainder of the default model parameters
 % period should be about 4 seconds.  Active phase about 0.5 seconds.
@@ -117,9 +120,11 @@ total=param.total;
 dt=param.dt;
 fig=param.fig;
 seed=param.seed;
+j0j1bif=param.j0j1bif;
 
 writetraj=param.writetraj;
 writehist=param.writehist;
+makedir = param.makedir;
 filenametraj=param.filenametraj;
 filenamehist=param.filenamehist;
 thintraj=param.thintraj;
@@ -458,11 +463,24 @@ if fig(7)
 end
 
 
+if j0j1bif
+    % so you have chosen... to do the 2 way bifurcation analysis!
+    % doing the analysis inside the simulation will save us needing to move
+    % large amounts of output between functions.
+    
+    
+    
+    
+    
+    
+end
 
-dirname = [ run theparamstr ];
-system([ 'mkdir ' dirname ]);
+if makedir
+    dirname = [ run theparamstr ];
+    system([ 'mkdir ' dirname ]);
+end
 
-if writetraj
+if writetraj && makedir
     % write trajectory .dat files
     atrans=find(t>=trans,1,'first');
     fid = fopen('traj.dat','w');
@@ -476,7 +494,7 @@ if writetraj
     system(['mv traj.dat ' dirname ]);
     fclose(fid);
 end
-if writehist
+if writehist && makedir
     % write histogram .dat files
     [h,edges] = histcounts(a_iei,'BinWidth',a_iei_binwidth,'BinLimits',[0,50]);
     h=h/sum(h); % prob dist 
@@ -489,11 +507,13 @@ if writehist
     system(['mv hist.dat ' dirname ]);
 end
 
-% wrap tings up and collect files
+% wrap things up and collect files
+if ismac && makedir
 save([run '.mat'])
 system(['mv *mat ' dirname ]);
 system(['mv *png ' dirname ]);
 system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
+end
 
 return
 

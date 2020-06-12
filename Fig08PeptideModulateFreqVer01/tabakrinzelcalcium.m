@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 1 1 1 1 0 1 1];
+param.fig=[1 0 0 0 0 0 0 0 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=0;
@@ -46,7 +46,7 @@ param.ct_iei_binwidth=5;
 % now the remainder of the default model parameters
 % period should be about 4 seconds.  Active phase about 0.5 seconds.
 %param.N = 100; % 100
-param.N = 80;
+param.N = 250;
 param.w = 1;
 
 
@@ -632,8 +632,8 @@ if param.ESCOUPLINGvsCa
 end
 
 if ismac
-dirname = [ run theparamstr ];
-system([ 'mkdir ' dirname ]);
+    dirname = [ run theparamstr ];
+    system([ 'mkdir ' dirname ]);
 end
 
 % check for compact output
@@ -670,10 +670,10 @@ end
 
 % wrap things up and collect files 
 if ismac
-save([run '.mat'])
-system(['mv *mat ' dirname ]);
-system(['mv *png ' dirname ]);
-system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
+    save([run '.mat'])
+    system(['mv *mat ' dirname ]);
+    system(['mv *png ' dirname ]);
+    system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
 end
 
 return
