@@ -55,65 +55,24 @@
 	
 	\includegraphics[width=5in]{../trajectories.png}
 
-%	\begin{tikzpicture}
-%	\pgfmathsetmacro{\myw}{8}
-%	\pgfmathsetmacro{\myh}{6}
-%	\pgfmathsetmacro{\myxs}{4.3}
-%	\pgfmathsetmacro{\myys}{0}
-%	
-%	\begin{axis}[
-%	height= \myh cm,
-%	width = \myw cm,
-%	xshift = -\myxs cm,
-%	yshift = \myys cm,
-%	xmin = 0,
-%	xmax = 0.5,
-%	%ymin = 0,
-%	%ymax = 2.5,
-%	axis y line = left,
-%	axis x line = middle,
-%	xlabel = {$c$},
-%	ylabel = {$\frac{dc}{dt}$},
-%	ylabel style = {rotate=-90,xshift=0.5cm},
-%	xtick = {0,0.5},
-%	minor tick num=4,
-%	ytick = {-40,0,40},
-%	title = {Closed-cell Ca$^{2+}$ dynamics},
-%	legend style = {at={(1.1,1.0)}},
-%	]
-%	\addplot[mark=none,black,dashed] table[y index=3]{cphasediagrams.dat};
-%	\addplot[mark=none,black] table[y index=2]{cphasediagrams.dat};
-%	\addplot[mark=none,black,densely dotted] table[y index=1]{cphasediagrams.dat};
-%	\legend{ctot=1.6,ctot=1.0,ctot=0.6}
-%	\end{axis}
-%	
-%	\begin{axis}[
-%	height= \myh cm,
-%	width = \myw cm,
-%	xshift = \myxs cm,
-%	yshift = \myys cm,
-%	xmin = 0.2,
-%	xmax = 2.0,
-%	%ymin = 0,
-%	%ymax = 2.5,
-%	axis y line = left,
-%	axis x line = middle,
-%	xlabel = {ctot},
-%	ylabel = {$c$},
-%	ylabel style = {rotate=-90},
-%	xtick = {0.5,1.0,1.5},
-%	title = {Ca$^{2+}$ bifurcation w/ ctot},
-%	]
-%	\addplot[mark=none,black,dashed] table{ca_bif_uss.dat};
-%	\addplot[mark=none,black] table{ca_bif_ssslow.dat};
-%	\addplot[mark=none,black] table{ca_bif_ssshigh.dat};
-%	\addplot[cyan,mark=o,thick,mark size=3,only marks] coordinates {(0.798264,0.251245)(1.4399524,0.112082)};
-%	\end{axis}
-%	
-%	\end{tikzpicture}
+
 
 	\end{center}
 
 	Doubling v1 (peak Ca${^2+}$) doubles sigh rhythm frequency
+	
+	\vskip10mm
+	
+	{ \bf What is $v_1$ changing in the model?} \\
+	Observing the nulc lines in the phase diagram. 
+	
+	\begin{center}
+		\includegraphics[width=3in]{../phasediagram.png}
+	\end{center}
+	Observing the bifurcation diagram with $v_1$. Note, we needed to scale cyt. Ca dynamics by 1/10.
+	\begin{center}
+		\includegraphics[width=4in]{../MatCont7p2/MatCont7p2/take2Figure.png}
+	
+	\end{center}
 	
 \end{document}

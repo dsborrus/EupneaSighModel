@@ -1,4 +1,4 @@
-function [ param, out ] = calciumsystem(varargin)
+function [ param, out, mmc ] = calciumsystem(varargin)
 
 % system parameters
 param.trans = 2000;
@@ -81,14 +81,10 @@ kc=param.kc;
 init_c=param.init_c;
 init_ct=param.init_ct;
 
-trjwnd = param.trjwnd;
-
 close all
 if seed==-1, rng('shuffle'); else rng(seed); end
 
-%% 
-
-% integration of ODEs
+%% integration of ODEs
 t = [0:dt:total]; % for integration of odes; times includes transient
 [c, ct] = deal(zeros(size(t)));
 c(1)=init_c; ct(1)=init_ct;
@@ -111,8 +107,9 @@ out.t=t; out.c=c; out.ct=ct;
 ct_iei = diff(locs)*dt; out.ct_iei=ct_iei; out.pks = pks; out.locs = locs*dt+trans;
 %ct_iei = diff(ct_cross)*dt; ct_iei = ct_iei(find(ct_iei>ct_ieimin)); out.ct_iei=ct_iei;
 
-%% output
+%% output & post analysis
 
+mmc = [max(c) min(c)];
 
 return
 
