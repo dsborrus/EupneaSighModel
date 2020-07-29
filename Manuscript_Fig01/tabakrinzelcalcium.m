@@ -3,7 +3,7 @@ function [ param, out ] = tabakrinzelcalcium(varargin)
 % scale_eupnea and scale_calcium change default parameters - handle first
 
 
-param.includec=1; % calcium handling
+param.includec=0; % calcium handling
 param.includes=1; % synaptic depression
 param.includetheta=1; % cellular adaptation
 param.scale_eupnea=1.5;
@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 0 0 0 0 0 0 0 0 0];
+param.fig=[1 1 1 1 0 0 0 0 0 0 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=0;
@@ -72,7 +72,7 @@ else
     param.tausmax=scale_eupnea*5;
     param.tausmin=scale_eupnea*0.1;
 end
-param.taua=scale_eupnea*0.1; % 0.05 or 0.1
+param.taua=scale_eupnea*0.01; % 0.05 or 0.1
 param.ka=0.2*param.lambdaa;
 
 param.thetas=0.14*param.lambdaa+param.amin;
@@ -375,16 +375,16 @@ if includetheta && includes
         thetamin = min(theta)*0.9;
         thetamax = max(theta)*1.1;
         
-        aa = 0:0.0001:amax;
+        aa = amin:0.0001:amax;
         ss = 0:0.0001:1;
         for fixedtheta = [thetamin:0.05:thetamax]
-        ssurf = (4*(fixedtheta+thetaa)-ka*log((amax-aa)./aa))./(4*w*aa);
+        ssurf = (4*(fixedtheta+thetaa)-ka*log((amax-aa)./(aa-amin)))./(4*w*aa);
         sindices = find(ssurf<smin | ssurf > smax);
         ssurf(sindices)=NaN;
         plot3(ssurf,fixedtheta*ones(size(aa)),aa,'r'); hold on;
         end
         for fixeds = [smin:0.05:smax];
-          plot3(fixeds*ones(size(aa)),-thetaa+(w*aa*fixeds+ka/4*log((amax-aa)./aa)),aa,'r'); hold on;
+          plot3(fixeds*ones(size(aa)),-thetaa+(w*aa*fixeds+ka/4*log((amax-aa)./(aa-amin))),aa,'r'); hold on;
         end
         plot3(s,theta,a,'b')
         xlabel('s'); ylabel('\theta');  zlabel('a')

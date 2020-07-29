@@ -29,10 +29,10 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 1 1 0 1 0 1 1 ];
+param.fig=[1 1 0 0 0 0 0 0 0 ];
 param.seed=-1;
-param.writetraj=1;
-param.writehist=1;
+param.writetraj=0;
+param.writehist=0;
 param.filenametraj='default'; % default will be "run" traj (see below)
 param.filenamehist='default'; % default will be "run" hist (see below)
 param.thintraj=1; % 1=no thinning, 10=every 10th point, etc.
