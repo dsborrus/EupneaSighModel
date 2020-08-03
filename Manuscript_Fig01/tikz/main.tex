@@ -58,26 +58,16 @@
 %			xmax = 2.4,
 %			ymin = 0.5,
 %			ymax = 2.5,
-%			axis y line = left,
-%			axis x line = bottom,
 			xlabel = x,
 			ylabel = y,
 			zlabel = f,
-			zlabel style = {rotate=-90},
+			zlabel style = {rotate=- 90},
 			]
 			\addplot3[surf,red,faceted color = black,opacity=0.2] table {testdata.dat};
 			\addplot3[surf,blue,faceted color = black,opacity=0.2] table {testdata2.dat};
-s		\end{axis}
+		\end{axis}
 
 
 	\end{tikzpicture}
-	%\caption{test}
-	%\label{figgy}
-%\end{figure}
 
 \end{document}
-
-% Bilbiography stuff
-
-\bibliographystyle{apalike}
-\bibliography{mybib.bib}
