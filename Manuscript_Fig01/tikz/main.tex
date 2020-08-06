@@ -9,7 +9,7 @@
 	\usepackage{inputenc}	% Prepares LaTeX engine for non-ascii characters, such as UTF-8 characters. Important.
 
 	% Page Layout
-	%\usepackage[margin=0in,tmargin=.8in]{geometry} % set page width
+	%\usepackage{geometry} % set page width
 	%\usepackage[margin=1cm]{caption} % set caption width
 	%\usepackage{float} % Needed for creating figure “floats”
 
@@ -26,15 +26,10 @@
 	% TikZ/pgfPlots
 	\usepackage{tikz}
 	\usepackage{pgfplots}
-	\pgfplotsset{compat=1.14}
+	%\pgfplotsset{compat=1.14}
 	\usetikzlibrary{automata,arrows,positioning,calc}
 	\pgfplotsset{ every non boxed x axis/.append style={x axis line style=-}, every non boxed y axis/.append style={y axis line style=-}}
 
-	% Miscellaneous
-
-	% Unique for this document
-
-	%\input{mydef.tex}
 
 \begin{document}
 
@@ -43,30 +38,19 @@
 %\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
-		\pgfmathsetmacro{\myw}{3}
-		\pgfmathsetmacro{\myh}{2}
-		\pgfmathsetmacro{\myxs}{1.5}
-		\pgfmathsetmacro{\myys}{0}
+	
+%		\pgfmathsetmacro{\xmax}{2027}
 
-		\begin{axis}[
-%			height= \myh in,
-%			width = \myw in,
-%			xshift = -\myxs in,
-%			yshift = \myys in,
-%			view/h = 40,
-%			xmin = 0.6,
-%			xmax = 2.4,
-%			ymin = 0.5,
-%			ymax = 2.5,
-			xlabel = x,
-			ylabel = y,
-			zlabel = f,
-			zlabel style = {rotate=- 90},
-			]
-			\addplot3[surf,red,faceted color = black,opacity=0.2] table {testdata.dat};
-			\addplot3[surf,blue,faceted color = black,opacity=0.2] table {testdata2.dat};
-		\end{axis}
+		\pgfdeclareimage{panA}{PanelA/PanelA.pdf}
+		\pgfdeclareimage[width=5cm]{panB}{PanelB/PanelB.png}
 
+		\node (A) at (0,0) {\pgfuseimage{panA}};
+		\node (B) [right = of A, xshift = -1.0cm] {\pgfuseimage{panB}};
+		
+			\node (act) at ([shift=({-2.1cm,1.4cm})]B) {$a$};
+			\node (act) at ([shift=({1.25cm,-1.4cm})]B) {$s$};
+			\node (act) at ([shift=({-1.5cm,-1.3cm})]B) {$\theta$};
+		
 
 	\end{tikzpicture}
 
