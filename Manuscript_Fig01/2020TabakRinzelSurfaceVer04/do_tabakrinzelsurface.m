@@ -23,31 +23,34 @@ pause(1);
 
 % Make mesh and surface function 
 w=1;
-ka=0.2;
-thetaa=-0.3;  
+ka=2; %0.2
+thetaa=0; %-0.3
+lambdaa=10;
 
 xinf = @(x,theta,k) 1./(1+exp(4*(theta-x)/k));
 squash = @(x) 1./(1+exp(x));
 
-a = -20:0.1:20; % 0.1
-theta = 0.4:0.01:1; % 0.01
+a = 0.001:0.001:lambdaa; % 0.1
+theta = 0:0.01:8; % 0.01
 [A,THETA]=meshgrid(a,theta);
 %S = (4*(THETA+thetaa)-ka*log((1-A)./A))./(4*w*A); % using squash is better
 S = (4*(THETA+thetaa)-ka*A)./squash(A)/(4*w);
+%S = ((ka/4)*log((lambdaa./A)-1)-THETA+thetaa)./(w*A);
 
 % The activity plot itself
-surf(S,THETA,squash(A))
+%surf(S,THETA,squash(A))
+surf(S,THETA,A);
 xlabel('s'); ylabel('\theta');  zlabel('a')
-axis([ 0.4 1.1 -Inf Inf 0 1])
+axis([ 0.4 1.1 -Inf Inf 0 lambdaa])
 shading interp
 alpha 0.7
 colormap parula
 hold on;
 
-p1=1.00e3;
-p2=1.146+e3;
-p3=1;
-p4=1;
+p1=1000;
+p2=1147;
+p3=2100;
+p4=4495;
 
 plot3(out_relax.s,out_relax.theta,out_relax.a,'-c');
 % placing directional arrows on the trajectory. This effect only works from
@@ -57,7 +60,18 @@ plot3(out_relax.s(p2),out_relax.theta(p2),out_relax.a(p2),'c','marker','v','mark
 plot3(out_relax.s(p3),out_relax.theta(p3),out_relax.a(p3),'c','marker','>','markerfacecolor','c')
 plot3(out_relax.s(p4),out_relax.theta(p4),out_relax.a(p4),'c','marker','^','markerfacecolor','c')
 
-%plot3(out_normal.s,out_normal.theta,out_normal.a,'-b','LineWidth',1);
+p1=4210;
+p2=3999;
+p3=1800;
+p4=4495;
+
+plot3(out_normal.s,out_normal.theta,out_normal.a,'-b','LineWidth',1);
+% placing directional arrows on the trajectory. This effect only works from
+% the default viewing angle!!!***
+plot3(out_normal.s(p1),out_normal.theta(p1),out_normal.a(p1),'b','marker','>','markerfacecolor','b') %top left
+plot3(out_normal.s(p2),out_normal.theta(p2),out_normal.a(p2),'b','marker','v','markerfacecolor','b')
+plot3(out_normal.s(p3),out_normal.theta(p3),out_normal.a(p3),'b','marker','>','markerfacecolor','b') %bottom right
+plot3(out_normal.s(p4),out_normal.theta(p4),out_normal.a(p4),'b','marker','^','markerfacecolor','b')
 
 print('fig1.png','-dpng')
 print('fig1.pdf','-dpdf')
