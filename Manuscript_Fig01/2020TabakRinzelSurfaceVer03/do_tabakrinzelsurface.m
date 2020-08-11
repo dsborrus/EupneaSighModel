@@ -46,6 +46,7 @@ shading interp
 alpha 0.7
 colormap parula
 hold on;
+xticks(-1); yticks(-1); zticks(-1)
 
 p1=1000;
 p2=1147;
@@ -86,8 +87,16 @@ print('fig1.pdf','-dpdf')
 % fclose(fid);
 
 
+% 2-d plots on walls
 
+ks = param.ks;
+thetas = param.thetas;
+ktheta = param.ktheta;
+thetatheta = param.thetatheta;
 
+% s nulc line
+a_sss = @(s) -ks/4*log(1/s-1)+thetas;
+% theta nulc line
+a_tss = @(theta) -ktheta/4*log(1/theta-1)+thetatheta;
 
-
-
+plot3(S(:,1),0,a_sss(S(:,1)))

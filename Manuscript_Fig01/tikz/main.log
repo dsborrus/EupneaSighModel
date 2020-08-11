@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 AUG 2020 12:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 AUG 2020 09:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,7 +763,7 @@ Here is how much of TeX's memory you used:
 </usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on main.pdf (1 page, 109149 bytes).
+Output written on main.pdf (1 page, 86701 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  20 compressed objects within 1 object stream
