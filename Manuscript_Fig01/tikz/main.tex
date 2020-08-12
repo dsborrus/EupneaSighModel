@@ -1,4 +1,4 @@
-\documentclass[12pt]{standalone}	% Required - Tells LaTeX how to display the document.
+\documentclass[11pt]{standalone}	% Required - Tells LaTeX how to display the document.
 
 \title{Standalone}
 \date{May 30th, 2018}
@@ -42,14 +42,14 @@
 %		\pgfmathsetmacro{\xmax}{2027}
 
 		\pgfdeclareimage{panA}{PanelA/PanelA.pdf}
-		\pgfdeclareimage[width=5cm]{panB}{PanelB/PanelB.png}
+		\pgfdeclareimage[width=6cm]{panB}{PanelB/PanelB.png}
 
 		\node (A) at (0,0) {\pgfuseimage{panA}};
 		\node (B) [right = of A, xshift = -1.0cm] {\pgfuseimage{panB}};
 		
-			\node (act) at ([shift=({-2.1cm,1.4cm})]B) {$a$};
-			\node (act) at ([shift=({1.25cm,-1.4cm})]B) {$s$};
-			\node (act) at ([shift=({-1.5cm,-1.3cm})]B) {$\theta$};
+			\node (act) at ([shift=({-2.4cm,0cm})]B) {$a$};
+			\node (act) at ([shift=({0.7cm,-1.5cm})]B) {$s$};
+			\node (act) at ([shift=({-1.4cm,-1.6cm})]B) {$\theta$};
 		
 
 	\end{tikzpicture}
