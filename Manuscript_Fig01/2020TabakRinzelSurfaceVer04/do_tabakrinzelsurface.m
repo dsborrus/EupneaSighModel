@@ -91,14 +91,14 @@ thetas = param.thetas;
 ks = param.ks;
 sinf = xinf(aa,thetas,ks);
 temptheta = zeros(1e3,1)+max(max(THETA));
-plot3(sinf,temptheta,aa,'r');
+plot3(sinf,temptheta,aa,'-r','MarkerIndices',1:20:800);
 
 % theta nulcline
 thetatheta = param.thetatheta;
 ktheta = param.ktheta;
 thetainf = lambdaa*xinf(aa,thetatheta,ktheta);
 temps = zeros(1e3,1)+f.CurrentAxes.XLim(2);
-plot3(temps,thetainf,aa,'color',[0 0.5 0])
+plot3(temps,thetainf,aa,'color',[0 0.5 0],'marker','none','MarkerIndices',1:10:length(temps))
 
 % legend
 l=legend('','','','','');

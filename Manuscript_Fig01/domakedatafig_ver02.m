@@ -90,10 +90,13 @@ xlabel('c'); ylabel('ct')
 % third column - bifurcation
 subplot(spr,spc,6); hold on;
 
-eq = load('../Fig03CalciumClosedCellModelVer02/MatCont7p2/Systems/sigh_bif_control/diagram/Step2_findequill_hopfs.mat');
-eq_filler = load('../Fig03CalciumClosedCellModelVer02/MatCont7p2/Systems/sigh_bif_control/diagram/EP_EP(2).mat');
-lc = load('../Fig03CalciumClosedCellModelVer02/MatCont7p2/Systems/sigh_bif_control/diagram/Step3_LimitCycle.mat');
-    
+%eq = load('../Fig03CalciumClosedCellModelVer02/MatCont7p2/Systems/sigh_bif_control/diagram/Step2_findequill_hopfs.mat');
+%eq_filler = load('../Fig03CalciumClosedCellModelVer02/MatCont7p2/Systems/sigh_bif_control/diagram/EP_EP(2).mat');
+%lc = load('../Fig03CalciumClosedCellModelVer02/MatCont7p2/Systems/sigh_bif_control/diagram/Step3_LimitCycle.mat');
+
+
+return
+
 % equill line
 j0_eq = eq.x(3,:);
 css = eq.x(1,:);
