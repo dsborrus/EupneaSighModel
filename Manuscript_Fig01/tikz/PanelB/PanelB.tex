@@ -38,8 +38,17 @@
 	
 		%\pgfmathsetmacro{\templ}{1998}
 
-		\pgfdeclareimage{surf}{surface.png}
+		\pgfdeclareimage[width=7cm]{surf}{PanelB.png}
 		\node (s) at (0,0) {\pgfuseimage{surf}};
+		
+		\node at ([shift=({-3cm,0cm})]s) {$a$};
+		\node at ([shift=({0.8cm,-1.9cm})]s) {$s$};
+		\node at ([shift=({-1.8cm,-2.0cm})]s) {$\theta$};
+		
+		\draw[fill=white,draw=white] (2,1) -- (2.6,1) -- (2.6,1.5) -- (2,1.5);		
+		
+		\node at (2.5,0.5) {test};
+		
 		
 	\end{tikzpicture}
 
