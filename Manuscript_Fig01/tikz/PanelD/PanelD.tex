@@ -39,20 +39,30 @@
 	\centering
 	\begin{tikzpicture}
 	
-%		\pgfmathsetmacro{\xmax}{2027}
+		\pgfmathsetmacro{\xmin}{1998}
 
-		\pgfdeclareimage{panA}{PanelA/PanelA.pdf}
-		\pgfdeclareimage{panB}{PanelB/PanelB.pdf}
-		\pgfdeclareimage{panC}{PanelC/PanelC.pdf}
-		\pgfdeclareimage{panD}{PanelD/PanelD.pdf}
 
-		\node[anchor=west] (EupHeader) at (-3.5,2.5) {\bf Eupnea subsystem};
-		\node (A) at (0,0) {\pgfuseimage{panA}};
-		\node (B) [right = of A, xshift = -1.0cm] {\pgfuseimage{panB}};
-		
-		\node[anchor=west] (SigHeader)  at (-3.5,-3) {\bf Sigh subsystem};
-		\node (C) [below = of A,yshift=-0.2cm,] {\pgfuseimage{panC}};
-		\node (D) [right = of C] {\pgfuseimage{panD}};
+		\begin{axis}[
+			height= 4cm,
+			width = 7cm,
+			%ymin=0,ymax = 2,
+			%ytick={0,2}, 
+			%xtick={-1},
+			%extra x ticks ={60,120},
+			%extra x tick labels = {60 s, 120 s},
+			%extra y ticks = {0.9,10},
+			%extra y tick labels ={,},
+			axis x line = bottom,
+			axis y line = left,
+			%ylabel = $a$,
+			%y label style = {rotate=-90,xshift=1cm},
+			legend style={at={(0.5,-0.35)},legend columns=-1,draw=none,anchor=center},
+			]
+			\addplot[black,thick] table[mark=none] {../data/data_D1.dat};
+			\addplot[Gray,thick] table[mark=none] {../data/data_D2.dat};
+			\addplot[blue,dashed,thick] table[mark=none] {../data/data_D3.dat};				
+			\legend{$\dot{C}_{\text{cyt}}$,$\dot{C}_{\text{total}}$};	
+		\end{axis}
 		
 
 	\end{tikzpicture}

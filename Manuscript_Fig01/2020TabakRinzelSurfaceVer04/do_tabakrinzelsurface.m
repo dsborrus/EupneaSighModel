@@ -91,7 +91,7 @@ thetas = param.thetas;
 ks = param.ks;
 sinf = xinf(aa,thetas,ks);
 temptheta = zeros(1e3,1)+max(max(THETA));
-plot3(sinf,temptheta,aa,'-r','MarkerIndices',1:20:800);
+plot3(sinf,temptheta,aa,'color',[0.7 0 0.7],'MarkerIndices',1:20:800);
 
 % theta nulcline
 thetatheta = param.thetatheta;

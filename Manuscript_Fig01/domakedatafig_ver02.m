@@ -35,7 +35,7 @@ subplot(spr,spc,2)
 includec = 1;
 includes = 0;
 includetheta = 0;
-total = 2100;
+total = 2120;
 
 [param_s,out_s] = tabakrinzelcalcium('includec',includec,...
                                      'includes',includes,...
@@ -48,7 +48,7 @@ subplot(spr,spc,4); hold on;
 plot(out_s.t,out_s.c,'k')
 xlabel('t'); ylabel('c')
 
-data_C = [out_s.t' out_s.c' out_s.ct'];
+data_C = [out_s.t(1:sam:end)'-2000 out_s.c(1:sam:end)' out_s.ct(1:sam:end)'];
 save('./tikz/data/data_C.dat','data_C','-ascii')
 
 % second col - phase plane
@@ -73,7 +73,7 @@ j0 = param_s.jin0;
 v4 = param_s.v4;
 k4 = param_s.k4;
 
-cc = 0:0.001:0.4;
+cc = 0:0.01:0.4;
 
 for i=1:length(cc)
     cnull(i)=fzero(@(x) (v2+v1*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3)+j0-((v4*cc(i)^4)/(k4+cc(i)^4)),0.3);
@@ -86,6 +86,13 @@ plot([((j0*k4^4)/(v4-j0))^(1/4) ((j0*k4^4)/(v4-j0))^(1/4)], [0 max(cnull)],'k','
 % trajectory
 plot(out_s.c,out_s.ct,'b')
 xlabel('c'); ylabel('ct')
+
+data_D1 = [cc' cnull']; 
+data_D2 = [[((j0*k4^4)/(v4-j0))^(1/4) ((j0*k4^4)/(v4-j0))^(1/4)]', [0 max(cnull)]'];
+data_D3 = [out_s.c(1:sam:end)',out_s.ct(1:sam:end)'];
+save('./tikz/data/data_D1.dat','data_D1','-ascii')
+save('./tikz/data/data_D2.dat','data_D2','-ascii')
+save('./tikz/data/data_D3.dat','data_D3','-ascii')
 
 % third column - bifurcation
 subplot(spr,spc,6); hold on;
