@@ -47,12 +47,12 @@
 		\pgfdeclareimage{panD}{PanelD/PanelD.pdf}
 
 		\node[anchor=west] (EupHeader) at (-3.5,2.5) {\bf Eupnea subsystem};
-		\node (A) at (0,0) {\pgfuseimage{panA}};
+		\node (A) at (0,0.3) {\pgfuseimage{panA}};
 		\node (B) [right = of A, xshift = -1.0cm] {\pgfuseimage{panB}};
 		
 		\node[anchor=west] (SigHeader)  at (-3.5,-3) {\bf Sigh subsystem};
-		\node (C) [below = of A,yshift=-0.2cm,] {\pgfuseimage{panC}};
-		\node (D) [right = of C] {\pgfuseimage{panD}};
+		\node (C) [below = of A,yshift=-0.2cm,xshift=-0.2cm] {\pgfuseimage{panC}};
+		\node (D) [right = of C, xshift= -0.6cm] {\pgfuseimage{panD}};
 		
 
 	\end{tikzpicture}

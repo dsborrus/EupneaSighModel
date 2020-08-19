@@ -44,7 +44,7 @@
 
 		\begin{axis}[
 			height= 4cm,
-			width = 7cm,
+			width = 14cm,
 			%ymin=0,ymax = 2,
 			%ytick={0,2}, 
 			%xtick={-1},
@@ -56,12 +56,57 @@
 			axis y line = left,
 			%ylabel = $a$,
 			%y label style = {rotate=-90,xshift=1cm},
-			legend style={at={(0.5,-0.35)},legend columns=-1,draw=none,anchor=center},
+			%legend style={at={(0.5,-0.35)},legend columns=-1,draw=none,anchor=center},
 			]
-			\addplot[black,thick] table[mark=none] {../data/data_D1.dat};
-			\addplot[Gray,thick] table[mark=none] {../data/data_D2.dat};
-			\addplot[blue,dashed,thick] table[mark=none] {../data/data_D3.dat};				
-			\legend{$\dot{C}_{\text{cyt}}=0$ \hskip 5mm,$\dot{C}_{\text{total}}=0$};	
+			\addplot[blue,thick] table[mark=none] {../data/data_E1.dat};				
+			\legend{$a$};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 4cm,
+			width = 14cm,
+			yshift = -4cm,
+			axis x line = bottom,
+			axis y line = left,
+			ytick=-1,
+			]
+			\addplot[RedViolet,thick] table[mark=none, y index=1] {../data/data_E2.dat};
+			%\addplot[green,thick] table[mark=none, y index=2] {../data/data_E2.dat};
+			%\addplot[black,thick] table[mark=none, y index=3] {../data/data_E2.dat};
+			%\addplot[gray,thick] table[mark=none, y index=4] {../data/data_E2.dat};	
+		\end{axis}
+		
+		\begin{axis}[
+			height= 4cm,
+			width = 14cm,
+			yshift = -4cm,
+			axis x line = bottom,
+			axis y line = left,
+			ytick=-1,
+			]
+			\addplot[PineGreen,thick] table[mark=none, y index=2] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 4cm,
+			width = 14cm,
+			yshift = -4cm,
+			axis x line = bottom,
+			axis y line = left,
+			ytick=-1,
+			]
+			\addplot[black,thick] table[mark=none, y index=3] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 4cm,
+			width = 14cm,
+			yshift = -4cm,
+			axis x line = bottom,
+			axis y line = left,
+			ytick=-1,
+			]
+			\addplot[gray,thick] table[mark=none, y index=4] {../data/data_E2.dat};
 		\end{axis}
 		
 
