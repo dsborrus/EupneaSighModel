@@ -100,7 +100,8 @@ includec = 1;
 includes = 1;
 includetheta = 1;
 total = 2120;
-jin1 = 0.0020;
+jin1=0.0034;
+%jin1 = 0.0110;
 
 [param_b,out_b] = tabakrinzelcalcium('includec',includec,...
                                      'includes',includes,...
