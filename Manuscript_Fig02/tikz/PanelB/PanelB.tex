@@ -1,0 +1,63 @@
+\documentclass[11pt]{standalone}	% Required - Tells LaTeX how to display the document.
+
+\title{Standalone}
+\date{May 30th, 2018}
+\author{Daniel Borrus}
+
+%% Preamble %%
+
+	\usepackage{inputenc}	% Prepares LaTeX engine for non-ascii characters, such as UTF-8 characters. Important.
+
+	% Page Layout
+	%\usepackage{geometry} % set page width
+	%\usepackage[margin=1cm]{caption} % set caption width
+	%\usepackage{float} % Needed for creating figure “floats”
+
+	% Page Display
+	\usepackage{url} % Allows for url links
+	\usepackage{graphicx} % Allows for inputing figures
+	\usepackage[dvipsnames]{xcolor} % For pretty colors
+
+	% Math Typesetting
+	\usepackage{amsmath} % Provides useful equation formats
+	\usepackage{amssymb} % Provieds a ton of useful math symbols
+	\usepackage{mathtools} % Provides patches for amsmath
+
+	% TikZ/pgfPlots
+	\usepackage{tikz}
+	\usepackage{pgfplots}
+	%\pgfplotsset{compat=1.14}
+	\usetikzlibrary{automata,arrows,positioning,calc}
+	\pgfplotsset{ every non boxed x axis/.append style={x axis line style=-}, every non boxed y axis/.append style={y axis line style=-}}
+
+
+\begin{document}
+
+	\centering
+	\begin{tikzpicture} 
+	
+		\begin{axis}[
+			height= 6cm,
+			width = 8cm,
+			axis x line = bottom,
+			axis y line = left,
+			ytick= {0,0.2,0.4},
+			xmax=9.5,xmin=3.5,ymin=0,ymax=0.45,
+			%ylabel = frequency (Hz),
+			%y label style = {rotate=0,xshift=0cm},
+			xlabel = {$[K^+]_{\text{Out}}$},	
+			x dir = reverse,	
+			]
+			\addplot[blue,dashed,mark=diamond*,draw=black,mark size=3] table[y index=2] {../data/PKdata_means.dat};
+			\addplot[red,dashed,mark=diamond*,draw=black,mark size=3] table[y index=1] {../data/PKdata_means.dat};
+			\foreach \x in {0,...,6}
+			{
+				\pgfmathsetmacro{\y}{int(\x+7)}
+				\addplot[only marks,blue,draw=black,opacity=0.5,mark size=2] table[x index=\x ,y index= \y] {../data/PKdata_eup.dat};
+				\addplot[only marks,red,draw=black,opacity=0.5] table[x index=\x ,y index= \y] {../data/PKdata_sig.dat};
+			}
+		\end{axis}
+		
+	\end{tikzpicture}
+
+\end{document}
