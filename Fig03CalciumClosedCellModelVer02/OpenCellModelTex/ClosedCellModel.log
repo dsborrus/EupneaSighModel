@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  14 MAY 2020 10:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  28 OCT 2020 23:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -645,8 +645,8 @@ your preamble.
 
 PGFPlots: reading {../figdata1.dat}
 PGFPlots: reading {../figdata1.dat}
-PGFPlots: reading {../fig_cnull.dat}
 PGFPlots: reading {../fig_ctnull.dat}
+PGFPlots: reading {../fig_cnull.dat}
 PGFPlots: reading {../figdata1.dat}
 PGFPlots: reading {../MatCont7p2/tex/ss0.dat}
 PGFPlots: reading {../MatCont7p2/tex/ss1.dat}
@@ -663,18 +663,19 @@ PGFPlots: reading {../MatCont7p2/tex/period.dat}
 Here is how much of TeX's memory you used:
  24247 strings out of 492609
  636152 string characters out of 6132818
- 1684884 words of memory out of 5000000
+ 1693367 words of memory out of 5000000
  27755 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,100p,731b,2126s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,19n,100p,731b,2126s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2019/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on ClosedCellModel.pdf (1 page, 93096 bytes).
+7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on ClosedCellModel.pdf (1 page, 99936 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 27 PDF objects out of 1000 (max. 8388607)
+ 19 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

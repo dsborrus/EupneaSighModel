@@ -1,0 +1,328 @@
+\documentclass[11pt]{standalone}	% Required - Tells LaTeX how to display the document.
+
+\title{Standalone}
+\date{May 30th, 2018}
+\author{Daniel Borrus}
+
+%% Preamble %%
+
+	\usepackage{inputenc}	% Prepares LaTeX engine for non-ascii characters, such as UTF-8 characters. Important.
+
+	% Page Layout
+	%\usepackage{geometry} % set page width
+	%\usepackage[margin=1cm]{caption} % set caption width
+	%\usepackage{float} % Needed for creating figure “floats”
+
+	% Page Display
+	\usepackage{url} % Allows for url links
+	\usepackage{graphicx} % Allows for inputing figures
+	\usepackage[dvipsnames]{xcolor} % For pretty colors
+
+	% Math Typesetting
+	\usepackage{amsmath} % Provides useful equation formats
+	\usepackage{amssymb} % Provieds a ton of useful math symbols
+	\usepackage{mathtools} % Provides patches for amsmath
+
+	% TikZ/pgfPlots
+	\usepackage{tikz}
+	\usepackage{pgfplots}
+	%\pgfplotsset{compat=1.14}
+	\usetikzlibrary{automata,arrows,positioning,calc}
+	\pgfplotsset{ every non boxed x axis/.append style={x axis line style=-}, every non boxed y axis/.append style={y axis line style=-}}
+	
+	\usepackage{xspace}
+
+
+\begin{document}
+
+%\maketitle
+
+%\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	
+		\pgfmathsetmacro{\ys}{-1}
+		\pgfmathsetmacro{\yspa}{0.7}
+		
+		\pgfmathsetmacro{\xmin}{1995}
+		
+		\pgfmathsetmacro{\w}{12cm}
+
+		\begin{axis}[
+			height= 4cm,
+			width = \w,
+			ymin=1,ymax = 10,
+			xmin = \xmin,
+			ytick={-1,-16}, 
+			xtick={-1},
+			x axis line style = white,	
+			%extra x ticks ={60,120},
+			%extra x tick labels = {60 s, 120 s},
+			%extra y ticks = {0.9,10},
+			%extra y tick labels ={,},
+			axis x line = bottom,
+			axis y line = left,
+			ylabel = $a$,
+			y label style = {rotate=-90,xshift=1cm},			
+			ymin=0.95,ymax=10,
+			extra y ticks = {0.95,10},
+			extra y tick labels ={,},
+			]
+			\addplot[blue,thick] table[mark=none] {../data/data_E1.dat};				
+			%\legend{$a$};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 2cm,
+			width = \w,
+			yshift = \ys cm,
+			axis x line = bottom,
+			axis y line = left,
+			xmin = \xmin,
+			xtick=-1,
+			x axis line style = white,	
+			ytick=-1,
+			ylabel={$s$},
+			ylabel style = {rotate=-90,xshift=1cm},
+			ymin=0.09,ymax=1.05,
+			extra y ticks = {0.09,1.05},
+			extra y tick labels ={,},
+			]
+			\addplot[RedViolet,thick] table[mark=none, y index=1] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 2cm,
+			width = \w,
+			yshift = \ys cm - \yspa cm,
+			axis x line = bottom,
+			axis y line = left,
+			xmin = \xmin,
+			xtick=-1,
+			x axis line style = white,	
+			ytick=-1,
+			ylabel={$\theta$},
+			ylabel style = {rotate=-90,xshift=1cm},
+			ymin=2.5,ymax=10.2,
+			extra y ticks = {2.5,10.2},
+			extra y tick labels ={,},			
+			]
+			\addplot[PineGreen,thick] table[mark=none, y index=2] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 2cm,
+			width = \w,
+			yshift = \ys cm - 2*\yspa cm,
+			axis x line = bottom,
+			axis y line = left,
+			xmin = \xmin,
+			xtick=-1,
+			x axis line style = white,	
+			ytick=-1,
+			ylabel={$c$},
+			ylabel style = {rotate=-90,xshift=1cm},
+			ymin=0.05,ymax=0.4,
+			extra y ticks = {0.05,0.4},
+			extra y tick labels ={,},	
+			]
+			\addplot[black,thick] table[mark=none, y index=3] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+			height= 2cm,
+			width = \w,
+			yshift = \ys cm - 3 * \yspa cm,
+			axis x line = bottom,
+			axis y line = left,
+			xmin = \xmin,
+			xtick=-1,
+			x axis line style = white,	
+			ytick=-1,
+			ylabel={$c_{\text{tot}}$},
+			ylabel style = {rotate=-90,xshift=0.85cm},
+			ymin=0.7,ymax=1.5,
+			extra y ticks = {0.7,1.5},
+			extra y tick labels ={,},				
+			]
+			\addplot[gray,thick] table[mark=none, y index=4] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+		height= 2cm,
+		width = \w,
+		yshift = \ys cm - 3 * \yspa cm - 0.5 cm,
+		axis x line = bottom,
+		axis y line = none,
+		ytick=-1,
+		xtick=-1,
+		ymin=0,ymax=1,xmin = \xmin,
+		extra x ticks = {2000,2060,2068,2120},
+		extra x tick labels ={0 s, , ,120 s},	
+		axis line style = white,			
+		]
+		\addplot[black] coordinates {(2000,0) (2120,0)};
+		\end{axis}
+		
+		% 5 5 5 %% 5 5 %  % %  5 %  5 5 %  5 5 % 5  5  5 % 5  55  % %
+		
+		\pgfmathsetmacro{\zxmin}{2060}
+		\pgfmathsetmacro{\zxmax}{2068}
+		\pgfmathsetmacro{\zxsh}{12cm}
+		\pgfmathsetmacro{\zw}{3cm}
+		\begin{axis}[
+		height= 4cm,
+		width = \zw,
+		xshift=\zxsh,
+		ymin=1,ymax = 10,
+		xmin = \zxmin, xmax = \zxmax,
+		ytick={-1,-16}, 
+		xtick={-1},
+		x axis line style = white,	
+		%extra x ticks ={60,120},
+		%extra x tick labels = {60 s, 120 s},
+		%extra y ticks = {0.9,10},
+		%extra y tick labels ={,},
+		axis x line = bottom,
+		axis y line = none,
+		ylabel = $a$,
+		y label style = {rotate=-90,xshift=1cm},			
+		ymin=0.95,ymax=10,
+		extra y ticks = {0.95,10},
+		extra y tick labels ={,},
+		]
+		\addplot[blue,thick] table[mark=none] {../data/data_E1.dat};				
+		%\legend{$a$};
+		\end{axis}
+		
+		\begin{axis}[
+		height= 2cm,
+		width = \zw,
+		xshift=\zxsh,
+		yshift = \ys cm,
+		axis x line = bottom,
+		axis y line = none,
+		xmin = \zxmin, xmax = \zxmax,
+		xtick=-1,
+		x axis line style = white,	
+		ytick=-1,
+		ylabel={$s$},
+		ylabel style = {rotate=-90,xshift=1cm},
+		ymin=0.09,ymax=1.05,
+		extra y ticks = {0.09,1.05},
+		extra y tick labels ={,},
+		]
+		\addplot[RedViolet,thick] table[mark=none, y index=1] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+		height= 2cm,
+		width = \zw,
+		xshift=\zxsh,
+		yshift = \ys cm - \yspa cm,
+		axis x line = bottom,
+		axis y line = none,
+		xmin = \zxmin, xmax = \zxmax,
+		xtick=-1,
+		x axis line style = white,	
+		ytick=-1,
+		ylabel={$\theta$},
+		ylabel style = {rotate=-90,xshift=1cm},
+		ymin=2.5,ymax=10.2,
+		extra y ticks = {2.5,10.2},
+		extra y tick labels ={,},			
+		]
+		\addplot[PineGreen,thick] table[mark=none, y index=2] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+		height= 2cm,
+		width = \zw,
+		xshift=\zxsh,
+		yshift = \ys cm - 2*\yspa cm,
+		axis x line = bottom,
+		axis y line = none,
+		xmin = \zxmin, xmax = \zxmax,
+		xtick=-1,
+		x axis line style = white,	
+		ytick=-1,
+		ylabel={$c$},
+		ylabel style = {rotate=-90,xshift=1cm},
+		ymin=0.05,ymax=0.4,
+		extra y ticks = {0.05,0.4},
+		extra y tick labels ={,},	
+		]
+		\addplot[black,thick] table[mark=none, y index=3] {../data/data_E2.dat};
+		\end{axis}
+		
+		\begin{axis}[
+		height= 2cm,
+		width = \zw,
+		xshift=\zxsh,
+		yshift = \ys cm - 3 * \yspa cm,
+		axis x line = bottom,
+		axis y line = none,
+		xmin = \zxmin, xmax = \zxmax,
+		xtick=-1,
+		x axis line style = white,	
+		ytick=-1,
+		ylabel={$c_{\text{tot}}$},
+		ylabel style = {rotate=-90,xshift=0.85cm},
+		ymin=0.7,ymax=1.5,
+		extra y ticks = {0.7,1.5},
+		extra y tick labels ={,},				
+		]
+		\addplot[gray,thick] table[mark=none, y index=4] {../data/data_E2.dat};
+		\end{axis}
+		
+		\let \test = \zw-2000;
+		
+		\begin{axis}[
+		height= 2cm,
+		width = \zw,
+		xshift=\zxsh,
+		yshift = \ys cm - 3 * \yspa cm - 0.5 cm,
+		axis x line = bottom,
+		axis y line = none,
+		xmin = \zxmin, xmax = \zxmax,
+		ytick=-1,
+		xtick=-1,
+		ymin=0,ymax=1,
+		extra x ticks = {\zxmin,\zxmax},
+		extra x tick labels ={60 s,68 s},	
+		axis line style = white,			
+		]
+		\addplot[black] coordinates {(\zxmin,0) (\zxmax,0)};
+		\end{axis}
+		
+		
+	% % % % % 	% % % % % 	% % % % % 	% % % % % 	% % % % % 
+	
+	\pgfmathsetmacro{\dsw}{5.41}				% starting horz placement
+	\pgfmathsetmacro{\dsh}{2.8}					% starting horz height
+	\pgfmathsetmacro{\dw}{0.68}					% width of first rectangle
+	\pgfmathsetmacro{\dh}{0.2}					% depth of first line
+	\pgfmathsetmacro{\dsmw}{\dsw+\dw/2}			% calc mid point (for left rect)
+	
+	\pgfmathsetmacro{\dfw}{12.01}				% final horz placement
+	\pgfmathsetmacro{\dfh}{2.8}					% final horz height
+	\pgfmathsetmacro{\dffw}{1.4}				% second rectangles width
+	\pgfmathsetmacro{\dfmw}{\dfw+\dffw/2}		% calc mid point (for right rect)
+	
+	% first lil rectangle
+	\draw[-] (\dsw,\dsh) -- (\dsw,\dsh-\dh);			% left line up
+	\draw[-] (\dsw+\dw,\dsh) -- (\dsw+\dw,\dsh-\dh);	% right line up
+	\draw[-] (\dsw,\dsh) -- (\dsw+\dw,\dsh);			% horizontal line
+	
+	% second lil rectangle
+	\draw[-] (\dfw,\dfh) -- (\dfw,\dfh-\dh);
+	\draw[-] (\dfw+\dffw,\dfh) -- (\dfw+\dffw,\dfh-\dh);
+	\draw[-] (\dfw,\dfh) -- (\dfw+\dffw,\dfh);	
+	
+	% third large rectangle
+	\draw[-] (\dsmw,\dsh) -- (\dsmw,\dsh+\dh);
+	\draw[-] (\dfmw,\dfh) -- (\dfmw,\dfh+\dh);
+	\draw[-] (\dsmw,\dsh+\dh) -- (\dfmw,\dsh+\dh);
+	\end{tikzpicture}
+
+\end{document}

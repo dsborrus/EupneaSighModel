@@ -30,6 +30,7 @@
 	\usetikzlibrary{automata,arrows,positioning,calc}
 	\pgfplotsset{ every non boxed x axis/.append style={x axis line style=-}, every non boxed y axis/.append style={y axis line style=-}}
 
+	\usepgfplotslibrary{fillbetween}
 
 \begin{document}
 
@@ -43,26 +44,35 @@
 
 
 		\begin{axis}[
-			height= 4cm,
-			width = 7cm,
-			ymin=0,ymax = 2,
-			ytick={0,2}, 
-			xtick={-1},
-			extra x ticks ={60,120},
-			extra x tick labels = {60 s, 120 s},
-			%extra y ticks = {0.9,10},
-			%extra y tick labels ={,},
+			height= 5cm,
+			width = 8cm,
+			xmin=0,xmax = 0.4,
+			ymin=0,ymax = 3,
+%			ytick={0,2}, 
+%			xtick={-1},
+%			extra x ticks ={60,120},
+%			extra x tick labels = {60 s, 120 s},
+%			%extra y ticks = {0.9,10},
+%			%extra y tick labels ={,},
 			axis x line = bottom,
 			axis y line = left,
-			%x axis line style = white,	
-			%ylabel = $a$,
-			%y label style = {rotate=-90,xshift=1cm},
-			legend style={at={(0.5,-0.35)},legend columns=-1,draw=none,anchor=center},
+%			%x axis line style = white,	
+%			%ylabel = $a$,
+%			%y label style = {rotate=-90,xshift=1cm},
+%			legend style={at={(0.5,-0.35)},legend columns=-1,draw=none,anchor=center},
 			]
-			\addplot[black,thick] table[mark=none,y index=1] {../data/data_C.dat};
-			\addplot[Gray,thick] table[mark=none,y index=2] {../data/data_C.dat};	
-			\legend{$[Ca^{2+}]_{\text{cyt}}$,$[Ca^{2+}]_{\text{total}}$};	
+			\addplot[black,thick] table[mark=none,y index=1] {../data/fig_cnull.dat};
+			\addplot[Gray,thick,name path=high] table[mark=none,y index=1] {../data/fig_ctnull_high.dat};
+			\addplot[Gray,thick,name path=low] table[mark=none,y index=1] {../data/fig_ctnull_low.dat};
+			\addplot[red,opacity=0.1] fill between[
+			of=high and low,
+			opacity=0.1,
+			];
+			\node at (50,50) {test};
+			%\legend{$[Ca^{2+}]_{\text{cyt}}$,$[Ca^{2+}]_{\text{total}}$};	
 		\end{axis}
+		
+		% \node at ()
 		
 
 	\end{tikzpicture}

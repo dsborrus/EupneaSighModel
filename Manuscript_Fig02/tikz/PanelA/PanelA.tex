@@ -41,31 +41,96 @@
 	
 		\pgfmathsetmacro{\xmin}{1998}
 		\pgfmathsetmacro{\xmax}{2027}
-%		\pgfmathsetmacro{\myh}{2}
-%		\pgfmathsetmacro{\myxs}{1.5}
-%		\pgfmathsetmacro{\myys}{0}
+		%\pgfmathsetmacro{\jnot}{2027}
+		%\pgfmathsetmacro{\jone}{2027}
+		%\pgfmathsetmacro{\xmax}{2027}
 		
+		\node at (3,11.5) {\bf Simulation};
 		
+		\begin{axis}[
+			height = 3 cm,
+			width  = 8 cm,
+			yshift = 8.5cm,
+			axis x line = none,
+			axis y line = left,
+			xtick = {-1},
+			ytick= {-1},
+			extra x ticks = {60,120,180},
+			extra x tick labels = {60 s, 120 s, 180 s},
+			extra y ticks = {0,10.4},
+			extra y tick labels = {,},
+			ylabel = {a},
+			ylabel style = {rotate=-90, xshift=1.0cm},
+			title = {High excitability ($\theta_a = -3$)},
+			]
+			\addplot[] table[y index=1] {../data/excited_simulation.dat}; 
+		\end{axis}
+		
+		\begin{axis}[
+			height = 3 cm,
+			width  = 8 cm,
+			yshift = 5.5cm,
+			axis x line = none,
+			axis y line = left,
+			xtick = {-1},
+			ytick= {-1},
+			extra x ticks = {60,120,180},
+			extra x tick labels = {60 s, 120 s, 180 s},
+			extra y ticks = {0,10.05},
+			extra y tick labels = {,},			
+			ytick = {-1},
+			ylabel = {a},
+			ylabel style = {rotate=-90, xshift=1.0cm},
+			title = {Low excitability ($\theta_a = -0.2$)},			
+			]
+			\addplot[]table[y index=1] {../data/depressed_simulation.dat}; 
+		\end{axis}
+	
+		\begin{axis}[
+			height= 6cm,
+			width = 8 cm,
+			yshift = 0cm,
+			ytick= {0,0.1,0.2}, xtick= {-6,-3, -4, -2, -1, 0},
+			%			extra y ticks = {2,8},
+			%			extra y tick labels ={,},
+			%			%extra x ticks = {2000,2025},
+			%			%extra x tick labels = {0 s, 25 s},
+			ymin = 0, ymax=0.25, xmin = -3.3,xmax=0.6,
+			axis x line = bottom,
+			axis y line = left,	
+			ylabel = {eupnea\\sec$^{(-1)}$},
+			y label style = {rotate=-90,yshift=0.4cm,xshift=0.3cm,Blue,align=left},
+			xlabel = $\theta_a$,
+			%title = {j0 = 0.0036, j1 = 0.00512, v4 = 0.16},
+			]
+			\addplot[Blue,thick,mark=square*] table[y index=1] {../data/eup_sigh_freq_vs_thetaa_simulated.dat};			
+		\end{axis}
 		\begin{axis}[
 			height= 6cm,
 			width = 8cm,
-			yshift = 0cm,
-			ytick= {0,0.2,0.4}, xtick= {-6, -4, -2, 0},
-%			extra y ticks = {2,8},
-%			extra y tick labels ={,},
-%			%extra x ticks = {2000,2025},
-%			%extra x tick labels = {0 s, 25 s},
-			ymin = 0, ymax=0.45, xmin = -4.5,xmax=0.5,
+			yshift = 0 cm,
+			ytick= {0,0.5,1.0},
+			%extra y ticks = {0.011},
+			%extra y tick labels = {0.011}, 
+			xtick= {-6, -4, -2, 0},
+			%			extra y ticks = {2,8},
+			%			extra y tick labels ={,},
+			%			%extra x ticks = {2000,2025},
+			%			%extra x tick labels = {0 s, 25 s},
+			ymin = 0, ymax=1.1, xmin = -3.3,xmax=0.6,
 			axis x line = bottom,
-			axis y line = left,	
-			ylabel = frequency (Hz),
-			y label style = {rotate=0,xshift=0cm},
-			xlabel = $\theta_a$,		
+			axis y line = right,	
+			ylabel = sighs\\min$^{(-1)}$,
+			y label style = {rotate=-90,yshift=-1.2cm,xshift=-0.3cm,Red,align=left},
+			xlabel = $\theta_a$,
+			yticklabel style={
+				/pgf/number format/fixed,
+				/pgf/number format/precision=5
+			},
+			scaled y ticks=false		
 			]
-			\addplot[Blue,thick,mark=square*] table[y index=1] {../data/eup_sigh_freq_vs_thetaa_simulated.dat};
-			\addplot[Red,thick,mark=square*] table[y index=2] {../data/eup_sigh_freq_vs_thetaa_simulated.dat};			
+			\addplot[Red,thick,mark=square*] table[y index=2] {../data/eup_sigh_freq_vs_thetaa_simulated.dat};
 		\end{axis}
-		
 
 	\end{tikzpicture}
 

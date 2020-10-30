@@ -30,7 +30,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 0 0 0 0 0 0 0 0 0];
+param.fig=[1 1 1 1 1 1 1 1 0 0 0];
 param.ESCOUPLINGvsCa=0;
 param.ESCouplingFig=0;
 param.NoiseTuning_rhythmfreqfig=0;
@@ -64,7 +64,7 @@ param.amin = 0;
 if param.includetheta
     % threshold can be varied larger (less negative) theta gives more
     % variability
-    param.thetaa=0.07*param.lambdaa; % -0.3 thetaa=theta (dynamic) -0.4 to +0.1 are reasonable
+    param.thetaa=0.0*param.lambdaa; % -0.3 thetaa=theta (dynamic) -0.4 to +0.1 are reasonable
     param.tausmax=scale_eupnea*0.5; % 0.5 was 0.2
     param.tausmin=scale_eupnea*0.5; % 0.5 was 0.2
 else
@@ -105,9 +105,9 @@ param.km=0.04;
 param.thetah=0.3;
 param.kh=-0.06;
 
-param.jin0=scale_calcium*0.018; % 0.02 0.018 0
-param.jin1=scale_calcium/param.amax * 0.04; % 0.02 0.04 0.2
-param.v4=scale_calcium*0.8;
+param.jin0=scale_calcium*0.025/2.5; % 0.02 0.018 0
+param.jin1=scale_calcium/param.amax * 0.64/2.5; % 0.02 0.04 0.2
+param.v4=scale_calcium*0.8/2.5;
 param.k4=0.3;
 param.n4=4;
 
@@ -268,7 +268,7 @@ for i=2:length(t)
     
     if includec
         cscale = 1;
-        jpm = jin0 + jin1*a(i-1) - v4*c(i-1)^n4/(k4^n4+c(i-1)^n4);
+        jpm = ( jin0 + jin1*a(i-1) - v4*c(i-1)^n4/(k4^n4+c(i-1)^n4) );
         c(i)=c(i-1)+dt*(  cscale*( (v2+v1*finf(c(i-1),thetam,km,thetah,kh))*((ct(i-1)-c(i-1))/lambda-c(i-1))   ...
             -v3*c(i-1)^n3/(k3^n3+c(i-1)^n3) ) + jpm);
         ct(i)=ct(i-1)+dt*jpm;
@@ -347,7 +347,7 @@ if includes
         plot(s,a,'b'); xlabel('s'); ylabel('a');
         axis([0 1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
-        print([ run '-2.png'],'-dpng')
+        %print([ run '-2.png'],'-dpng')
     end
 end
 
@@ -365,7 +365,7 @@ if includetheta
         xlabel('\theta, \theta+thetaa')
         ylabel('a')
         title(titlestr)
-        print([ run '-3.png'],'-dpng')
+        %print([ run '-3.png'],'-dpng')
     end
 end
 
@@ -412,7 +412,7 @@ if includetheta && includes
         %axis([ smin smax thetamin thetamax 0 amax ])
         
         title(titlestr)
-        print([ run '-4.png'],'-dpng')
+        %print([ run '-4.png'],'-dpng')
     end
     
     if fig(8)
@@ -431,7 +431,7 @@ if includetheta && includes
         legend({'traj','traj-\theta_a'})
         title(titlestr)
         axis([ smin smax thetamin thetamax ])
-        print([ run '-8.png'],'-dpng')
+        %print([ run '-8.png'],'-dpng')
     end
 end
 
@@ -442,7 +442,7 @@ if includec
         ctct = 0:0.001:3;
         css0=fzero(@(x) jin0-v4*x^n4/(k4^n4+x^n4),0.5);
         plot(css0*ones(size(ctct)),ctct,'k'); hold on;
-        css1=fzero(@(x) jin0+jin1-v4*x^n4/(k4^n4+x^n4),0.5);
+        css1=fzero(@(x) jin0+amax*jin1-v4*x^n4/(k4^n4+x^n4),0.5);
         plot(css1*ones(size(ctct)),ctct,'y-.'); hold on;
         out.cnull_ct=ctct;
         out.cnull_c=css0*ones(size(ctct));
@@ -453,7 +453,7 @@ if includec
         plot(cc,ctnull,'r'); hold on;
         plot(c(:),ct(:),'b-o'); hold on; xlabel('c'); ylabel('ct'); title(titlestr)
         plot(cc,max(ctct)*cc.^n4./(k4^n4+cc.^n4),'c');
-        print([ run '-5.png'],'-dpng')
+        %print([ run '-5.png'],'-dpng')
         out.ctnull_c=cc;
         out.ctnull_ct=ctnull;
         
@@ -473,7 +473,7 @@ if includec
         plot3(presyn,c,ainf,'k');
         plot3(presyn,c,a,'b');
         xlabel('presyn'); ylabel('c'); zlabel('a'); title(titlestr)
-        print([ run '-9.png'],'-dpng')
+        %print([ run '-9.png'],'-dpng')
     end
     
 end
@@ -507,7 +507,7 @@ if includes || includetheta
         plot(sinf,aa,'g',thetainf,aa,'b'); ylabel('a'); xlabel('x_\infty');  title(titlestr)
         legend({'s_\infty','\theta_\infty'})
         
-        print([ run '-6.png'],'-dpng')
+        %print([ run '-6.png'],'-dpng')
     end
 end
 
@@ -523,7 +523,7 @@ if fig(7)
         xlabel('sigh iei'); ylabel('#');
     end
     
-    print([ run '-7.png'],'-dpng')
+    %print([ run '-7.png'],'-dpng')
 end
 
 if param.NoiseTuning_rhythmfreqfig

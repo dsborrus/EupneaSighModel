@@ -42,18 +42,10 @@
 %		\pgfmathsetmacro{\xmax}{2027}
 
 		\pgfdeclareimage{panA}{PanelA/PanelA.pdf}
-		\pgfdeclareimage{panB}{PanelB/PanelB.pdf}
+		\pgfdeclareimage{panB}{PanelB/PanelB_v2.pdf}
 
-		%\node[anchor=west] (EupHeader) at (-3.5,2.5) {\bf Eupnea subsystem};
 		\node (A) {\pgfuseimage{panA}};
-		\node (B) [right = of A, xshift = -1.0cm] {\pgfuseimage{panB}};
-		
-%		\node[anchor=west] (SigHeader)  at (-3.5,-3) {\bf Sigh subsystem};
-%		\node (C) [below = of A,yshift=-0.2cm,xshift=-0.2cm] {\pgfuseimage{panC}};
-%		\node (D) [right = of C, xshift= -0.6cm,anchor=west] {\pgfuseimage{panD}};
-%		
-%		\node[anchor=west] (SigHeader)  at (-3.5,-8) {\bf Eupnea-Sigh model};
-%		\node (E) [below = of C,yshift=0,xshift=4cm] {\pgfuseimage{panE}};
+		\node (B) [right = of A, xshift = -1.5 cm, yshift= 0 cm] {\pgfuseimage{panB}};
 
 	\end{tikzpicture}
 

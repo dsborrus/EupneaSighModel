@@ -1,0 +1,143 @@
+\documentclass[11pt]{standalone}	% Required - Tells LaTeX how to display the document.
+
+\title{Standalone}
+\date{May 30th, 2018}
+\author{Daniel Borrus}
+
+%% Preamble %%
+
+	\usepackage{inputenc}	% Prepares LaTeX engine for non-ascii characters, such as UTF-8 characters. Important.
+
+	% Page Layout
+	%\usepackage{geometry} % set page width
+	%\usepackage[margin=1cm]{caption} % set caption width
+	%\usepackage{float} % Needed for creating figure “floats”
+
+	% Page Display
+	\usepackage{url} % Allows for url links
+	\usepackage{graphicx} % Allows for inputing figures
+	\usepackage[dvipsnames]{xcolor} % For pretty colors
+
+	% Math Typesetting
+	\usepackage{amsmath} % Provides useful equation formats
+	\usepackage{amssymb} % Provieds a ton of useful math symbols
+	\usepackage{mathtools} % Provides patches for amsmath
+
+	% TikZ/pgfPlots
+	\usepackage{tikz}
+	\usepackage{pgfplots}
+	%\pgfplotsset{compat=1.14}
+	\usetikzlibrary{automata,arrows,positioning,calc}
+	\pgfplotsset{ every non boxed x axis/.append style={x axis line style=-}, every non boxed y axis/.append style={y axis line style=-}}
+
+
+\begin{document}
+
+%\maketitle
+
+%\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	
+		\pgfmathsetmacro{\xmin}{1998}
+		\pgfmathsetmacro{\xmax}{2027}
+%		\pgfmathsetmacro{\myh}{2}
+%		\pgfmathsetmacro{\myxs}{1.5}
+%		\pgfmathsetmacro{\myys}{0}
+		
+		
+		\begin{axis}[
+			height= 6cm,
+			width = 8cm,
+			yshift = 0cm,
+			ytick= {0,0.2,0.4}, xtick= {-6, -4, -2, 0},
+%			extra y ticks = {2,8},
+%			extra y tick labels ={,},
+%			%extra x ticks = {2000,2025},
+%			%extra x tick labels = {0 s, 25 s},
+			ymin = 0, ymax=0.4, xmin = -4.5,xmax=0.5,
+			axis x line = bottom,
+			axis y line = left,	
+			ylabel = {eupnea\\sec$^{(-1)}$},
+			y label style = {rotate=-90,yshift=0.8cm,xshift=-0.2cm,Blue,align=left},
+			xlabel = $\theta_a$,
+			title = {j0 = 0.018, j1 = 0.04, v4 = 0.4},		
+			]
+			\addplot[Blue,thick,mark=square*] table[y index=1] {../data/eup_sigh_freq_vs_thetaa_simulated.dat};			
+		\end{axis}
+		\begin{axis}[
+		height= 6cm,
+		width = 8cm,
+		yshift = 0cm,
+		ytick= {0,0.5,1.0},
+		%extra y ticks = {0.011},
+		%extra y tick labels = {0.011}, 
+		xtick= {-6, -4, -2, 0},
+		%			extra y ticks = {2,8},
+		%			extra y tick labels ={,},
+		%			%extra x ticks = {2000,2025},
+		%			%extra x tick labels = {0 s, 25 s},
+		ymin = 0, ymax=1.05, xmin = -4.5,xmax=0.5,
+		axis x line = bottom,
+		axis y line = right,	
+		ylabel = sighs\\min$^{(-1)}$,
+		y label style = {rotate=-90,yshift=0.8cm,Red,align=left},
+		xlabel = $\theta_a$,
+		yticklabel style={
+			/pgf/number format/fixed,
+			/pgf/number format/precision=5
+		},
+		scaled y ticks=false		
+		]
+		\addplot[Red,thick,mark=square*] table[y index=2] {../data/eup_sigh_freq_vs_thetaa_simulated.dat};			
+		\end{axis}
+		
+				\begin{axis}[
+		height= 6cm,
+		width = 8cm,
+		yshift = -8cm,
+		ytick= {0,0.1,0.2}, xtick= {-6, -4, -2, -1, 0},
+		%			extra y ticks = {2,8},
+		%			extra y tick labels ={,},
+		%			%extra x ticks = {2000,2025},
+		%			%extra x tick labels = {0 s, 25 s},
+		ymin = 0, ymax=0.285, xmin = -2.3,xmax=0.3,
+		axis x line = bottom,
+		axis y line = left,	
+		ylabel = {eupnea\\sec$^{(-1)}$},
+		y label style = {rotate=-90,yshift=0.8cm,xshift=-0.2cm,Blue,align=left},
+		xlabel = $\theta_a$,
+		title = {j0 = 0.0036, j1 = 0.00512, v4 = 0.16},
+		]
+		\addplot[Blue,thick,mark=square*] table[y index=1] {../data/eup_sigh_freq_vs_thetaa_simulated_v4.dat};			
+		\end{axis}
+		\begin{axis}[
+		height= 6cm,
+		width = 8cm,
+		yshift = -8cm,
+		ytick= {0,0.5,1.0},
+		%extra y ticks = {0.011},
+		%extra y tick labels = {0.011}, 
+		xtick= {-6, -4, -2, 0},
+		%			extra y ticks = {2,8},
+		%			extra y tick labels ={,},
+		%			%extra x ticks = {2000,2025},
+		%			%extra x tick labels = {0 s, 25 s},
+		ymin = 0, ymax=0.9, xmin = -2.3,xmax=0.3,
+		axis x line = bottom,
+		axis y line = right,	
+		ylabel = sighs\\min$^{(-1)}$,
+		y label style = {rotate=-90,yshift=0.8cm,Red,align=left},
+		xlabel = $\theta_a$,
+		yticklabel style={
+			/pgf/number format/fixed,
+			/pgf/number format/precision=5
+		},
+		scaled y ticks=false		
+		]
+		\addplot[Red,thick,mark=square*] table[y index=2] {../data/eup_sigh_freq_vs_thetaa_simulated_v4.dat};			
+		\end{axis}
+
+	\end{tikzpicture}
+
+\end{document}

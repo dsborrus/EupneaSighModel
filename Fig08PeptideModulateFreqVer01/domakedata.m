@@ -85,6 +85,29 @@ axis tight
 
 saveas(gcf,'phasediagram.png')
 
+if 1 % need a figure with just v1 control
+   
+%% figure to show what v1 f inf looks like, and how it might change
+figure('position',[100 400 800 300])
+subplot(1,2,1); hold on;
+c = 0:0.01:1;
+finf_control = v1_control*(1./(1+exp((thetam-c)/km))) .* (1./(1+exp((thetah-c)/kh)));
+finf_NMB = v1_NMB*(1./(1+exp((thetam-c)/km))) .* (1./(1+exp((thetah-c)/kh)));
+plot(c,finf_control,'b','linewidth',2)
+legend('control (v1=20)')
+title('v1*finf(c)')
+xlabel('c')
+subplot(1,2,2); hold on;
+fhalf1 = (1./(1+exp((thetam-c)/km)));
+fhalf2 = (1./(1+exp((thetah-c)/kh)));
+plot(c,fhalf1,'k',c,fhalf2,'r','linewidth',2)
+title('finf(c) halves')
+xlabel('c')
+
+saveas(gcf,'just_finf_control.png')    
+    
+end
+
 toc(myt);
 
 

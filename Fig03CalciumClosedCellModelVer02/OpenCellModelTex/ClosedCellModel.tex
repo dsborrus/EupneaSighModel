@@ -56,7 +56,7 @@
 	ymax=2]
 	
 	\addplot[black,dashdotted] table[x index=0,y index=5] {../figdata1.dat};
-	\addlegendentry{$c_T$}
+	\addlegendentry{$c_\text{tot}$}
 	\addplot[blue] table[x index=0,y index=4] {../figdata1.dat};
 	\addlegendentry{$c$}
 	
@@ -83,12 +83,12 @@
 	ylabel style={rotate=-90},
 	domain=0:1,
 	samples=200]
-	\addplot[red,ultra thick,dashed] table[x index=0,y index=1] {../fig_cnull.dat};
-	\addlegendentry{$dc/dt=0$}
 	\addplot[red,ultra thick] table[x index=0,y index=1] {../fig_ctnull.dat};
-	\addlegendentry{$dc_T/dt=0$}
+	\addlegendentry{$\dot{c}=0$}
+	\addplot[red,ultra thick,dashed] table[x index=0,y index=1] {../fig_cnull.dat};
+	\addlegendentry{$\dot{c}_{\text{tot}}=0$}
 	\addplot[blue,thick] table[x index=4,y index=5] {../figdata1.dat};
-	\addlegendentry{$(c(t),c_T(t))$}
+	\addlegendentry{$(c(t),c_\text{tot}(t))$}
 	\end{axis}
 	
 	\begin{axis}[xshift=8cm,yshift=2cm,

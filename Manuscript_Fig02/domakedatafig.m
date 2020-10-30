@@ -5,19 +5,29 @@ clear; close all; clc;
 % figure stuff
 
 %% first row, simulation, on eupnea system
-includec = 0;
-total = 3000;
+total = 3000; % total time of simulation
+jin0 = 0.005; % default 0.0045 0.0036
+jin1 = 0.00512; % default 0.0004 0.00512
+
+
 fig = zeros(1,11); fig(2)=0;
 
-thetaa_list = [-0.4:0.02:0]*10; % 0 is default 
+thetaa_list = [-0.3:0.04:0]*10; % 0 is default 
 [mean_a_iei,std_a_iei,mean_ct_iei,std_ct_iei,delta_s,delta_theta,delta_a]=deal(0*thetaa_list);
 
-parfor i=1:length(thetaa_list)
+% special simulations to grab
+% how about data from thetaa = -3 and thetaa=0. Or the min and max
+downsampleN = 100;
+maxwindow = 240/0.001;
 
-thetaa=thetaa_list(i);    
+for i=1:length(thetaa_list)
+
+    thetaa=thetaa_list(i);    
     
     % IEI study
     [param, out] = tabakrinzelcalcium('thetaa',thetaa,...
+                                      'jin0',jin0,'jin1',jin1,...
+                                      'tauthetamax',8,...
                                       'trans',1000,...
                                       'total',total,...
                                       'fig',[0 0 0 0 0 0 0 0 0 ],...
@@ -39,9 +49,51 @@ thetaa=thetaa_list(i);
     mean_s_iei(i) = mean(diff(out.t(out.Coupling.locs(out.Coupling.sigh_i)))); 
     std_s_iei(i)  = std(diff(out.t(out.Coupling.locs(out.Coupling.sigh_i))));
     
+    if i == 1
+        excited_simulation = [out.t(1:downsampleN:maxwindow)'-out.t(1) out.a(1:downsampleN:maxwindow)'];
+        save('tikz/data/excited_simulation.dat','excited_simulation','-ascii')
+        disp(['excited simulations thetaa is ' mat2str(param.thetaa)])
+    elseif i == length(thetaa_list)
+        depressed_simulation = [out.t(1:downsampleN:maxwindow)'-out.t(1) out.a(1:downsampleN:maxwindow)'];
+        save('tikz/data/depressed_simulation.dat','depressed_simulation','-ascii')
+        disp(['depressed simulations thetaa is ' mat2str(param.thetaa)])
+    end
+    
     disp(['Finished run ' mat2str(i) ' out of ' mat2str(length(thetaa_list)) '.'])
+    
+    
                                     
 end
+
+% IEI study
+[param, out] = tabakrinzelcalcium('thetaa',thetaa,...
+                                  'jin0',jin0,'jin1',jin1,...
+                                  'tauthetamax',8,...
+                                  'trans',1000,...
+                                  'total',total,...
+                                  'fig',[0 0 0 0 1 0 0 0 0 ],...
+                                  'ESCOUPLINGvsCa',1 ...
+                                  );
+                              
+disp('Running once more for the nulc lines')
+
+
+% write ctnullcline .dat files
+fid = fopen('tikz/data/fig_cnull.dat','w');
+fprintf(fid,'%6.4f  %6.4f  \n',[ out.ctnull_c ; out.ctnull_ct ]);
+fclose(fid);
+
+fid = fopen('tikz/data/fig_ctnull_low.dat','w');
+fprintf(fid,'%6.4f  %6.4f  \n',[ out.cnull_c ; out.cnull_ct ]);
+fclose(fid);
+fid = fopen('tikz/data/fig_ctnull_high.dat','w');
+fprintf(fid,'%6.4f  %6.4f  \n',[ out.cnull_c+0.05 ; out.cnull_ct ]);
+fclose(fid);
+
+ctnull_low = ((param.k4*(param.jin0+param.jin1*0))/(param.v4-param.jin0+param.jin1*0))^(1/4);
+ctnull_high = ((param.k4*(param.jin0+param.jin1*10))/(param.v4-param.jin0+param.jin1*10))^(1/4);
+
+
                                  
 %% Summary plot
 
@@ -52,7 +104,7 @@ end
 
 
 freq_e_iei=1./mean_e_iei;
-freq_s_iei=1./mean_s_iei;
+freq_s_iei=60./mean_s_iei;
 
 figure
 subplot(2,1,1)
@@ -73,9 +125,25 @@ xlabel('\theta_a')
 ylabel('freq (Hz)')
 legend('Eupnea','Sigh')
 
+disp(['Max eupnea frequency = ' mat2str(max(freq_e_iei))])
+disp(['Min eupnea frequency = ' mat2str(min(freq_e_iei))])
+disp(['Max sigh frequency = ' mat2str(max(freq_s_iei))])
+disp(['Min sigh frequency = ' mat2str(min(freq_s_iei))])
+
+figure
+curtime = datetime('now','format','yyyyMMdd-HHmmss');
+plot(thetaa_list,freq_e_iei/max(freq_e_iei),'bo','linewidth',2); hold on;
+plot(thetaa_list,freq_s_iei/max(freq_s_iei),'ro','linewidth',2);
+xlabel('\theta_a')
+ylabel('freq (relative to maximum)')
+title(['j0 = ' mat2str(jin0) '.   j1 = ' mat2str(jin1) '.   File: ' char(curtime)])
+legend('Eupnea','Sigh')
+saveas(gcf,['ParamSweepData/Simulation-' char(curtime) '.png'])
+
 %% Export data
 
 data_out = [thetaa_list' freq_e_iei' freq_s_iei'];
+%save(['tikz/data/eup_sigh_freq_vs_thetaa_simulated_v' char(curtime) '.dat'],'data_out','-ascii')
 save('tikz/data/eup_sigh_freq_vs_thetaa_simulated.dat','data_out','-ascii')
 
 function y = xinf(x,theta,k,lambda)
