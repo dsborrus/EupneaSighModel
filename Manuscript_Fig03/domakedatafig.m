@@ -1,82 +1,114 @@
-%% Manuscript Figure #02 - Eupnea and Sigh Voltage Dependence
-% script to make and export figures for figure 1 of manuscript
+%% Manuscript Figure #03 - NMB Experiments
+% script to make and export figures for figure 3 of manuscript
 clear; close all; clc;
 
-% figure stuff
+%% Simulation
+myt=tic;
 
-%% first row, simulation, on eupnea system
-includec = 0;
-total = 3000;
-fig = zeros(1,11); fig(2)=0;
+total = 2500;
+v1_control = 20;
+v1_NMB     = 40;
 
-thetaa_list = [-0.4:0.02:0]*10; % 0 is default 
-[mean_a_iei,std_a_iei,mean_ct_iei,std_ct_iei,delta_s,delta_theta,delta_a]=deal(0*thetaa_list);
+thetam =  0.25;   
+km     =  0.04;
+thetah =  0.30;
+kh     = -0.06;
 
-parfor i=1:length(thetaa_list)
+[p1,o1] = tabakrinzelcalcium('total',total,'v1',v1_control);
+[p2,o2] = tabakrinzelcalcium('total',total,'v1',v1_NMB);
 
-thetaa=thetaa_list(i);    
-    
-    % IEI study
-    [param, out] = tabakrinzelcalcium('thetaa',thetaa,...
-                                      'trans',1000,...
-                                      'total',total,...
-                                      'fig',[0 0 0 0 0 0 0 0 0 ],...
-                                      'ESCOUPLINGvsCa',1 ...
-                                      );
+t1 = o1.t;   t2=o2.t;
+c1 = o1.c;   c2=o2.c;
+ct1= o1.ct; ct2=o2.ct;
+fr1= 1/mean(o1.ct_iei); fr2= 1/mean(o2.ct_iei);
 
-    
-    % individual figures (non default)
-    if 0
-        figure
-        plot(out.t,out.a,'b')
-        hold on;
-        plot(out.t(out.Coupling.locs(out.Coupling.eupnea_i)),5,'ro');
-        plot(out.t(out.Coupling.locs(out.Coupling.sigh_i)),7,'ko');
-    end
-    
-    mean_e_iei(i) = mean(diff(out.t(out.Coupling.locs(out.Coupling.eupnea_i)))); 
-    std_e_iei(i)  = std(diff(out.t(out.Coupling.locs(out.Coupling.eupnea_i))));
-    mean_s_iei(i) = mean(diff(out.t(out.Coupling.locs(out.Coupling.sigh_i)))); 
-    std_s_iei(i)  = std(diff(out.t(out.Coupling.locs(out.Coupling.sigh_i))));
-    
-    disp(['Finished run ' mat2str(i) ' out of ' mat2str(length(thetaa_list)) '.'])
-                                    
-end
                                  
 %% Summary plot
 
-%plot(thetaa_list,mean_a_iei,'o'); hold on;
-%errorbar(thetaa_list,mean_a_iei,std_a_iei)
-%plot(thetaa_list,mean_ct_iei,'o'); hold on;
-%errorbar(thetaa_list,mean_ct_iei,std_ct_iei)
+% figure to show what v1 f inf looks like, and how it might change
+figure('position',[100 400 800 300])
+subplot(1,2,1); hold on;
+c = 0:0.01:1;
+finf_control = v1_control*(1./(1+exp((thetam-c)/km))) .* (1./(1+exp((thetah-c)/kh)));
+finf_NMB = v1_NMB*(1./(1+exp((thetam-c)/km))) .* (1./(1+exp((thetah-c)/kh)));
+plot(c,finf_control,'b',c,finf_NMB,'m','linewidth',2)
+legend('control (v1=20)','v1 doubled (v1=40)')
+title('v1*finf(c)')
+xlabel('c')
+subplot(1,2,2); hold on;
+fhalf1 = (1./(1+exp((thetam-c)/km)));
+fhalf2 = (1./(1+exp((thetah-c)/kh)));
+plot(c,fhalf1,'k',c,fhalf2,'r','linewidth',2)
+title('finf(c) halves')
+xlabel('c')
+
+% figure to plot trajectories
+figure('position',[900 400 800 600])
+subplot(2,1,1); hold on;
+plot(t1,c1,'b',t1,ct1,'b--','linewidth',2)
+%plot(o1.locs,o1.pks,'ro')
+legend('cyt Ca','total Ca')
+title({['Control conditions. v1 = ' mat2str(v1_control) '.'],...
+       ['sigh frequency is ' mat2str(round(fr1,2)) ' Hz.']})
+
+subplot(2,1,2); hold on;
+plot(t2,c2,'m',t2,ct2,'m--','linewidth',2)
+%plot(o2.locs,o2.pks,'ro')
+legend('cyt Ca','total Ca')
+title({['Bombesin-like conditions. v1 = ' mat2str(v1_NMB) '.'],...
+       ['sigh frequency is ' mat2str(round(fr2,2)) ' Hz.']})
 
 
-freq_e_iei=1./mean_e_iei;
-freq_s_iei=1./mean_s_iei;
+% figure to plot nulc lines
 
 figure
-subplot(2,1,1)
-plot(thetaa_list,freq_e_iei,'o'); hold on;
-xlabel('\theta_a')
-ylabel('eupnea freq (Hz)')
+cc = 0:0.001:0.4;
+v2=0.25;v3=60;k3=0.3;n3=2;lambda=0.15;thetam=0.25;km=0.04;thetah=0.3;kh=-0.06;j0=0.009;v4=0.4;k4=0.3;n4=4;
 
-subplot(2,1,2)
-plot(thetaa_list,freq_s_iei,'o'); hold on;
-xlabel('\theta_a')
-ylabel('sigh freq (Hz)')
+for i=1:length(cc)
+    %ctnull1(i)=fzero(@(x) (v2+v1_control*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3),0.3);
+    ctnull_con(i)=fzero(@(x) (v2+v1_control*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3)+j0-((v4*cc(i)^4)/(k4+cc(i)^4)),0.3);
+    ctnull_nmb(i)=fzero(@(x) (v2+v1_NMB*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3)+j0-((v4*cc(i)^4)/(k4+cc(i)^4)),0.3);    
+    ctnull_10(i)=fzero(@(x) (v2+10*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3)+j0-((v4*cc(i)^4)/(k4+cc(i)^4)),0.3);    
+    %ctnull_80(i)=fzero(@(x) (v2+80*finf(cc(i),thetam,km,thetah,kh))*((x-cc(i))/lambda-cc(i))-v3*cc(i)^n3/(k3^n3+cc(i)^n3)+j0-((v4*cc(i)^4)/(k4+cc(i)^4)),0.3);
+end
 
+%plot(ctnull1,'b'); hold on; plot(ctnull2,'r')
 
-figure
-plot(thetaa_list,freq_e_iei,'o'); hold on;
-plot(thetaa_list,freq_s_iei,'o');
-xlabel('\theta_a')
-ylabel('freq (Hz)')
-legend('Eupnea','Sigh')
+plot(cc,ctnull_10,'color',[0.4 0 0.4],'linewidth',2); hold on;
+plot(cc,ctnull_con,'r','linewidth',2);
+plot(cc,ctnull_nmb,'m','linewidth',2);
+%plot(cc,ctnull_80,'color',[0.9 0.1 0.9],'linewidth',2);
+plot( [((j0*k4^4)/(v4-j0))^(1/4) ((j0*k4^4)/(v4-j0))^(1/4)], [0 max([ctnull_10 ctnull_con ctnull_nmb])],'b','linewidth',2 )      
+
+legend("c'=0 (v1=10)","c'=0 control (v1=20)","c'=0 nmb (v1=40)","ct'=0 nullcline")
+xlabel('c')
+ylabel('ctot')
+title('Phase diagram, Ca subsystem')
+axis tight
 
 %% Export data
+res = 50;
+control_traj = [t1(1:res:end)-2000; o1.a(1:res:end); o1.c(1:res:end); o1.ct(1:res:end)]';
+save('tikz/data/control_traj.dat','control_traj','-ascii');
+NMB_traj = [t2(1:res:end)-2000; o2.a(1:res:end); o2.c(1:res:end); o2.ct(1:res:end)]';
+save('tikz/data/NMB_traj.dat','NMB_traj','-ascii');
 
-data_out = [thetaa_list' freq_e_iei' freq_s_iei'];
-save('tikz/data/eup_sigh_freq_vs_thetaa_simulated.dat','data_out','-ascii')
+% save parameters to tex file
+
+fileID = fopen('tikz/PanelA/defs.tex' ,'w');
+% number of sighs
+fprintf(fileID,['\\def \\maxAcontrol{' num2str(max(o1.a)) '}\n']);
+fprintf(fileID,['\\def \\maxAnmb{' num2str(max(o2.a)) '}\n']);
+fprintf(fileID,['\\def \\cmin{' num2str(min(o1.c)) '}\n']);
+fprintf(fileID,['\\def \\cmax{' num2str(max(o1.c)) '}\n']);
+fprintf(fileID,['\\def \\ctmin{' num2str(min(o1.ct)) '}\n']);
+fprintf(fileID,['\\def \\ctmax{' num2str(max(o1.ct)) '}\n']);
+fprintf(fileID,['\\def \\ctminNMB{' num2str(min(o2.ct)) '}\n']);
+fprintf(fileID,['\\def \\ctmaxNMB{' num2str(max(o2.ct)) '}\n']);
+
+
+%% Additional Functions
 
 function y = xinf(x,theta,k,lambda)
     y=lambda./(1+exp(4*(theta-x)/k));
