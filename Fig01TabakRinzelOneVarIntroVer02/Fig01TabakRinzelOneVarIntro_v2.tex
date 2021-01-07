@@ -1,0 +1,232 @@
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+                   
+\begin{document}
+
+
+\def\figw{1}
+\def\figtaua{10}
+\def\figthetaa{0.18}
+\def\figka{0.2}
+\def\figthetas{0.14}
+\def\figks{-0.08}
+\def\figthetassnic{0.3}
+\def\figkssnic{-1.0}
+\def\filename{figs_and_data_201222_120413}
+
+\begin{tikzpicture}
+
+
+\begin{axis}[xshift=0cm,yshift=0cm,
+        %clip=false, 
+        hide axis,
+        legend pos=north east,
+        legend cell align={left},
+        width=12cm,
+        height=5cm,
+        xmin=0,
+		xmax=25,
+        ymin=0,
+	ymax=1]
+\addplot[blue] table[x index=0,y index=1] {\filename/figdata1.dat};
+\addlegendentry{$a$}
+\addplot[cyan,dashed] table[x index=0,y index=2] {\filename/figdata1.dat};
+\addlegendentry{$s$}
+\draw[ultra thick] (axis cs: 21,-0.1) -- node[below] {4 s} (axis cs: 25,-0.1);
+\draw[ultra thick] (axis cs: -1,0.2) -- node[left] {0.2} (axis cs: -1,0.4);
+\end{axis}
+
+\begin{axis}[xshift=12cm,yshift=0cm,
+clip=false, hide axis,
+        legend pos=north east,
+        legend cell align={left},
+        width=12cm,
+        height=5cm,
+        xmin=0,
+	xmax=25,
+        ymin=0,
+	ymax=1]
+\addplot[blue] table[x index=0,y index=1] {\filename/figdata2.dat};
+%\addlegendentry{$a$}
+\addplot[cyan,dashed] table[x index=0,y index=2] {\filename/figdata2.dat};
+%\addlegendentry{$s$}
+\end{axis}
+
+
+
+
+
+\begin{axis}[xshift=0cm,yshift=-6cm,
+clip=true,
+        height=6cm,
+        width=6cm,
+        xmax=1.05,
+        xmin=-0.05,
+        ymin=-0.05,
+        ymax=1.05,
+        axis x line=bottom,
+        legend pos=north east,
+        xlabel={$s$},
+        ylabel={$a$},
+        axis y line=left,
+        ylabel near ticks,
+        xlabel near ticks,
+        ylabel style={rotate=-90},
+        domain=0:1,
+        samples=200,
+        ]
+
+
+\addplot[red,thick,samples=400,domain=0:1,smooth]  ({(4*\figthetaa-\figka*ln(1/x-1))/(4*\figw*x)}, {x});
+ \addlegendentry{$\dot{a}=0$}
+ 
+ \addplot[green,thick] ({1/(1+exp(4*(\figthetas-x)/\figks))}, {x}); 
+\addlegendentry{$\dot{s}=0$}
+
+\draw[red,thick,dotted] (axis cs: 0.45,1) -- (axis cs: 1,1);
+%\addplot[red,thick,samples=40,domain=0.99:1,smooth]  ({(4*\figthetaa-\figka*ln((1-x)/x))/(4*\figw*x)}, {x});
+
+\addplot[blue] table[x index=2,y index=1] {\filename/figdata1.dat};
+\end{axis}
+
+\begin{axis}[xshift=12cm,yshift=-6cm,      
+clip=true,
+        height=6cm,
+        width=6cm,
+        xmax=1.05,
+        xmin=-0.05,
+        ymin=-0.05,
+        ymax=1.05,
+        axis x line=bottom,
+        legend pos=north east,
+        xlabel={$s$},
+        ylabel={$a$},
+        axis y line=left,
+        ylabel near ticks,
+        xlabel near ticks,
+        ylabel style={rotate=-90},
+        domain=0:1,
+        samples=200,
+        ]
+
+\addplot[red,thick,samples=400,domain=0:1]  ({(4*\figthetaa-\figka*ln(1/x-1))/(4*\figw*x)}, {x});
+ %\addlegendentry{$\dot{a}=0$}
+ 
+\addplot[green,thick] ({1/(1+exp(4*(\figthetassnic-x)/\figkssnic))}, {x});
+%\addlegendentry{$\dot{s}=0$}
+
+\draw[red,thick,dotted] (axis cs: 0.45,1) -- (axis cs: 1,1);
+%\addplot[red,thick,samples=40,domain=0.99:1]  ({(4*\figthetaa-\figka*ln((1-x)/x))/(4*\figw*x)}, {x});
+
+\addplot[blue] table[x index=2,y index=1] {\filename/figdata2.dat};
+
+\end{axis}
+
+
+
+\begin{axis}[xshift=6cm,yshift=-6cm,
+clip=true, 
+        height=6cm,
+        width=6cm,
+        xmax=5,
+        xmin=3,
+        ymin=0,
+        ymax=0.15,
+        axis x line=bottom,
+        xlabel={$T_\epsilon$},
+        ylabel={Prob.},
+        axis y line=left,
+        %ylabel near ticks,
+        ytick = {0.05,0.1},
+        y tick label style={
+        	/pgf/number format/.cd,
+        	fixed,
+        	fixed zerofill,
+        	precision=2},
+        xlabel near ticks,
+        ylabel style={at={(current axis.above origin)},anchor=west,rotate=-90},
+        ]
+
+
+\addplot[blue,fill=blue!30,ybar interval] table[x index=0,y index=1] {\filename/figdata3.dat};
+
+
+\end{axis}
+
+
+\begin{axis}[xshift=18cm,yshift=-6cm,
+        clip=true, 
+        height=6cm,
+        width=6cm,
+        %xmax=25,
+        %xmin=0,
+        ymin=0,
+        ymax=0.20,
+        ytick={0,0.05,0.10,0.15},
+        y tick label style={
+    		/pgf/number format/.cd,
+    		fixed,
+    		fixed zerofill,
+    		precision=2},
+        axis x line=bottom,
+        xlabel={$T_\epsilon$},
+        ylabel={Prob.},
+        axis y line=left,
+       %ylabel near ticks,
+        xlabel near ticks,
+        ylabel style={at={(current axis.above origin)},anchor=west,rotate=-90},
+        ]
+
+ 
+
+\addplot[blue,fill=blue!30,ybar interval] table[x index=0,y index=1] {\filename/figdata4.dat};
+
+
+\end{axis}
+
+\begin{axis}[xshift=0cm,yshift=-12cm,
+        clip=false, hide axis,
+        legend pos=north east,
+        legend cell align={left},
+        width=12cm,
+        height=5cm,
+        xmin=0,
+		xmax=7,
+        ymin=0,
+		ymax=1,
+		]
+\addplot[blue] table[x index=0,y index=1] {\filename/figdata5.dat};
+\addlegendentry{$a$}
+\addplot[cyan,dashed] table[x index=0,y index=2] {\filename/figdata5.dat};
+\addlegendentry{$s$}
+\draw[ultra thick] (axis cs: 6,-0.1) -- node[below] {1 s} (axis cs: 7,-0.1);
+\draw[ultra thick] (axis cs: -0.3,0.2) -- node[left] {0.2} (axis cs: -0.3,0.4);
+\draw[] (axis cs: 5.5,-0.3) node[above,font=\Large] {$\uparrow$};
+\end{axis}
+
+\begin{axis}[xshift=12cm,yshift=-12cm,
+clip=false, hide axis,
+        legend pos=north east,
+        legend cell align={left},
+        width=12cm,
+        height=5cm,
+        xmin=0,
+		xmax=7,
+        ymin=0,
+		ymax=1,
+		]
+\addplot[blue] table[x index=0,y index=1] {\filename/figdata6.dat};
+%\addlegendentry{$a$}
+\addplot[cyan,dashed] table[x index=0,y index=2] {\filename/figdata6.dat};
+%\addlegendentry{$s$}
+\draw[] (axis cs: 5,-0.3) node[above,font=\Large] {$\uparrow$};
+%\draw[] (axis cs: 3,0.5) node[red] {Two-pulse protocols need work};
+\end{axis}
+
+\end{tikzpicture}
+
+
+\end{document}  

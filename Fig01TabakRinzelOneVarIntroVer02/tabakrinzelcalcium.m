@@ -277,7 +277,7 @@ if fig(1)
         legend({'s','\theta','a'});
         title(titlestr)
     end
-    print([ run '-1.png'],'-dpng')
+    %print([ run '-1.png'],'-dpng')
 end
 
 if includes
@@ -298,7 +298,7 @@ if includes
         %axis([min(s)*0.9 max(s)*1.1 min(a)*0.9 max(a)*1.1])
         axis([0 1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
-        print([ run '-2.png'],'-dpng')
+        %print([ run '-2.png'],'-dpng')
     end
 end
 
@@ -315,7 +315,7 @@ if includetheta
         
         %axis([min(theta)*0.9 max(theta)*1.1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
-        print([ run '-3.png'],'-dpng')
+        %print([ run '-3.png'],'-dpng')
     end
 end
 
@@ -352,7 +352,7 @@ if includetheta && includes
         axis([ 0 1 0 1 0 1])
         %axis([min(s)*0.9 max(s)*1.1 min(theta)*0.9 max(theta)*1.1 min(a)*0.9 max(a)*1.1])
         title(titlestr)
-        print([ run '-4.png'],'-dpng')
+        %print([ run '-4.png'],'-dpng')
     end
     
     if fig(8)
@@ -368,7 +368,7 @@ if includetheta && includes
         legend({'traj','traj-\theta_a'})
         title(titlestr)
         axis([ 0 1 0 1 ])
-        print([ run '-8.png'],'-dpng')
+        %print([ run '-8.png'],'-dpng')
     end
 end
 
@@ -389,7 +389,7 @@ if includec
         plot(c(:),ct(:),'b-o'); hold on; xlabel('c'); ylabel('ct'); title(titlestr)
         plot(cc,max(ctct)*cc.^n4./(k4^n4+cc.^n4),'r');
         plot(cc,max(ctct)*cc.^n5./(k5^n5+cc.^n5),'c');
-        print([ run '-5.png'],'-dpng')
+        %print([ run '-5.png'],'-dpng')
     end
     
     if fig(9)
@@ -405,7 +405,7 @@ if includec
         plot3(presyn,c,ainf,'k');
         plot3(presyn,c,a,'b');
         xlabel('presyn'); ylabel('c'); zlabel('a'); title(titlestr)
-        print([ run '-9.png'],'-dpng')
+        %print([ run '-9.png'],'-dpng')
     end
     
 end
@@ -433,7 +433,7 @@ if includes || includetheta
         plot(sinf,aa,'g',thetainf,aa,'b'); ylabel('a'); xlabel('x_\infty');  title(titlestr)
         legend({'s_\infty','\theta_\infty'})
         
-        print([ run '-6.png'],'-dpng')
+        %print([ run '-6.png'],'-dpng')
     end
 end
 
@@ -449,13 +449,13 @@ if fig(7)
         xlabel('sigh iei'); ylabel('#');
     end
     
-    print([ run '-7.png'],'-dpng')
+    %print([ run '-7.png'],'-dpng')
 end
 
 
 
 dirname = [ run theparamstr ];
-system([ 'mkdir ' dirname ]);
+%system([ 'mkdir ' dirname ]);
 
 if writetraj
     % write trajectory .dat files
@@ -468,7 +468,7 @@ if writetraj
     if ~strcmp(filenametraj,'default')
         system(['cp traj.dat ' filenametraj '.dat '  ]);
     end
-    system(['mv traj.dat ' dirname ]);
+    %system(['mv traj.dat ' dirname ]);
     fclose(fid);
 end
 if writehist
@@ -481,14 +481,14 @@ if writehist
     if ~strcmp(filenamehist,'default')
         system(['cp hist.dat ' filenamehist '.dat '  ]);
     end
-    system(['mv hist.dat ' dirname ]);
+    %system(['mv hist.dat ' dirname ]);
 end
 
 % wrap tings up and collect files
-save([run '.mat'])
-system(['mv *mat ' dirname ]);
-system(['mv *png ' dirname ]);
-system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
+%save([run '.mat'])
+%system(['mv *mat ' dirname ]);
+%system(['mv *png ' dirname ]);
+%system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
 
 return
 
