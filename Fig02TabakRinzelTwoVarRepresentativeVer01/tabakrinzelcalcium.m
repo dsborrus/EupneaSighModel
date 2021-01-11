@@ -29,10 +29,10 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 1 0 0 0 0 0 0 0 ];
+param.fig=[1 0 0 0 0 0 0 0 0 ];
 param.seed=-1;
-param.writetraj=1;
-param.writehist=1;
+param.writetraj=0;
+param.writehist=0;
 param.filenametraj='default'; % default will be "run" traj (see below)
 param.filenamehist='default'; % default will be "run" hist (see below)
 param.thintraj=1; % 1=no thinning, 10=every 10th point, etc.
@@ -277,7 +277,7 @@ if fig(1)
         legend({'s','\theta','a'});
         title(titlestr)
     end
-    print([ run '-1.png'],'-dpng')
+    %print([ run '-1.png'],'-dpng')
 end
 
 if includes
@@ -455,7 +455,7 @@ end
 
 
 dirname = [ run theparamstr ];
-system([ 'mkdir ' dirname ]);
+%system([ 'mkdir ' dirname ]);
 
 if writetraj
     % write trajectory .dat files
@@ -466,9 +466,9 @@ if writetraj
         fprintf(fid,'\n');
     end
     if ~strcmp(filenametraj,'default')
-        system(['cp traj.dat ' filenametraj '.dat '  ]);
+        %system(['cp traj.dat ' filenametraj '.dat '  ]);
     end
-    system(['mv traj.dat ' dirname ]);
+    %system(['mv traj.dat ' dirname ]);
     fclose(fid);
 end
 if writehist
@@ -479,16 +479,16 @@ if writehist
     fprintf(fid,'%6.4f  %6.4f   \n',[(edges(1:end-1)+edges(2:end))/2 ; h]);
     fclose(fid);
     if ~strcmp(filenamehist,'default')
-        system(['cp hist.dat ' filenamehist '.dat '  ]);
+        %system(['cp hist.dat ' filenamehist '.dat '  ]);
     end
-    system(['mv hist.dat ' dirname ]);
+    %system(['mv hist.dat ' dirname ]);
 end
 
 % wrap tings up and collect files
-save([run '.mat'])
-system(['mv *mat ' dirname ]);
-system(['mv *png ' dirname ]);
-system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
+%save([run '.mat'])
+%system(['mv *mat ' dirname ]);
+%system(['mv *png ' dirname ]);
+%system(['cp tabakrinzelcalcium.m ' dirname '/tabakrinzelcalcium_script_used.txt' ]);
 
 return
 
