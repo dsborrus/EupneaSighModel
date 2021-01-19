@@ -24,7 +24,7 @@ filename = char(datetime('now','format','yyMMdd_HHmmss'));
 system(['mkdir figs_and_data_' filename]);
 
 % fig params
-sr = 100; %sampling rate
+sr = 20; %sampling rate
 
     
 %% Example eupnea simulation with 2 slow var (type 2)

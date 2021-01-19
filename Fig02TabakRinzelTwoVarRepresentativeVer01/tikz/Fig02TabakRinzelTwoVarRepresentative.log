@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  11 JAN 2021 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  12 JAN 2021 13:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -604,16 +604,16 @@ ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into
 your preamble.
  on input line 7.
 
-PGFPlots: reading {../figs_and_data_210111_130720/figdata1b.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata1b.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata1b.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata1b.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata1b.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata1b.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata2.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata2polyfit.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata2hist.dat}
-PGFPlots: reading {../figs_and_data_210111_130720/figdata2gaussfit.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata1b.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata1b.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata1b.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata1b.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata1b.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata1b.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata2.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata2polyfit.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata2hist.dat}
+PGFPlots: reading {../figs_and_data_210112_130616/figdata2gaussfit.dat}
 [1
 
 {c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -621,7 +621,7 @@ PGFPlots: reading {../figs_and_data_210111_130720/figdata2gaussfit.dat}
 Here is how much of TeX's memory you used:
  23494 strings out of 492609
  612198 string characters out of 6132818
- 922776 words of memory out of 5000000
+ 1435581 words of memory out of 5000000
  27031 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -629,8 +629,8 @@ Here is how much of TeX's memory you used:
 <c:/texlive/2019/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr10.pfb>
-Output written on Fig02TabakRinzelTwoVarRepresentative.pdf (1 page, 59444 bytes
-).
+Output written on Fig02TabakRinzelTwoVarRepresentative.pdf (1 page, 107018 byte
+s).
 PDF statistics:
  19 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream

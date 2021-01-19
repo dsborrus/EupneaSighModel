@@ -29,7 +29,7 @@ scale_calcium = param.scale_calcium;
 param.trans = 2000;
 param.total = 2200;
 param.dt=0.001;
-param.fig=[1 0 0 0 0 0 0 0 0 ];
+param.fig=[0 0 0 0 0 0 0 0 0 ];
 param.seed=-1;
 param.writetraj=0;
 param.writehist=0;
@@ -42,7 +42,7 @@ param.ct_iei_binwidth=0.5;
 % now the remainder of the default model parameters
 % period should be about 4 seconds.  Active phase about 0.5 seconds.
 param.N = 100; % 100
-param.w=1;
+param.w = 1;
 param.taua=scale_eupnea*0.1; % 0.05 or 0.1
 param.ka=0.2;
 if param.includetheta

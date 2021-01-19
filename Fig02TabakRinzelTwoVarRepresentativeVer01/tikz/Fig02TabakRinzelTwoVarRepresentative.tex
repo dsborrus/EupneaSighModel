@@ -16,7 +16,7 @@
 %\def\figthetassnic{0.3}
 %\def\figkssnic{-1.0}
 
-\def\filename{figs_and_data_210111_130720}
+\def\filename{figs_and_data_210112_130616}
 
 \begin{tikzpicture}
 
@@ -28,17 +28,17 @@
         width=14cm,
         height=5cm,
         xmin=0,
-	xmax=25,
+		xmax=25,
         ymin=0,
-	ymax=1]
-\addplot[blue] table[x index=0,y index=1] {../\filename/figdata1b.dat};
-\addlegendentry{$a$}
-\addplot[cyan,dashed] table[x index=0,y index=2] {../\filename/figdata1b.dat};
-\addlegendentry{$s$}
-\addplot[black,dashdotted] table[x index=0,y index=3] {../\filename/figdata1b.dat};
-\addlegendentry{$\theta$}
-\draw[ultra thick] (axis cs: 21,-0.1) -- node[below] {4 s} (axis cs: 25,-0.1);
-\draw[ultra thick] (axis cs: -1,0.2) -- node[left] {0.2} (axis cs: -1,0.4);
+		ymax=1]
+		\addplot[blue] table[x index=0,y index=1] {../\filename/figdata1b.dat};
+		\addlegendentry{$a$}
+		\addplot[cyan,dashed] table[x index=0,y index=2] {../\filename/figdata1b.dat};
+		\addlegendentry{$s$}
+		\addplot[black,dashdotted] table[x index=0,y index=3] {../\filename/figdata1b.dat};
+		\addlegendentry{$\theta$}
+		\draw[ultra thick] (axis cs: 21,-0.1) -- node[below] {4 s} (axis cs: 25,-0.1);
+		\draw[ultra thick] (axis cs: -1,0.2) -- node[left] {0.2} (axis cs: -1,0.4);
 \end{axis}
 
 \begin{axis}[xshift=0cm,yshift=-6cm,
@@ -68,19 +68,19 @@ zlabel style={rotate=-90}]
 	
 
 \begin{axis}[xshift=8cm,yshift=-6cm,
-      width=6cm,
-        height=6cm,
-        xmin=0.35,
+	width=6cm,
+	height=6cm,
+    xmin=0.35,
 	xmax=1,
-        ymin=0.35,
+    ymin=0.35,
 	ymax=1,
-        axis x line=bottom,
-        axis y line=left,
+    axis x line=bottom,
+    axis y line=left,
 	ylabel near ticks,
-        xlabel near ticks,
-        ylabel style={rotate=-90},
-        ylabel={$\theta$},
-        xlabel={$s$}]
+    xlabel near ticks,
+    ylabel style={rotate=-90},
+    ylabel={$\theta$},
+    xlabel={$s$}]
 
 \addplot[black]  table[x index=2,y index=3] {../\filename/figdata1b.dat};
 
@@ -90,61 +90,60 @@ zlabel style={rotate=-90}]
 \end{axis}	
 
 \begin{axis}[
-xshift=0cm,
-yshift=-12cm,
-height=6cm,
-width=6cm,
-xmin = 4.15,
-xmax = 4.45,
-ymin = 0.75,
-ymax = 0.92,
-axis y line = left,
-axis x line = bottom,
-ylabel = {Burst amp},
-ylabel style = {xshift=1cm,rotate=00},
-xlabel = Preceding interval duration (s),
-%xtick = {-1},
-ytick = {0.88,0.9},
-extra y ticks = {0.86},
-extra y tick labels = {},
-%extra x ticks = {1,2},
-%extra x tick labels = {Control, Strychnine},
-%title = {Post-Sigh Interval},
-%clip=false,			
-]
-\addplot[only marks,opacity=0.2,black,fill=blue!50] table {../\filename/figdata2.dat};
-\addplot[thick] table {../\filename/figdata2polyfit.dat};
-\addplot[thick,black,solid] coordinates {(3.4,0.82)(4.8,0.82)};
-\addplot[thick,white,dashed] coordinates {(3.4,0.82)(4.8,0.82)};
+	xshift=0cm,
+	yshift=-11.5cm,
+	height=6cm,
+	width=6cm,
+	xmin = 4.15,
+	xmax = 4.45,
+	ymin = 0.77,
+	ymax = 0.91,
+	axis y line = left,
+	axis x line = bottom,
+	ylabel = {Burst amp},
+	ylabel style = {xshift=1cm,rotate=00},
+	xlabel = Preceding interval duration (s),
+	%xtick = {-1},
+	ytick = {0.85,0.9},
+	%extra y ticks = {0.86},
+	%extra y tick labels = {},
+	%extra x ticks = {1,2},
+	%extra x tick labels = {Control, Strychnine},
+	%title = {Post-Sigh Interval},
+	%clip=false,			
+	]
+	\addplot[only marks,opacity=0.2,black,fill=blue!50] table {../\filename/figdata2.dat};
+	\addplot[thick] table {../\filename/figdata2polyfit.dat};
+	\addplot[thick,black,solid] coordinates {(3.4,0.82)(4.8,0.82)};
+	\addplot[thick,white,dashed] coordinates {(3.4,0.82)(4.8,0.82)};
 \end{axis}
 \begin{axis}[
-xshift=0cm,
-yshift=-12cm,
-clip=true, 
-height=6cm,
-width=6cm,
-xmin = 4.15,
-xmax = 4.45,
-ymin=0,
-ymax=0.8,
-axis x line=bottom,
-%xlabel={$T_\epsilon$},
-%ylabel={Prob.},
-axis y line=left,
-%ylabel near ticks,
-xtick={-1},
-ytick = {-1},
-y tick label style={
-	/pgf/number format/.cd,
-	fixed,
-	fixed zerofill,
-	precision=2},
-xlabel near ticks,
-ylabel style={at={(current axis.above origin)},anchor=west,rotate=-90},
-]
-
-\addplot[blue,fill=blue!30,ybar interval] table[x index=0,y index=1] {../\filename/figdata2hist.dat};
-\addplot[thick] table {../\filename/figdata2gaussfit.dat};
+	xshift=0cm,
+	yshift=-11.5cm,
+	clip=true, 
+	height=6cm,
+	width=6cm,
+	xmin = 4.15,
+	xmax = 4.45,
+	ymin=0,
+	ymax=0.8,
+	axis x line=bottom,
+	%xlabel={$T_\epsilon$},
+	%ylabel={Prob.},
+	axis y line=left,
+	%ylabel near ticks,
+	xtick={-1},
+	ytick = {-1},
+	y tick label style={
+		/pgf/number format/.cd,
+		fixed,
+		fixed zerofill,
+		precision=2},
+	xlabel near ticks,
+	ylabel style={at={(current axis.above origin)},anchor=west,rotate=-90},
+	]
+	\addplot[blue,fill=blue!30,ybar interval] table[x index=0,y index=1] {../\filename/figdata2hist.dat};
+	\addplot[thick] table {../\filename/figdata2gaussfit.dat};
 \end{axis}
 
 \end{tikzpicture}

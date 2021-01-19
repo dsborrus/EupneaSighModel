@@ -145,16 +145,17 @@ clip=true,
 		xmin = 3.4,
 		xmax = 4.8,
 		ymin = 0.82,
-		ymax = 0.92,
+		ymax = 0.96,
+		%ymax = 0.92,
 		axis y line = left,
 		axis x line = bottom,
 		ylabel = {Burst amp},
 		ylabel style = {xshift=1cm,rotate=00},
 		xlabel = Preceding interval duration (s),
 		%xtick = {-1},
-		ytick = {0.88,0.9},
-		extra y ticks = {0.86},
-		extra y tick labels = {},
+		ytick = {0.90,0.95},
+		%extra y ticks = {0.87},
+		%extra y tick labels = {},
 		%extra x ticks = {1,2},
 		%extra x tick labels = {Control, Strychnine},
 		%title = {Post-Sigh Interval},
@@ -162,8 +163,8 @@ clip=true,
 ]
 \addplot[only marks,opacity=0.2,black,fill=blue!50] table {\filename/figdata3.dat};
 \addplot[thick] table {\filename/figdata3polyfit.dat};
-\addplot[thick,black,solid] coordinates {(3.4,0.86)(4.8,0.86)};
-\addplot[thick,white,dashed] coordinates {(3.4,0.86)(4.8,0.86)};
+\addplot[thick,black,solid] coordinates {(3.4,0.87)(4.8,0.87)};
+\addplot[thick,white,dashed] coordinates {(3.4,0.87)(4.8,0.87)};
 \end{axis}
 \begin{axis}[
 		xshift=6cm,
@@ -207,15 +208,16 @@ width=6cm,
 %xmin=3,
 xmin = 0,
 xmax = 35,
-ymin = 0.88,
-ymax = 0.965,
+%ymin = 0.88,
+ymin = 0.82,
+ymax = 0.96,
 axis y line = left,
 axis x line = bottom,
 ylabel = {Burst amp},
 ylabel style = {xshift=1cm,rotate=00},
 xlabel = Preceding interval duration (s),
 xtick = {0,15,30},
-ytick = {0.92,0.94,0.96},
+ytick = {0.90,0.95},
 extra y ticks = {0.86},
 extra y tick labels = {},
 %extra x ticks = {1,2},
@@ -225,8 +227,8 @@ extra y tick labels = {},
 ]
 \addplot[only marks,opacity=0.2,black,fill=blue!50] table {\filename/figdata4.dat};
 \addplot[thick] table {\filename/figdata4polyfit.dat};
-\addplot[thick,black,solid] coordinates {(0,0.91)(35,0.91)};
-\addplot[thick,white,dashed] coordinates {(0,0.91)(35,0.91)};
+\addplot[thick,black,solid] coordinates {(0,0.87)(35,0.87)};
+\addplot[thick,white,dashed] coordinates {(0,0.87)(35,0.87)};
 \end{axis}
 \begin{axis}[
 xshift=18cm,

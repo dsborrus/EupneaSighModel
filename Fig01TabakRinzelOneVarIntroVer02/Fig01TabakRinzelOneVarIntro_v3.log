@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  6 JAN 2021 11:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  12 JAN 2021 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -632,7 +632,7 @@ main.pdf>] (./Fig01TabakRinzelOneVarIntro_v3.aux) )
 Here is how much of TeX's memory you used:
  23675 strings out of 492609
  615350 string characters out of 6132818
- 1946408 words of memory out of 5000000
+ 1945408 words of memory out of 5000000
  27187 multiletter control sequences out of 15000+600000
  7699 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -643,7 +643,7 @@ e1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr17.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
 pfb>
-Output written on Fig01TabakRinzelOneVarIntro_v3.pdf (1 page, 383968 bytes).
+Output written on Fig01TabakRinzelOneVarIntro_v3.pdf (1 page, 383580 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  29 compressed objects within 1 object stream
